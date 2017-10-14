@@ -12,12 +12,13 @@ public class Ticket extends Model{
     private TicketType tickettype;
     private MovieType movietype;
     private boolean platinum;
+    private Seat seat;
 
-    public  Ticket(){}
-    public Ticket(boolean platium, MovieType movietype, TicketType tickettype){
+    public Ticket(boolean platium, MovieType movietype, TicketType tickettype, Seat seat){
         this.platinum = platium;
         this.movietype = movietype;
         this.tickettype = tickettype;
+        this.seat = seat;
     }
 
     public double getPrice() {
@@ -58,5 +59,13 @@ public class Ticket extends Model{
             return (t.platinum == platinum && t.movietype ==movietype && t.tickettype == tickettype);
         }
         return super.equals(obj);
+    }
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
     }
 }

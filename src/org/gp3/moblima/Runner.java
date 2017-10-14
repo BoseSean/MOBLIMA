@@ -1,6 +1,5 @@
 package org.gp3.moblima;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.gp3.moblima.model.Model;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Ticket;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public class Runner {
     public static void main (String [] args) throws IOException, ClassNotFoundException {
         Movie movie = new Movie();
-        Ticket ticket = new Ticket();
+        Ticket ticket = new Ticket(seat);
         ticket.setPrice(4.44444);
         movie.ticket = ticket;
 
