@@ -11,12 +11,52 @@ public class Ticket extends Model{
     private double price;
     private TicketType tickettype;
     private MovieType movietype;
+    private boolean platinum;
+
+    public  Ticket(){}
+    public Ticket(boolean platium, MovieType movietype, TicketType tickettype){
+        this.platinum = platium;
+        this.movietype = movietype;
+        this.tickettype = tickettype;
+    }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public boolean isPlatium() {
+        return platinum;
+    }
+
+    public void setPlatium(boolean platium) {
+        this.platinum = platinum;
+    }
+
+    public MovieType getMovietype() {
+        return movietype;
+    }
+
+    public void setMovietype(MovieType movietype) {
+        this.movietype = movietype;
+    }
+
+    public TicketType getTickettype() {
+        return tickettype;
+    }
+
+    public void setTickettype(TicketType tickettype) {
+        this.tickettype = tickettype;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof Ticket) {
+            Ticket t = (Ticket) obj;
+            return (t.platinum == platinum && t.movietype ==movietype && t.tickettype == tickettype);
+        }
+        return super.equals(obj);
     }
 }
