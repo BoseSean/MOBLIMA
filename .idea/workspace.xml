@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="299dec48-1de2-4db5-a254-40c4e033add1" name="Default" comment="add serializer">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java" />
+    <list default="true" id="299dec48-1de2-4db5-a254-40c4e033add1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/model/Holiday.java" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/model/Holiday.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/model/Ticket.java" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/model/Ticket.java" />
     </list>
     <ignored path="MOBLIMA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,13 +84,13 @@
         <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#413#414#0" expanded="true" />
-                <element signature="e#453#454#0" expanded="true" />
-                <element signature="e#505#506#0" expanded="true" />
-                <element signature="e#545#546#0" expanded="true" />
+                <element signature="e#409#410#0" expanded="true" />
+                <element signature="e#449#450#0" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -777,11 +774,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507990491161</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add serializer">
+      <created>1507993385003</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1507993385003</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3626000" />
+    <option name="totallyTimeSpent" value="3643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="722" y="0" width="718" height="900" extended-state="0" />
@@ -849,9 +853,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add serializer" />
     <MESSAGE value="add holiday" />
-    <option name="LAST_COMMIT_MESSAGE" value="add holiday" />
+    <MESSAGE value="add serializer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add serializer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1177,13 +1181,13 @@
     <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
           </folding>
         </state>
       </provider>
