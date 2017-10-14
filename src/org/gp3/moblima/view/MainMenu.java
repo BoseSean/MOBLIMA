@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * created by hannancao on 15/10/17.
  */
-public class MainMenu {
+public class MainMenu extends BaseMenu{
     private StaffMenu mStaffMenu;
     private MovieGoerMenu mMovieGoerMenu;
     private CineplexManager mCineplexManager;
