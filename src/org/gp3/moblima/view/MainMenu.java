@@ -9,7 +9,7 @@ public class MainMenu extends BaseMenu{
     private MovieGoerMenu mMovieGoerMenu;
     private CineplexManager mCineplexManager;
 
-    public void displayMenu({
+    public void displayMenu(){
         int choice = 0;
         while(choice != 3){
             Scanner sc = new Scanner(System.in);
