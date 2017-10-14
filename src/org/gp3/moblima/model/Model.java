@@ -12,11 +12,11 @@ import java.util.ArrayList;
 
 public class Model implements java.io.Serializable
 {
-    public static void writeSerial(ArrayList<Model> models)
+    public static void writeSerial(String filename, ArrayList<Model> models)
     {
         try
         {
-            FileOutputStream fileOut = new FileOutputStream("123.ser",false);
+            FileOutputStream fileOut = new FileOutputStream(filename);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
             out.writeObject(models);
@@ -30,12 +30,12 @@ public class Model implements java.io.Serializable
         }
     }
     @Nullable
-    public static ArrayList<Model> readSerial()
+    public static ArrayList<Model> readSerial(String filename)
     {
         ArrayList<Model> models = null;
         try
         {
-            FileInputStream fileIn = new FileInputStream("123.ser");
+            FileInputStream fileIn = new FileInputStream(filename);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             models = (ArrayList<Model>) in.readObject();
             in.close();
