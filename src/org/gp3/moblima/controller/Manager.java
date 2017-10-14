@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.lang.System.exit;
 
 /**
  * Created by zhangxinye on 14/10/17.
@@ -19,7 +22,13 @@ import java.util.stream.Collectors;
 public class Manager {
     private static String DB_FILE_NAME = "db.ser";
     private SerializeDB db;
-    public Manager(){
+    private static Manager singleInstance = new Manager();
+
+    public static Manager getInstance() {
+        return singleInstance;
+    }
+
+    private Manager() {
         initDB();
     }
     public void finalize(){
@@ -71,19 +80,68 @@ public class Manager {
             i.printStackTrace();
         }
     }
+    private ArrayList getTable(String model) throws DBException {
+        ArrayList tempArray;
+        switch (model){
+            case "MOVIE":   tempArray = db.movies;break;
+            case "TICKET":  tempArray = db.tickets;break;
+            case "BOOKING": tempArray = db.bookings;break;
+            case "USER":    tempArray = db.users;break;
+            case "CINEMA":    tempArray = db.cinemas;break;
+            case "SEAT":    tempArray = db.seats;break;
+            default: throw new DBException("Table name does not exist.");
+        }
+        return tempArray;
+    }
+    public <T extends Model> ArrayList<T> getEntries(String model, Predicate<T> filter) {
 
-    public <T> ArrayList<T> getEntries(Class modelType, Predicate<T> filter) {
-        ArrayList tempArray = null;
         try {
-            if(modelType.equals(Class.forName("org.gp3.moblima.model.Movies"))) tempArray = db.movies;
-            else if (modelType.equals(Class.forName("org.gp3.moblima.model.Ticket"))) tempArray = db.tickets;
-            return (ArrayList<T>) tempArray.stream().filter(filter).collect(Collectors.toCollection(ArrayList::new));
-        } catch (ClassNotFoundException e) {
+            ArrayList table = getTable(model);
+            return (ArrayList<T>) table.stream().filter(filter).collect(Collectors.toCollection(ArrayList::new));
+        } catch (DBException e) {
             e.printStackTrace();
+            exit(1);
         }
         return null;
     }
-public static void main(String[] args){
 
-}
+    public <T extends Model> T getEntry(String model, Predicate<T> filter) {
+
+        try {
+            ArrayList table = getTable(model);
+            table.
+            return (T) table.stream().filter(filter).findFirst().get();
+        } catch (DBException e) {
+            e.printStackTrace();
+            exit(1);
+        }
+        return null;
+    }
+    public <T extends Model> void delete(String model, Predicate<T> filter){
+        try {
+            ArrayList table = getTable(model);
+            table.removeIf(filter);
+        } catch (DBException e) {
+            e.printStackTrace();
+            exit(1);
+        }
+    }
+    public <T extends Model> void delete(String model, T entry){
+        try {
+            ArrayList table = getTable(model);
+            table.remove(entry);
+        } catch (DBException e) {
+            e.printStackTrace();
+            exit(1);
+        }
+    }
+    public <T extends Model> void add(String model, T entry){
+        try {
+            ArrayList table = getTable(model);
+            table.add(entry);
+        } catch (DBException e) {
+            e.printStackTrace();
+            exit(1);
+        }
+    }
 }

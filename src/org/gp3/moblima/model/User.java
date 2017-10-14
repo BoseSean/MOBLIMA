@@ -6,12 +6,12 @@ import java.util.ArrayList;
  * Created by Shen Youlin on 14/10/17.
  */
 
-public class Customer {
+public class User {
     private String name,phone,email;
     private ArrayList<Booking> bookings;
 
 
-    public Customer(String name, String phone, String email)
+    public User(String name, String phone, String email)
     {
         this.name = name;
         this.phone = phone;
