@@ -1,11 +1,16 @@
 package org.gp3.moblima.model;
+import org.gp3.moblima.model.Constant.TicketType;
+import org.gp3.moblima.model.Constant.MovieType;
 
 /**
- * Created by Shen Youlin on 14/10/17.
+ * Created by hannancao on 14/10/17.
  */
 
 public class Ticket extends Model{
+
     private double price;
+    private TicketType tickettype;
+    private MovieType movietype;
 
     public double getPrice() {
         return price;
