@@ -1,12 +1,11 @@
 package org.gp3.moblima;
 
 import org.gp3.moblima.controller.Manager;
-import org.gp3.moblima.model.Model;
 import org.gp3.moblima.model.Movie;
-import org.gp3.moblima.model.Ticket;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.IOException;
+
+import static org.gp3.moblima.model.Constant.TableName.MOVIE;
 
 public class Runner {
     public static void main (String [] args) throws IOException, ClassNotFoundException {
@@ -14,10 +13,10 @@ public class Runner {
         Movie mov = new Movie();
 
         mov.setTitle("HI moon");
-        man.add("MOVIE", mov);
+        man.add(MOVIE, mov);
 
         String s = "HI moon";
-        Movie mov2 = man.getEntry("MOVIE", (Movie e)->(e.getTitle().equals(s)));
+        Movie mov2 = man.getEntry(MOVIE, (Movie e) -> (e.getTitle().equals(s)));
         System.out.println(mov2.getTitle());
 
     }

@@ -1,8 +1,5 @@
 package org.gp3.moblima.model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 /**
  * created by hannancao on 14/10/17.
  */
@@ -41,6 +38,15 @@ public class Constant {
         public String toString(){
             return this.date;
         }
+    }
+
+    public class TableName {
+        public final static String MOVIE = "MOVIE";
+        public final static String TICKET = "TICKET";
+        public final static String BOOKING = "BOOKING";
+        public final static String USER = "USER";
+        public final static String CINEMA = "CINEMA";
+        public final static String SEAT = "SEAT";
     }
 
 }

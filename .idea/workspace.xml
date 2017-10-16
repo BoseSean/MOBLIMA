@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="299dec48-1de2-4db5-a254-40c4e033add1" name="Default" comment="add mainmenu">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/controller/manag.java" afterPath="" />
+    <list default="true" id="299dec48-1de2-4db5-a254-40c4e033add1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/Runner.java" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/Runner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/controller/SerializeDB.java" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/controller/SerializeDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java" />
     </list>
     <ignored path="MOBLIMA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/view/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state relative-caret-position="135">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -41,18 +40,18 @@
       <file leaf-file-name="Manager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+            <state relative-caret-position="90">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Runner.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Runner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/Runner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,8 +62,18 @@
       <file leaf-file-name="Movie.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Movie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -129,7 +138,6 @@
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/Model.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/SerializeModel.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/Holiday.java" />
-        <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/Seat.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/Ticket.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/Booking.java" />
@@ -137,9 +145,10 @@
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/controller/manag.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/controller/SerializeDB.java" />
         <option value="$APPLICATION_HOME_DIR$/redist/annotations-java8.jar!/org/intellij/lang/annotations/PrintFormat.class" />
+        <option value="$PROJECT_DIR$/src/org/gp3/moblima/view/MainMenu.java" />
+        <option value="$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java" />
         <option value="$PROJECT_DIR$/src/org/gp3/moblima/Runner.java" />
-        <option value="$PROJECT_DIR$/src/org/gp3/moblima/view/MainMenu.java" />
       </list>
     </option>
   </component>
@@ -852,7 +861,7 @@
       <workItem from="1507966386293" duration="1675000" />
       <workItem from="1508001819800" duration="4084000" />
       <workItem from="1508047063003" duration="4508000" />
-      <workItem from="1508144465133" duration="1475000" />
+      <workItem from="1508144465133" duration="2792000" />
     </task>
     <task id="LOCAL-00001" summary="add holiday">
       <created>1507990491161</created>
@@ -903,11 +912,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507999338340</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add mainmenu">
+      <created>1508145995339</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1508145995339</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17112000" />
+    <option name="totallyTimeSpent" value="18429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1539" y="-220" width="1489" height="941" extended-state="0" />
@@ -1251,18 +1267,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java">
+    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Ticket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Movie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java">
+    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/view/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        <state relative-caret-position="135">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1278,39 +1312,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Movie.java">
+    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/model/Ticket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/Runner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/view/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>

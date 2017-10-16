@@ -1,19 +1,14 @@
 package org.gp3.moblima.controller;
 
-import org.gp3.moblima.model.Cinema;
 import org.gp3.moblima.model.Model;
-import org.gp3.moblima.model.Movie;
-import org.gp3.moblima.model.Ticket;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.lang.System.exit;
+import static org.gp3.moblima.model.Constant.TableName.*;
 
 /**
  * Created by zhangxinye on 14/10/17.
@@ -21,16 +16,17 @@ import static java.lang.System.exit;
 
 public class Manager {
     private static String DB_FILE_NAME = "db.ser";
-    private SerializeDB db;
     private static Manager singleInstance = new Manager();
+    private SerializeDB db;
+
+    private Manager() {
+        initDB();
+    }
 
     public static Manager getInstance() {
         return singleInstance;
     }
 
-    private Manager() {
-        initDB();
-    }
     public void finalize(){
         saveDB();
     }
@@ -84,12 +80,24 @@ public class Manager {
     private ArrayList getTable(String model) throws DBException {
         ArrayList tempArray;
         switch (model){
-            case "MOVIE":   tempArray = db.movies;break;
-            case "TICKET":  tempArray = db.tickets;break;
-            case "BOOKING": tempArray = db.bookings;break;
-            case "USER":    tempArray = db.users;break;
-            case "CINEMA":    tempArray = db.cinemas;break;
-            case "SEAT":    tempArray = db.seats;break;
+            case MOVIE:
+                tempArray = db.movies;
+                break;
+            case TICKET:
+                tempArray = db.tickets;
+                break;
+            case BOOKING:
+                tempArray = db.bookings;
+                break;
+            case USER:
+                tempArray = db.users;
+                break;
+            case CINEMA:
+                tempArray = db.cinemas;
+                break;
+            case SEAT:
+                tempArray = db.seats;
+                break;
             default: throw new DBException("Table name does not exist.");
         }
         return tempArray;
