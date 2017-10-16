@@ -63,6 +63,7 @@ public class Manager {
         }
 
     }
+
     private void saveDB()
     {
         try
@@ -93,6 +94,14 @@ public class Manager {
         }
         return tempArray;
     }
+
+    /**
+     * Returns a List of Models in model table that satisfy filter
+     * @param model Name String of table
+     * @param filter Predicate filter. eg. of (User a)->(a.getName()=="Genius Me")
+     * @param <T> Subclass of Model
+     * @return List of Models in model table that satisfy filter
+     */
     public <T extends Model> ArrayList<T> getEntries(String model, Predicate<T> filter) {
 
         try {
@@ -109,7 +118,6 @@ public class Manager {
 
         try {
             ArrayList table = getTable(model);
-            table.
             return (T) table.stream().filter(filter).findFirst().get();
         } catch (DBException e) {
             e.printStackTrace();

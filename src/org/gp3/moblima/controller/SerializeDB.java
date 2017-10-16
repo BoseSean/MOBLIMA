@@ -16,7 +16,7 @@ class SerializeDB {
     ArrayList<Seat> seats;
     ArrayList<Ticket> tickets;
     ArrayList<User> users;
-    public SerializeDB(){
+    SerializeDB(){
         bookings = new ArrayList<>();
         cinemas = new ArrayList<>();
         movies = new ArrayList<>();
@@ -24,4 +24,5 @@ class SerializeDB {
         tickets = new ArrayList<>();
         users = new ArrayList<>();
     }
+
 }
