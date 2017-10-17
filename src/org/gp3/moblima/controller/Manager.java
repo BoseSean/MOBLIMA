@@ -20,7 +20,7 @@ public class Manager {
     private SerializeDB db;
 
     private Manager() {
-        initDB();
+        init();
     }
 
     public static Manager getInstance() {
@@ -28,9 +28,10 @@ public class Manager {
     }
 
     public void finalize(){
-        saveDB();
+        commit();
     }
-    private void initDB()
+
+    private void init()
     {
         try
         {
@@ -60,7 +61,7 @@ public class Manager {
 
     }
 
-    private void saveDB()
+    public void commit()
     {
         try
         {
@@ -130,6 +131,8 @@ public class Manager {
         } catch (DBException e) {
             e.printStackTrace();
             exit(1);
+        } catch (java.util.NoSuchElementException e) {
+            return null;
         }
         return null;
     }
