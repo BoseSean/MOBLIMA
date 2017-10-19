@@ -13,7 +13,7 @@ public abstract class BaseMenu {
 
     public abstract BaseMenu execute();
 
-    protected BaseMenu previousMenu() {
+    protected BaseMenu getPreviousMenu() {
         if (previousMenu != null)
             return previousMenu;
         else

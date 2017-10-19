@@ -27,44 +27,34 @@ public class Manager {
         return singleInstance;
     }
 
-    public void finalize(){
+    public void finalize() {
         commit();
     }
 
-    private void init()
-    {
-        try
-        {
+    private void init() {
+        try {
             File db_file = new File(DB_FILE_NAME);
-            if(db_file.exists()){
+            if (db_file.exists()) {
                 FileInputStream fileIn = new FileInputStream(db_file);
                 ObjectInputStream in = new ObjectInputStream(fileIn);
                 db = (SerializeDB) in.readObject();
                 in.close();
                 fileIn.close();
-            }
-            else
-            {
+            } else {
                 db = new SerializeDB();
 
             }
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             i.printStackTrace();
-        }
-        catch(ClassNotFoundException c)
-        {
+        } catch (ClassNotFoundException c) {
             System.out.println("class not found");
             c.printStackTrace();
         }
 
     }
 
-    public void commit()
-    {
-        try
-        {
+    public void commit() {
+        try {
             FileOutputStream fileOut = new FileOutputStream(DB_FILE_NAME);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
@@ -72,15 +62,17 @@ public class Manager {
             out.close();
             fileOut.close();
             System.out.printf("Serialized data is saved\n");
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             i.printStackTrace();
         }
     }
+
     private ArrayList getTable(String model) throws DBException {
         ArrayList tempArray;
-        switch (model){
+        switch (model) {
+            case ADMIN:
+                tempArray = db.admins;
+                break;
             case MOVIE:
                 tempArray = db.movies;
                 break;
@@ -99,23 +91,25 @@ public class Manager {
             case SEAT:
                 tempArray = db.seats;
                 break;
-            default: throw new DBException("Table name does not exist.");
+            default:
+                throw new DBException("Table name does not exist.");
         }
         return tempArray;
     }
 
     /**
      * Returns a List of Models in model table that satisfy filter
-     * @param model Name String of table
-     * @param filter Predicate filter. eg. of (User a)->(a.getName()=="Genius Me")
-     * @param <T> Subclass of Model
+     *
+     * @param <T>    Subclass of Model
+     * @param from  Name String of table
+     * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Me")
      * @return List of Models in model table that satisfy filter
      */
-    public <T extends Model> ArrayList<T> getEntries(String model, Predicate<T> filter) {
+    public <T extends Model> ArrayList<T> getEntries(String from, Predicate<T> where) {
 
         try {
-            ArrayList table = getTable(model);
-            return (ArrayList<T>) table.stream().filter(filter).collect(Collectors.toCollection(ArrayList::new));
+            ArrayList table = getTable(from);
+            return (ArrayList<T>) table.stream().filter(where).collect(Collectors.toCollection(ArrayList::new));
         } catch (DBException e) {
             e.printStackTrace();
             exit(1);
@@ -123,11 +117,11 @@ public class Manager {
         return null;
     }
 
-    public <T extends Model> T getEntry(String model, Predicate<T> filter) {
+    public <T extends Model> T getEntry(String from, Predicate<T> where) {
 
         try {
-            ArrayList table = getTable(model);
-            return (T) table.stream().filter(filter).findFirst().get();
+            ArrayList table = getTable(from);
+            return (T) table.stream().filter(where).findFirst().get();
         } catch (DBException e) {
             e.printStackTrace();
             exit(1);
@@ -136,27 +130,30 @@ public class Manager {
         }
         return null;
     }
-    public <T extends Model> void delete(String model, Predicate<T> filter){
+
+    public <T extends Model> void delete(String from, Predicate<T> where) {
         try {
-            ArrayList table = getTable(model);
-            table.removeIf(filter);
+            ArrayList table = getTable(from);
+            table.removeIf(where);
         } catch (DBException e) {
             e.printStackTrace();
             exit(1);
         }
     }
-    public <T extends Model> void delete(String model, T entry){
+
+    public <T extends Model> void delete(String from, T entry) {
         try {
-            ArrayList table = getTable(model);
+            ArrayList table = getTable(from);
             table.remove(entry);
         } catch (DBException e) {
             e.printStackTrace();
             exit(1);
         }
     }
-    public <T extends Model> void add(String model, T entry){
+
+    public <T extends Model> void add(String into, T entry) {
         try {
-            ArrayList table = getTable(model);
+            ArrayList table = getTable(into);
             table.add(entry);
         } catch (DBException e) {
             e.printStackTrace();

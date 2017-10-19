@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 class SerializeDB {
 
-
+    ArrayList<Admin> admins;
     ArrayList<Booking> bookings;
     ArrayList<Cinema> cinemas;
     ArrayList<Movie> movies;
@@ -17,6 +17,7 @@ class SerializeDB {
     ArrayList<Ticket> tickets;
     ArrayList<User> users;
     SerializeDB(){
+        admins = new ArrayList<>();
         bookings = new ArrayList<>();
         cinemas = new ArrayList<>();
         movies = new ArrayList<>();

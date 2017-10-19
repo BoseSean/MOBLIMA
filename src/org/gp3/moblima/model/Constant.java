@@ -5,7 +5,7 @@ package org.gp3.moblima.model;
  */
 public class Constant {
 
-    public static enum TicketType {
+    public enum TicketType {
         SENIOR("Senior Citizens"),
         STUDENT("Student"),
         MON_THU("Mon - Thu"),
@@ -14,7 +14,7 @@ public class Constant {
 
         private String date;
 
-        private TicketType(String data){
+        TicketType(String data) {
             this.date = data;
         }
         @Override
@@ -23,7 +23,7 @@ public class Constant {
         }
     }
 
-    public static enum MovieType{
+    public enum MovieType {
         TWO_D("2D Movies"),
         THREE_D("3D Movies"),
         JEM("JEM & West Mall"),
@@ -31,7 +31,7 @@ public class Constant {
 
         private String date;
 
-        private MovieType(String data){
+        MovieType(String data) {
             this.date = data;
         }
         @Override
@@ -47,6 +47,7 @@ public class Constant {
         public final static String USER = "USER";
         public final static String CINEMA = "CINEMA";
         public final static String SEAT = "SEAT";
+        public final static String ADMIN = "ADMIN";
     }
 
 }

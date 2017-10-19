@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Shen Youlin on 14/10/17.
  */
 
-public class Booking
+public class Booking extends Model
 {
     private String TID,date;
     private double totalPrice;

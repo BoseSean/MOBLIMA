@@ -4,7 +4,7 @@ package org.gp3.moblima.model;
  * Created by Shen Youlin on 15/10/17.
  */
 
-public class Seat
+public class Seat extends Model
 {
 
     private int col,row;

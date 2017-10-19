@@ -4,7 +4,7 @@ package org.gp3.moblima.model;
  * Created by Shen Youlin on 15/10/17.
  */
 
-public class Cinema
+public class Cinema extends Model
 {
     private String name;
     private boolean isPlatinum;
