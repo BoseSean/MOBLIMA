@@ -1,12 +1,14 @@
 package org.gp3.moblima.view;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * Created by zhangxinye on 19/10/17.
  */
-class IOUtil {
+public class IOUtil {
+    public static int SCREEN_WIDTH = 80;
     private static Scanner sc = new Scanner(System.in);
 
 
@@ -31,7 +33,7 @@ class IOUtil {
         int c = 0;
 
         do {
-                c = readInt(message + " (" + min + "~" + max + "): ");
+            c = readInt(message + " (" + min + "~" + max + "): ");
             println("Please input an Integer value.");
         } while (!(c >= min && c <= max));
         return c;
@@ -52,10 +54,55 @@ class IOUtil {
     }
 
     public static int readChoice(String label, int min, int max) {
-        int c = readInt(label, min, max);
+        return readInt(label, min, max);
     }
 
     public static void println(String message) {
         System.out.print(message);
+    }
+
+    public static void println() {
+        println("");
+    }
+
+    public static void printSplitLine() {
+        for (int i = SCREEN_WIDTH; i > 0; i--)
+            print("-");
+        println();
+    }
+
+    public static void printCenter(String s) {
+        if (s.length() > SCREEN_WIDTH) {
+            println(s.substring(0, SCREEN_WIDTH));
+        } else if (s.length() == SCREEN_WIDTH) {
+            println(s);
+        } else {
+            int leftPadding = (SCREEN_WIDTH - s.length()) / 2;
+            StringBuilder leftBuilder = new StringBuilder();
+
+            for (int i = 0; i < leftPadding; i++) {
+                leftBuilder.append(" ");
+            }
+            int rightPadding = SCREEN_WIDTH - s.length() - leftPadding;
+            StringBuilder rightBuilder = new StringBuilder();
+            for (int i = 0; i < rightPadding; i++)
+                rightBuilder.append(" ");
+
+            println(leftBuilder.toString() + s
+                    + rightBuilder.toString());
+        }
+
+    }
+
+    public static void printTitle(String title) {
+        printCenter(title);
+        printSplitLine();
+
+    }
+
+    public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
+        for (String choice : choices) {
+            println((choiceIdFrom++) + ": " + choice);
+        }
     }
 }

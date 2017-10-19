@@ -4,7 +4,6 @@ package org.gp3.moblima.model;
  * created by hannancao on 14/10/17.
  */
 public class Constant {
-
     public enum TicketType {
         SENIOR("Senior Citizens"),
         STUDENT("Student"),

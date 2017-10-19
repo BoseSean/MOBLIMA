@@ -5,12 +5,13 @@ import org.gp3.moblima.model.Admin;
 import org.gp3.moblima.view.BaseMenu;
 
 import static org.gp3.moblima.model.Constant.TableName.ADMIN;
+import static org.gp3.moblima.view.IOUtil.printTitle;
 
 /**
  * Created by zhangxinye on 19/10/17.
  */
-public class StaffLogin extends BaseMenu {
-    public StaffLogin(BaseMenu previousMenu) {
+public class StaffLoginMenu extends BaseMenu {
+    public StaffLoginMenu(BaseMenu previousMenu) {
         super(previousMenu);
     }
 
