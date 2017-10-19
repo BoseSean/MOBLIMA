@@ -24,8 +24,6 @@ public class Runner {
     public static void main(String[] args) {
         MenuLoop loop = new MenuLoop(new MainMenu(null));
         loop.start();
-//        Scanner sc = new Scanner(System.in);
-//        sc.remove();
-//        sc.nextInt();
+
     }
 }
