@@ -1,5 +1,7 @@
 package org.gp3.moblima.view;
 
+import org.jetbrains.annotations.Contract;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -57,13 +59,24 @@ public class IOUtil {
         return readInt(label, min, max);
     }
 
+	@Contract(pure = true)
+	public static int readChoice(String label, int choice) {
+		return readInt(label, 0, choice);
+	}
+
+	public static String read(String input) {
+		return sc.next();
+	}
+
     public static void println(String message) {
         System.out.print(message);
     }
 
     public static void println() {
-        println("");
-    }
+//        println("");
+		System.out.println();
+
+	}
 
     public static void printSplitLine() {
         for (int i = SCREEN_WIDTH; i > 0; i--)
@@ -103,6 +116,8 @@ public class IOUtil {
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {
             println((choiceIdFrom++) + ": " + choice);
-        }
+			System.out.println();
+
+		}
     }
 }

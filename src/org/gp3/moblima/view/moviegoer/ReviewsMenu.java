@@ -17,5 +17,6 @@ public class ReviewsMenu extends BaseMenu {
     public BaseMenu execute() {
         printTitle(movie.getTitle());
 
+        return null;
     }
 }
