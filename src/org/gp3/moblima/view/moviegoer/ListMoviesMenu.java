@@ -23,10 +23,15 @@ public class ListMoviesMenu extends BaseMenu {
     @Override
     public BaseMenu execute() {
         printTitle("Movie Listing");
-//		Manager mg = new Manager();
+		Manager mg = Manager.getInstance();
+		ArrayList<Movie> movie = mg.getAll("MOVIE");
 
+
+		for (Movie movies : movie) {
+			movies.getInfo();
+		}
 		ArrayList<String> choices = new ArrayList<>();
-        choices.add("Movie Info");
+        choices.add("All Movie");
         choices.add("Show Top 5 by sale");
         choices.add("Shop Top 5 by rating");
 		choices.add("Quit");

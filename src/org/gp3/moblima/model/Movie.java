@@ -52,4 +52,12 @@ public class Movie extends Model
         this.runtime = runtime;
     }
 
+    public void getInfo() {
+        System.out.println(this.getTitle());
+        System.out.println(this.getRuntime());
+        System.out.println(this.getDirector());
+        System.out.println(this.getOpening());
+        System.out.println(this.getSynopsis());
+    }
+
 }
