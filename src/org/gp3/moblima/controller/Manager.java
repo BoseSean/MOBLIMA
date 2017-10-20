@@ -98,11 +98,25 @@ public class Manager {
     }
 
     /**
+     * @param from
+     * @param <T>
+     * @return
+     */
+    public <T extends Model> ArrayList<T> getAll(String from) {
+        try {
+            return getTable(from);
+        } catch (DBException e) {
+            e.printStackTrace();
+            exit(1);
+        }
+    }
+
+    /**
      * Returns a List of Models in model table that satisfy filter
      *
      * @param <T>    Subclass of Model
      * @param from  Name String of table
-     * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Me")
+     * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Bug")
      * @return List of Models in model table that satisfy filter
      */
     public <T extends Model> ArrayList<T> getEntries(String from, Predicate<T> where) {
