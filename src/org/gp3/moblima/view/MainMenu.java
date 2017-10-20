@@ -1,6 +1,6 @@
 package org.gp3.moblima.view;
 
-import org.gp3.moblima.view.IOUtil.readChoice;
+//import org.gp3.moblima.view.IOUtil.*;
 import org.gp3.moblima.view.admin.StaffLoginMenu;
 import org.gp3.moblima.view.moviegoer.GoerMainMenu;
 
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.printMenuItems;
 import static org.gp3.moblima.view.IOUtil.printTitle;
+import static org.gp3.moblima.view.IOUtil.readChoice;
 
 /**
  * created by hannancao on 15/10/17.

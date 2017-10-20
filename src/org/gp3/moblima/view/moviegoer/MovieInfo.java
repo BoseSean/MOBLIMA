@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.printMenuItems;
 import static org.gp3.moblima.view.IOUtil.printTitle;
+import static org.gp3.moblima.view.IOUtil.readChoice;
 
 /**
  * Created by zhangxinye on 19/10/17.
@@ -29,7 +30,8 @@ public class MovieInfo extends BaseMenu {
         printMenuItems(choices, 0);
 
 
-        int c = readChoice();
+//        int c = readChoice();
+        int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
 
         BaseMenu nextMenu = this;
         switch (c) {

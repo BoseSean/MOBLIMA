@@ -6,6 +6,7 @@ import org.gp3.moblima.view.BaseMenu;
 
 import static org.gp3.moblima.model.Constant.TableName.ADMIN;
 import static org.gp3.moblima.view.IOUtil.printTitle;
+import static org.gp3.moblima.view.IOUtil.read;
 
 /**
  * Created by zhangxinye on 19/10/17.

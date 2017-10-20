@@ -20,5 +20,6 @@ public class HistoryMenu extends BaseMenu {
         printTitle("Historys");
 
         println("Please login");
+        return null;
     }
 }
