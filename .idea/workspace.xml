@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="299dec48-1de2-4db5-a254-40c4e033add1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view.suml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view.suml" afterPath="$PROJECT_DIR$/view.suml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java" afterPath="$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java" />
     </list>
@@ -110,8 +110,8 @@
       <file leaf-file-name="Manager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="105" column="48" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="48" />
+            <state relative-caret-position="130">
+              <caret line="105" column="13" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -603,36 +603,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="moblima" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MOBLIMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MOBLIMA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="moblima" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MOBLIMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MOBLIMA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="moblima" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MOBLIMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MOBLIMA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="moblima" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MOBLIMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MOBLIMA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="moblima" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="moviegoer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1317,7 +1287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508421291314</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added getAll() in Manager">
+      <created>1508469297022</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1508469297022</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1380,7 +1357,8 @@
     <MESSAGE value="Added menus :StaffLogin, StaffMainMenu, GoerMainMenu, HistoryMenu, SearchMovieMenu&#10;Added Model Admin" />
     <MESSAGE value="Added a few views" />
     <MESSAGE value="Added all views" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added all views" />
+    <MESSAGE value="Added getAll() in Manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added getAll() in Manager" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1734,8 +1712,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gp3/moblima/controller/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="105" column="48" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="48" />
+        <state relative-caret-position="130">
+          <caret line="105" column="13" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
           <folding />
         </state>
       </provider>

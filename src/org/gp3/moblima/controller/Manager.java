@@ -109,6 +109,7 @@ public class Manager {
             e.printStackTrace();
             exit(1);
         }
+        return null;
     }
 
     /**
