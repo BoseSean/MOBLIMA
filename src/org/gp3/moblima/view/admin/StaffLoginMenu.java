@@ -2,9 +2,9 @@ package org.gp3.moblima.view.admin;
 
 import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Admin;
+import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.view.BaseMenu;
 
-import static org.gp3.moblima.model.Constant.TableName.ADMIN;
 import static org.gp3.moblima.view.IOUtil.printTitle;
 import static org.gp3.moblima.view.IOUtil.read;
 
@@ -25,7 +25,7 @@ public class StaffLoginMenu extends BaseMenu {
 
         Manager man = Manager.getInstance();
 
-        Admin admin = man.getEntry(ADMIN,
+        Admin admin = man.getEntry(Constant.Tables.ADMIN,
                 (Admin i) -> (
                         i.getUsername().equals(username) &&
                                 i.getPassword().equals(password))

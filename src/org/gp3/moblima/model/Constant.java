@@ -42,14 +42,14 @@ public class Constant {
     /**
      *
      */
-    public class TableName {
-        public final static String MOVIE = "MOVIE";
-        public final static String TICKET = "TICKET";
-        public final static String BOOKING = "BOOKING";
-        public final static String USER = "USER";
-        public final static String CINEMA = "CINEMA";
-        public final static String SEAT = "SEAT";
-        public final static String ADMIN = "ADMIN";
+    public enum Tables {
+        MOVIE,
+        TICKET,
+        BOOKING,
+        USER,
+        CINEMA,
+        SEAT,
+        ADMIN,
     }
 
 }

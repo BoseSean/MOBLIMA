@@ -1,6 +1,7 @@
 package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.controller.Manager;
+import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
@@ -16,7 +17,7 @@ public class ListMovieTopSale extends BaseMenu {
     @Override
     public BaseMenu execute() {
 		Manager manager = Manager.getInstance();
-		ArrayList<Movie> movies =  manager.getAll("MOVIE");
+        ArrayList<Movie> movies = manager.getAll(Constant.Tables.MOVIE);
 
 		ArrayList<String> choices = new ArrayList<>();
 

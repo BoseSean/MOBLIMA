@@ -1,5 +1,6 @@
 package org.gp3.moblima.controller;
 
+import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Model;
 
 import java.io.*;
@@ -8,7 +9,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static java.lang.System.exit;
-import static org.gp3.moblima.model.Constant.TableName.*;
 
 /**
  * Created by zhangxinye on 14/10/17.
@@ -55,7 +55,7 @@ public class Manager {
      * @param <T>   Subclass of Model, and should be corresponding to from
      * @return List of all entries in the specified table;
      */
-    public <T extends Model> ArrayList<T> getAll(String from) {
+    public <T extends Model> ArrayList<T> getAll(Constant.Tables from) {
         try {
             return getTable(from);
         } catch (DBException e) {
@@ -72,7 +72,7 @@ public class Manager {
      * @param <T>   Subclass of Model, and should be corresponding to from
      * @return List of Models in model table that satisfy filter
      */
-    public <T extends Model> ArrayList<T> getEntries(String from, Predicate<T> where) {
+    public <T extends Model> ArrayList<T> getEntries(Constant.Tables from, Predicate<T> where) {
 
         try {
             ArrayList table = getTable(from);
@@ -92,7 +92,7 @@ public class Manager {
      * @param <T>   Subclass of Model, and should be corresponding to from
      * @return A instance the satisfy filter
      */
-    public <T extends Model> T getEntry(String from, Predicate<T> where) {
+    public <T extends Model> T getEntry(Constant.Tables from, Predicate<T> where) {
 
         try {
             ArrayList table = getTable(from);
@@ -112,7 +112,7 @@ public class Manager {
      * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Bug")
      * @param <T>   Subclass of Model, and should be corresponding to from
      */
-    public <T extends Model> void delete(String from, Predicate<T> where) {
+    public <T extends Model> void delete(Constant.Tables from, Predicate<T> where) {
         try {
             ArrayList table = getTable(from);
             table.removeIf(where);
@@ -129,7 +129,7 @@ public class Manager {
      * @param entry Entry to be deleted
      * @param <T>   Subclass of Model, and should be corresponding to from
      */
-    public <T extends Model> void delete(String from, T entry) {
+    public <T extends Model> void delete(Constant.Tables from, T entry) {
         try {
             ArrayList table = getTable(from);
             table.remove(entry);
@@ -145,7 +145,7 @@ public class Manager {
      * @param entry Entry to be added
      * @param <T>   Subclass of Model, and should be corresponding to from
      */
-    public <T extends Model> void add(String into, T entry) {
+    public <T extends Model> void add(Constant.Tables into, T entry) {
         try {
             ArrayList table = getTable(into);
             table.add(entry);
@@ -177,9 +177,9 @@ public class Manager {
 
     }
 
-    private ArrayList getTable(String model) throws DBException {
-        ArrayList tempArray;
-        switch (model) {
+    private ArrayList getTable(Constant.Tables table) throws DBException {
+        ArrayList tempArray = null;
+        switch (table) {
             case ADMIN:
                 tempArray = db.admins;
                 break;
@@ -201,8 +201,6 @@ public class Manager {
             case SEAT:
                 tempArray = db.seats;
                 break;
-            default:
-                throw new DBException("Table name does not exist.");
         }
         return tempArray;
     }

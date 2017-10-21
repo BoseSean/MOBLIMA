@@ -3,7 +3,7 @@ package org.gp3.moblima;
 import org.gp3.moblima.view.MainMenu;
 import org.gp3.moblima.view.MenuLoop;
 //
-//import static org.gp3.moblima.model.Constant.TableName.MOVIE;
+//import static org.gp3.moblima.model.Constant.Tables.MOVIE;
 
 public class Runner {
 //    public static void main(String[] args) {
