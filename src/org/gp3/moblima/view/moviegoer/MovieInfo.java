@@ -5,9 +5,7 @@ import org.gp3.moblima.view.BaseMenu;
 
 import java.util.ArrayList;
 
-import static org.gp3.moblima.view.IOUtil.printMenuItems;
-import static org.gp3.moblima.view.IOUtil.printTitle;
-import static org.gp3.moblima.view.IOUtil.readChoice;
+import static org.gp3.moblima.view.IOUtil.*;
 
 /**
  * Created by zhangxinye on 19/10/17.
@@ -46,5 +44,13 @@ public class MovieInfo extends BaseMenu {
                 break;
         }
         return nextMenu;
+    }
+
+    public void printMovieInfo() {
+        System.out.println(this.movie.getTitle());
+        System.out.println(this.movie.getRuntime());
+        System.out.println(this.movie.getDirector());
+        System.out.println(this.movie.getOpening());
+        System.out.println(this.movie.getSynopsis());
     }
 }

@@ -1,9 +1,6 @@
 package org.gp3.moblima.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class Movie extends Model
 {
@@ -68,15 +65,8 @@ public class Movie extends Model
 		this.ticketSales = ticketSales;
 	}
 
-    public void getInfo() {
-        System.out.println(this.getTitle());
-        System.out.println(this.getRuntime());
-        System.out.println(this.getDirector());
-        System.out.println(this.getOpening());
-        System.out.println(this.getSynopsis());
-    }
 
-	public void addTicket(int ticketSales) {
+    public void addTicket(int ticketSales) {
 		this.ticketSales += 1;
 	}
 
@@ -92,13 +82,5 @@ public class Movie extends Model
 //		return movies;
 //	}
 
-public static void sortTicketSales(ArrayList<Movie> movies) {
-		Collections.sort(movies, new Comparator<Movie>() {
-			@Override
-			public int compare(Movie m1, Movie m2) {
-				return (m1.getTicketSales() - m2.getTicketSales());
-			}
 
-		});
-	}
 }

@@ -1,13 +1,13 @@
 package org.gp3.moblima.view.moviegoer;
 
-import org.gp3.moblima.view.IOUtil.*;
 import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-import static org.gp3.moblima.view.IOUtil.*;
+import static org.gp3.moblima.view.IOUtil.readChoice;
 public class ListMovieTopSale extends BaseMenu {
     public ListMovieTopSale(BaseMenu previousMenu) {
         super(previousMenu);
@@ -22,7 +22,7 @@ public class ListMovieTopSale extends BaseMenu {
 
 		try {
 
-			Movie.sortTicketSales(movies);
+            sortTicketSales(movies);
 
 			int top = 1;
 
@@ -57,5 +57,9 @@ public class ListMovieTopSale extends BaseMenu {
 
 		return nextMenu;
 
+    }
+
+    private void sortTicketSales(ArrayList<Movie> movies) {
+        Collections.sort(movies, (m1, m2) -> (m1.getTicketSales() - m2.getTicketSales()));
     }
 }
