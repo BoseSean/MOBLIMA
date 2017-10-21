@@ -39,6 +39,9 @@ public class Constant {
         }
     }
 
+    /**
+     *
+     */
     public class TableName {
         public final static String MOVIE = "MOVIE";
         public final static String TICKET = "TICKET";
