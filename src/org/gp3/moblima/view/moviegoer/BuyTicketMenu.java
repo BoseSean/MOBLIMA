@@ -2,6 +2,7 @@ package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
+import static org.gp3.moblima.view.IOUtil.*;
 
 public class BuyTicketMenu extends BaseMenu {
     private final Movie movie;
@@ -13,6 +14,7 @@ public class BuyTicketMenu extends BaseMenu {
 
     @Override
     public BaseMenu execute() {
-        return null;
+		printTitle("Buy Ticket Menu");
+		return null;
     }
 }
