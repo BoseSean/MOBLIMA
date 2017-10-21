@@ -69,7 +69,8 @@ public class IOUtil {
 	}
 
     public static void println(String message) {
-        System.out.print(message);
+//        System.out.print(message);
+        System.out.println(message);
     }
 
     public static void println() {
