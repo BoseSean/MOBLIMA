@@ -14,9 +14,18 @@ public class Movie extends Model
 
 	public double overAllRating;
 
+	public int ratingTimes;
+
+	public double getOverAllRating() {
+		return overAllRating;
+	}
+
+	public int getRatingTimes() {
+		return ratingTimes;
+	}
 
 
-    public String getDirector() {
+	public String getDirector() {
         return director;
     }
 
@@ -60,6 +69,15 @@ public class Movie extends Model
     public void setRuntime(String runtime) {
         this.runtime = runtime;
     }
+
+	public void setOverAllRating(double overAllRating) {
+		this.overAllRating = overAllRating;
+	}
+
+
+	public void setRatingTimes(int ratingTimes) {
+		this.ratingTimes = ratingTimes;
+	}
 
     public void setTicketSales(int ticketSales) {
 		this.ticketSales = ticketSales;

@@ -28,7 +28,7 @@ public class ListMovieTopSale extends BaseMenu {
 
 			for (Movie movie : movies) {
 				choices.add(movie.getTitle());
-				System.out.println(movie.getTicketSales() + "TIckets" + movie.getTitle());
+				System.out.println(movie.getTicketSales() + "Tickets" + movie.getTitle());
 
 				if (top++ == 5) {
 					break;
