@@ -24,7 +24,15 @@ public class Booking extends Model
     }
 
 
-    public String getTID() {
+    public void getInfo() {
+		System.out.println(this.getTID());
+		System.out.println(this.getDate());
+		System.out.println(this.getTotalPrice());
+		System.out.println(this.getCinema().getName());
+		System.out.println(this.getMovie().getTitle());
+	}
+
+	public String getTID() {
         return TID;
     }
 

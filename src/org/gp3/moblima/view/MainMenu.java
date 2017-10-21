@@ -1,6 +1,8 @@
 package org.gp3.moblima.view;
 
 //import org.gp3.moblima.view.IOUtil.*;
+import org.gp3.moblima.controller.Manager;
+import org.gp3.moblima.model.Admin;
 import org.gp3.moblima.view.admin.StaffLoginMenu;
 import org.gp3.moblima.view.moviegoer.GoerMainMenu;
 
@@ -21,7 +23,16 @@ public class MainMenu extends BaseMenu {
 
     @Override
     public BaseMenu execute() {
-        printTitle("Welcome to MOvie Booking and LIsting Management Application (MOBLIMA)");
+
+/*
+        Manager manager = Manager.getInstance();
+		Admin admin = new Admin();
+		admin.setUsername("ADMIN");
+		admin.setPassword("ADMIN");
+		manager.add("ADMIN", admin);
+*/
+
+		printTitle("Welcome to MOvie Booking and LIsting Management Application (MOBLIMA)");
 
         ArrayList<String> choices = new ArrayList<>();
         choices.add("Administrator");
