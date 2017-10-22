@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.*;
+import static org.gp3.moblima.model.Constant.Tables;
 
 public class ListMovieTopRate extends BaseMenu {
     public ListMovieTopRate(BaseMenu previousMenu) {
@@ -18,7 +19,7 @@ public class ListMovieTopRate extends BaseMenu {
     @Override
     public BaseMenu execute() {
         Manager manager = Manager.getInstance();
-        ArrayList<Movie> movies =  manager.getAll("MOVIE");
+        ArrayList<Movie> movies =  manager.getAll(Tables.MOVIE);
 
         ArrayList<String> choices = new ArrayList<>();
 
