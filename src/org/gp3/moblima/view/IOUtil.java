@@ -1,7 +1,5 @@
 package org.gp3.moblima.view;
 
-// import org.jetbrains.annotations.Contract;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -36,7 +34,7 @@ public class IOUtil {
 
         do {
             c = readInt(message + " (" + min + "~" + max + "): ");
-            println("Please input an Integer value.");
+//            println("Please input an Integer value.");
         } while (!(c >= min && c <= max));
         return c;
     }
@@ -59,10 +57,9 @@ public class IOUtil {
         return readInt(label, min, max);
     }
 
-	// @Contract(pure = true)
 	public static int readChoice(String label, int choice) {
 		return readInt(label, 0, choice);
-	}
+    }
 
 	public static String read(String input) {
 		return sc.next();
@@ -109,6 +106,7 @@ public class IOUtil {
     }
 
     public static void printTitle(String title) {
+        printSplitLine();
         printCenter(title);
         printSplitLine();
 
