@@ -31,4 +31,13 @@ public class Cinema extends Model
     public void setPlatinum(boolean platinum) {
         isPlatinum = platinum;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Cinema) {
+            Cinema t = (Cinema) obj;
+            return (t.name == name && t.isPlatinum == isPlatinum);
+        }
+        return super.equals(obj);
+    }
 }

@@ -75,6 +75,22 @@ public class Booking extends Model
         this.cinema = cinema;
     }
 
+    public Slot getSlot() {
+        return slot;
+    }
+
+    public void setSlot(Slot slot) {
+        this.slot = slot;
+    }
+
+    public ArrayList<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(ArrayList<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
     public void addTicket(Ticket new_ticket){
         if(tickets == null){
             this.tickets = new ArrayList<>();
@@ -94,6 +110,8 @@ public class Booking extends Model
             }
         }
     }
+
+
 
     @Override
     public boolean equals(Object obj) {

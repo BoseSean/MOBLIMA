@@ -8,13 +8,13 @@ public class Movie extends Model
     private ArrayList<String> casts;
 
     // What is this for?
-    public Ticket ticket;
+    private Ticket ticket;
 
-	public int ticketSales;
+	private int ticketSales;
 
-	public double overAllRating;
+	private double overAllRating;
 
-	public int ratingTimes;
+	private int ratingTimes;
 
 	public double getOverAllRating() {
 		return overAllRating;
@@ -100,5 +100,18 @@ public class Movie extends Model
 //		return movies;
 //	}
 
+    @Override
+    public boolean equals(Object ob){
+        if(ob instanceof Movie){
+            Movie t = (Movie) ob;
+            return t.title == title && t.casts == casts &&
+                    t.synopsis == synopsis && t.opening == opening &&
+                    t.runtime == runtime && t.director == director &&
+                    t.ticket == ticket && t.ticketSales == t.ticketSales &&
+                    t.overAllRating == overAllRating &&
+                    t.ratingTimes == ratingTimes;
+        }
+        return super.equals(ob);
+    }
 
 }

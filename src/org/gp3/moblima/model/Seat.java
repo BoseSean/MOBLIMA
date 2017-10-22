@@ -11,6 +11,8 @@ public class Seat extends Model
 
     private boolean occcupied;
 
+//    private Slot slot;
+
     public Seat(int col, int row, boolean occcupied) {
         this.col = col;
         this.row = row;
@@ -40,6 +42,14 @@ public class Seat extends Model
     public boolean isOcccupied() {
         return occcupied;
     }
+
+//    public Slot getSlot() {
+//        return slot;
+//    }
+//
+//    public void setSlot(Slot slot) {
+//        this.slot = slot;
+//    }
 
     @Override
     public boolean equals(Object o)

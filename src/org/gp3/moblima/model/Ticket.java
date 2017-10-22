@@ -2,6 +2,8 @@ package org.gp3.moblima.model;
 import org.gp3.moblima.model.Constant.TicketType;
 import org.gp3.moblima.model.Constant.MovieType;
 
+import java.util.ArrayList;
+
 /**
  * Created by hannancao on 14/10/17.
  */
@@ -63,6 +65,14 @@ public class Ticket extends Model{
         return booking;
     }
 
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Ticket) {
@@ -72,11 +82,4 @@ public class Ticket extends Model{
         return super.equals(obj);
     }
 
-    public Seat getSeat() {
-        return seat;
-    }
-
-    public void setSeat(Seat seat) {
-        this.seat = seat;
-    }
 }
