@@ -14,6 +14,8 @@ public class Ticket extends Model{
     private boolean platinum;
     private Seat seat;
 
+    private Booking booking;
+
     public Ticket(boolean platium, MovieType movietype, TicketType tickettype, Seat seat){
         this.platinum = platium;
         this.movietype = movietype;
@@ -53,6 +55,15 @@ public class Ticket extends Model{
         this.tickettype = tickettype;
     }
 
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof Ticket) {
             Ticket t = (Ticket) obj;

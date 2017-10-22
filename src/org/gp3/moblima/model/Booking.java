@@ -14,6 +14,9 @@ public class Booking extends Model
     private Cinema cinema;
     private ArrayList<Ticket>tickets;
 
+    private User user;
+    private Slot slot;
+
     public Booking(String tid, String date, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
         TID = tid;
         this.date = date;
@@ -72,24 +75,32 @@ public class Booking extends Model
         this.cinema = cinema;
     }
 
-    public void addTickets(ArrayList<Ticket> new_tickets) {
-        tickets = new_tickets;
-        for (Ticket t : new_tickets)
-        {
-            this.totalPrice += t.getPrice();
+    public void addTicket(Ticket new_ticket){
+        if(tickets == null){
+            this.tickets = new ArrayList<>();
+            this.tickets.add(new_ticket);
         }
-
+        else{
+            this.tickets.add(new_ticket);
+        }
+        totalPrice += new_ticket.getPrice();
     }
 
-    public void removeTickets(Seat seat) {
-        for(Ticket t : tickets)
-        {
-            if(t.getSeat() == seat)
-            {
-                totalPrice -= t.getPrice();
-                tickets.remove(t);
+    public void removeTicket(Ticket new_ticket){
+        for(int i = 0; i < this.tickets.size(); i++){
+            if(this.tickets.get(i) == new_ticket){
+                this.tickets.remove(i);
+                return;
             }
         }
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Booking) {
+            Booking t = (Booking) obj;
+            return (t.TID == TID && t.movie == movie && t.cinema == cinema);
+        }
+        return super.equals(obj);
+    }
 }

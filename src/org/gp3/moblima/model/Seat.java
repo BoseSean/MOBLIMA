@@ -9,9 +9,12 @@ public class Seat extends Model
 
     private int col,row;
 
-    public Seat(int col, int row) {
+    private boolean occcupied;
+
+    public Seat(int col, int row, boolean occcupied) {
         this.col = col;
         this.row = row;
+        this.occcupied = occcupied;
     }
 
     public int getCol() {
@@ -28,6 +31,14 @@ public class Seat extends Model
 
     public void setRow(int row) {
         this.row = row;
+    }
+
+    public void setOcccupied(boolean occcupied) {
+        this.occcupied = occcupied;
+    }
+
+    public boolean isOcccupied() {
+        return occcupied;
     }
 
     @Override

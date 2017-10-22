@@ -51,4 +51,24 @@ public class User extends Model {
     public void setBookings(ArrayList<Booking> bookings) {
         this.bookings = bookings;
     }
+
+    public void addBookings(Booking new_bookings){
+        if(bookings == null){
+            this.bookings = new ArrayList<>();
+            this.bookings.add(new_bookings);
+        }
+        else{
+            this.bookings.add(new_bookings);
+        }
+    }
+
+    public void removeBookings(Booking remove_bookings){
+        for(int i = 0; i < this.bookings.size(); i++){
+            if(this.bookings.get(i) == remove_bookings){
+                this.bookings.remove(i);
+                return;
+            }
+        }
+    }
+
 }
