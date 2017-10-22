@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.printMenuItems;
 import static org.gp3.moblima.view.IOUtil.printTitle;
+import static org.gp3.moblima.model.Constant.Tables;
 import static org.gp3.moblima.view.IOUtil.readChoice;
 
 /**
@@ -23,13 +24,13 @@ public class MainMenu extends BaseMenu {
 
     @Override
     public BaseMenu execute() {
-
 /*
+
         Manager manager = Manager.getInstance();
 		Admin admin = new Admin();
 		admin.setUsername("ADMIN");
 		admin.setPassword("ADMIN");
-		manager.add("ADMIN", admin);
+		manager.add(Tables.ADMIN, admin);
 */
 
 		printTitle("Welcome to MOvie Booking and LIsting Management Application (MOBLIMA)");

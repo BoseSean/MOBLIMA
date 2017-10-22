@@ -4,7 +4,7 @@ import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.view.BaseMenu;
 import org.gp3.moblima.model.User;
 import org.gp3.moblima.model.Booking;
-import static org.gp3.moblima.model.Constant.TableName.USER;
+import static org.gp3.moblima.model.Constant.Tables.USER;
 
 import java.awt.print.Book;
 import java.util.ArrayList;

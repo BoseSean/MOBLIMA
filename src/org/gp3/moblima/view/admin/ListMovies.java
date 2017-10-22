@@ -4,7 +4,7 @@ import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
-import org.gp3.moblima.model.Constant.TableName;
+import static org.gp3.moblima.model.Constant.Tables.MOVIE;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
@@ -18,7 +18,7 @@ public class ListMovies extends BaseMenu {
     @Override
     public BaseMenu execute() {
 		Manager manager = Manager.getInstance();
-		ArrayList<Movie> movies = manager.getAll(TableName.MOVIE);
+		ArrayList<Movie> movies = manager.getAll(MOVIE);
 
 		ArrayList<String> choices = new ArrayList<>();
 
