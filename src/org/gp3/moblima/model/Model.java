@@ -1,6 +1,6 @@
 package org.gp3.moblima.model;
 
-// import org.jetbrains.annotations.Nullable;
+
 
 import java.io.*;
 import java.util.ArrayList;

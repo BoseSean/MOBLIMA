@@ -34,7 +34,7 @@ public class IOUtil {
 
         do {
             c = readInt(message + " (" + min + "~" + max + "): ");
-//            println("Please input an Integer value.");
+            println("Please input an Integer value.");
         } while (!(c >= min && c <= max));
         return c;
     }

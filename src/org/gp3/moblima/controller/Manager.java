@@ -178,7 +178,7 @@ public class Manager {
     }
 
     private ArrayList getTable(Constant.Tables table) throws DBException {
-        ArrayList tempArray = null;
+        ArrayList tempArray;
         switch (table) {
             case ADMIN:
                 tempArray = db.admins;
@@ -201,6 +201,8 @@ public class Manager {
             case SEAT:
                 tempArray = db.seats;
                 break;
+            default:
+                tempArray=null;
         }
         return tempArray;
     }
