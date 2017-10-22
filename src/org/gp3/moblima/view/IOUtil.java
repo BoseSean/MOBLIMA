@@ -1,6 +1,6 @@
 package org.gp3.moblima.view;
 
-import org.jetbrains.annotations.Contract;
+// import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -59,7 +59,7 @@ public class IOUtil {
         return readInt(label, min, max);
     }
 
-	@Contract(pure = true)
+	// @Contract(pure = true)
 	public static int readChoice(String label, int choice) {
 		return readInt(label, 0, choice);
 	}
