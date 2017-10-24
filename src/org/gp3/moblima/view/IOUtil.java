@@ -31,12 +31,13 @@ public class IOUtil {
         System.out.print(message);
     }
 
+    // TODO deep refinement for readInt() required.
     public static int readInt(String message, int min, int max) {
         int c = 0;
 
         do {
+
             c = readInt(message + " (" + min + "~" + max + "): ");
-            println("Please input an Integer value.");
         } while (!(c >= min && c <= max));
         return c;
     }
@@ -47,33 +48,34 @@ public class IOUtil {
             try {
                 return sc.nextInt();
             } catch (InputMismatchException e) {
+                println("Please, input a valid choice.");
             }
         }
     }
 
+    // TODO deep refinement for readChoice() required.
     public static int readChoice(int min, int max) {
         return readChoice("Choice", min, max);
     }
 
-    public static int readChoice(String label, int min, int max) {
-        return readInt(label, min, max);
+    public static int readChoice(String message, int min, int max) {
+        return readInt(message, min, max);
     }
-    
-	public static int readChoice(String label, int choice) {
-		return readInt(label, 0, choice);
-	}
 
-	public static String read(String input) {
-		return sc.next();
+    public static int readChoice(String message, int choice) {
+        return readInt(message, 0, choice);
+    }
+
+    public static String read(String message) {
+        print(message);
+        return sc.next();
 	}
 
     public static void println(String message) {
-//        System.out.print(message);
         System.out.println(message);
     }
 
     public static void println() {
-//        println("");
 		System.out.println();
 
 	}
@@ -108,6 +110,7 @@ public class IOUtil {
     }
 
     public static void printTitle(String title) {
+        printSplitLine();
         printCenter(title);
         printSplitLine();
 

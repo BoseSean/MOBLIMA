@@ -104,7 +104,7 @@ public class Booking extends Model
 
     public void removeTicket(Ticket new_ticket){
         for(int i = 0; i < this.tickets.size(); i++){
-            if(this.tickets.get(i) == new_ticket){
+            if (this.tickets.get(i) == new_ticket) {
                 this.tickets.remove(i);
                 return;
             }
