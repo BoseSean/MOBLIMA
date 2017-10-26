@@ -7,8 +7,12 @@ import java.util.Date;
  */
 public class Holiday implements Model {
 
+    // What is id for ?
+    // How to assign when adding new holiday ?
     private int id;
-    private Date date;
+	// TODO
+	// Date format to be determined
+	private Date date;
     private String name;
 
     public Holiday(){}

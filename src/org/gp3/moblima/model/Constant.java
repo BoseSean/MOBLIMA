@@ -50,6 +50,8 @@ public class Constant {
         CINEMA,
         SEAT,
         ADMIN,
+        REVIEW,
+        HOLIDAY,
     }
 
 }

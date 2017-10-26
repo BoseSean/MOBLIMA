@@ -35,6 +35,7 @@ public class Slot implements Model, Comparable
 
 
     public int compareTo(Object o) {
+        Slot s = (Slot) o;
         return 0;
 
     }

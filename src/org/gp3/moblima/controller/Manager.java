@@ -201,6 +201,12 @@ public class Manager {
             case SEAT:
                 tempArray = db.seats;
                 break;
+            case REVIEW:
+                tempArray = db.seats;
+                break;
+            case HOLIDAY:
+                tempArray = db.holidays;
+                break;
             default:
                 tempArray=null;
         }

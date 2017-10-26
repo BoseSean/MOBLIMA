@@ -1,6 +1,6 @@
 package org.gp3.moblima;
 
-import javafx.scene.input.Mnemonic;
+//import javafx.scene.input.Mnemonic;
 import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.view.MainMenu;
 import org.gp3.moblima.view.MenuLoop;
