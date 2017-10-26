@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by hannancao on 14/10/17.
  */
 
-public class Ticket extends Model{
+public class Ticket implements Model{
 
     private double price;
     private TicketType tickettype;

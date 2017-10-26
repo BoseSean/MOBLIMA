@@ -3,7 +3,7 @@ package org.gp3.moblima.model;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Movie extends Model
+public class Movie implements Model
 {
     private String title, synopsis, opening, runtime, director;
 	private int ticketSales;

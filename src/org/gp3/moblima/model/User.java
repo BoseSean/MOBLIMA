@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Shen Youlin on 14/10/17.
  */
 
-public class User extends Model {
+public class User implements Model {
     private String name,phone,email;
     private ArrayList<Booking> bookings;
 

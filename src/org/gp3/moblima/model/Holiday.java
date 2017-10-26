@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * created by hannancao on 14/10/17.
  */
-public class Holiday extends Model {
+public class Holiday implements Model {
 
     private int id;
     private Date date;

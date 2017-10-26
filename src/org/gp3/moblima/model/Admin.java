@@ -3,7 +3,7 @@ package org.gp3.moblima.model;
 /**
  * Created by zhangxinye on 19/10/17.
  */
-public class Admin extends Model {
+public class Admin implements Model {
     private String username;
     private String password;
 

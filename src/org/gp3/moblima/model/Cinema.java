@@ -6,7 +6,7 @@ import java.util.Collections;
  * Created by Shen Youlin on 15/10/17.
  */
 
-public class Cinema extends Model
+public class Cinema implements Model
 {
     private String name;
     private boolean isPlatinum;

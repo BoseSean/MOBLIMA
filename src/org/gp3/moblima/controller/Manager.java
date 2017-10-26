@@ -15,7 +15,7 @@ import static java.lang.System.exit;
  */
 
 public class Manager {
-    private static String DB_FILE_NAME = "db.ser";
+    private static final String DB_FILE_NAME = "db.ser";
     private static Manager singleInstance = new Manager();
     private SerializeDB db;
 
@@ -85,7 +85,7 @@ public class Manager {
     }
 
     /**
-     * Get the first entry from the model table  that satisfy where.
+     * Get the first entry from the model table that satisfy where.
      *
      * @param from  Name String of table
      * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Bug")
@@ -171,7 +171,7 @@ public class Manager {
         } catch (IOException i) {
             i.printStackTrace();
         } catch (ClassNotFoundException c) {
-            System.out.println("class not found");
+            System.out.println("Class not found!");
             c.printStackTrace();
         }
 

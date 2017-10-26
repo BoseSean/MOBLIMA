@@ -20,6 +20,7 @@ public class MovieInfo extends BaseMenu {
     @Override
     public BaseMenu execute() {
         printTitle(movie.getTitle());
+        printMovieInfo();
 
         ArrayList<String> choices = new ArrayList<>();
         choices.add("Buy Tickets");
