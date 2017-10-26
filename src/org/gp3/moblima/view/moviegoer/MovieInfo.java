@@ -20,6 +20,8 @@ public class MovieInfo extends BaseMenu {
     @Override
     public BaseMenu execute() {
         printTitle(movie.getTitle());
+
+        //todo
         printMovieInfo();
 
         ArrayList<String> choices = new ArrayList<>();
@@ -47,6 +49,7 @@ public class MovieInfo extends BaseMenu {
         return nextMenu;
     }
 
+    //todo: fix the info and format
     public void printMovieInfo() {
         System.out.println(this.movie.getTitle());
         System.out.println(this.movie.getRuntime());

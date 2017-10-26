@@ -4,8 +4,14 @@ package org.gp3.moblima.model;
  * Created by zhangxinye on 19/10/17.
  */
 public class Admin implements Model {
-    private String username;
-    private String password;
+    private String username ;
+    private String password ;
+
+    public Admin(String username,String password)
+    {
+        this.username=username;
+        this.password=password;
+    }
 
     public String getPassword() {
         return password;

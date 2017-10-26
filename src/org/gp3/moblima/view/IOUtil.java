@@ -67,9 +67,15 @@ public class IOUtil {
     }
 
     public static String read(String message) {
-        print(message);
+        println(message);
         return sc.next();
 	}
+
+	public static String readln(String message)
+    {
+        println(message);
+        return sc.nextLine();
+    }
 
     public static void println(String message) {
         System.out.println(message);

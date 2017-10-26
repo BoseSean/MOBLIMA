@@ -18,6 +18,7 @@ class SerializeDB {
     ArrayList<User> users;
     SerializeDB(){
         admins = new ArrayList<>();
+        admins.add(new Admin("admin","admin"));
         bookings = new ArrayList<>();
         cinemas = new ArrayList<>();
         movies = new ArrayList<>();
