@@ -17,6 +17,8 @@ public class ListMovies extends BaseMenu {
 
     @Override
     public BaseMenu execute() {
+    	printTitle("List Movies");
+
 		Manager manager = Manager.getInstance();
 		ArrayList<Movie> movies = manager.getAll(MOVIE);
 

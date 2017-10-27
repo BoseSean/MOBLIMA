@@ -18,6 +18,8 @@ public class Ticket implements Model{
 
     private Booking booking;
 
+
+    //todo how to calculate ticket price?
     public Ticket(boolean platium, MovieType movietype, TicketType tickettype, Seat seat){
         this.platinum = platium;
         this.movietype = movietype;

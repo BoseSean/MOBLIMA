@@ -3,6 +3,7 @@ package org.gp3.moblima.model;
 import java.lang.reflect.Array;
 import java.util.*;
 
+
 public class Slot implements Model, Comparable
 {
     public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Constant.MovieType movieType) {

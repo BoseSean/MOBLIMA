@@ -1,6 +1,7 @@
 package org.gp3.moblima.model;
 
 public class Review implements Model {
+	// TODO add rating number 
 	/**
 	 * Review of a Movie in the form
 	 * of comment
