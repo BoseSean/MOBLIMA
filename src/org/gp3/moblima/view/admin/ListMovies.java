@@ -33,12 +33,12 @@ public class ListMovies extends BaseMenu {
 		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
 
 		BaseMenu nextMenu = this;
-		if (c < choices.size()) {
+		if (c < choices.size() -1 ) {
 			nextMenu = new UpdateMovieMenu(this, movies.get(c));
-		} else if (c == choices.size()) {
+		} else if (c == choices.size() - 1) {
 			nextMenu = this.getPreviousMenu();
 		}
 
-		return null;
+		return nextMenu;
     }
 }

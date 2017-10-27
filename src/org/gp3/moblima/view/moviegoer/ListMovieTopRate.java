@@ -30,8 +30,9 @@ public class ListMovieTopRate extends BaseMenu {
             int top = 1;
 
             for (Movie movie : movies) {
-                choices.add(movie.getTitle());
-                System.out.println(movie.getOverAllRating() + "Rating" + movie.getTitle());
+                choices.add(movie.getOverAllRating() + " Overall Rating for " + movie.getTitle());
+//                choices.add(movie.getTitle());
+//                System.out.println(movie.getOverAllRating() + "Rating" + movie.getTitle());
 
                 if (top++ == 5) {
                     break;
@@ -42,19 +43,21 @@ public class ListMovieTopRate extends BaseMenu {
         }
 
 
-        choices.add("Movie Info");
-        choices.add("Shop Top 5 by rating");
+//        choices.add("Movie Info");
+        choices.add("Shop Top 5 by sales");
         choices.add("Back to all movies");
+
+        printMenuItems(choices, 0);
 
         int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
 
         BaseMenu nextMenu = this;
 
-        if (c < choices.size()) {
+        if (c < choices.size() - 3) {
             nextMenu = new MovieInfo(this, movies.get(c));
-        } else if (c == choices.size()) {
+        } else if (c == choices.size() - 2) {
             nextMenu = new ListMovieTopSale(this.getPreviousMenu());
-        } else if (c == choices.size() + 1) {
+        } else if (c == choices.size() - 1) {
             nextMenu = this.getPreviousMenu();
         }
 

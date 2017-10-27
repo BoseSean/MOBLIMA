@@ -16,15 +16,21 @@ class SerializeDB {
     ArrayList<Seat> seats;
     ArrayList<Ticket> tickets;
     ArrayList<User> users;
-    SerializeDB(){
+    ArrayList<Review> reviews;
+	ArrayList<Holiday> holidays;
+	SerializeDB(){
         admins = new ArrayList<>();
         admins.add(new Admin("admin","admin"));
         bookings = new ArrayList<>();
         cinemas = new ArrayList<>();
         movies = new ArrayList<>();
-        seats = new ArrayList<>();
+		movies.add(new Movie("Matrix"));
+		movies.add(new Movie("Matrix2"));
+		seats = new ArrayList<>();
         tickets = new ArrayList<>();
         users = new ArrayList<>();
-    }
+        reviews = new ArrayList<>();
+		holidays = new ArrayList<>();
+	}
 
 }

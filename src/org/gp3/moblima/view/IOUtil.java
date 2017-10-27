@@ -53,6 +53,24 @@ public class IOUtil {
         }
     }
 
+    /**
+     * Confirmation Message
+     * --------------------
+     * This method only accept 'y' or 'n' as input
+     * return 	 true  if input is 'y' or
+     * return 	 false if input is 'n'
+     * Otherwise it will repeatedly prompt user for input
+     * */
+    public static boolean confirm(String message) {
+        while (true) {
+            String in = read(message + " (Y/N): ").toLowerCase();
+            if (in.equals("y"))
+                return true;
+            else if (in.equals("n"))
+                return false;
+        }
+    }
+
     // TODO deep refinement for readChoice() required.
     public static int readChoice(int min, int max) {
         return readChoice("Choice", min, max);
@@ -66,10 +84,21 @@ public class IOUtil {
         return readInt(message, 0, choice);
     }
 
+//    public static String read(String message) {
+//        println(message);
+//        return sc.next();
+//	}
+
     public static String read(String message) {
-        println(message);
-        return sc.next();
-	}
+        String input = "";
+        print(message);
+
+        do{
+            input = sc.nextLine();
+        }while(input.trim().equals(""));
+
+        return input;
+    }
 
 	public static String readln(String message)
     {

@@ -8,6 +8,7 @@ import org.gp3.moblima.view.BaseMenu;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static org.gp3.moblima.view.IOUtil.printMenuItems;
 import static org.gp3.moblima.view.IOUtil.readChoice;
 public class ListMovieTopSale extends BaseMenu {
     public ListMovieTopSale(BaseMenu previousMenu) {
@@ -28,8 +29,10 @@ public class ListMovieTopSale extends BaseMenu {
 			int top = 1;
 
 			for (Movie movie : movies) {
-				choices.add(movie.getTitle());
-				System.out.println(movie.getTicketSales() + "Tickets" + movie.getTitle());
+//				choices.add(movie.getTitle());
+				choices.add(movie.getTicketSales() + " Tickets for " + movie.getTitle());
+//				System.out.println(movie.getTicketSales() + " Tickets for " + movie.getTitle());
+//				System.out.println();
 
 				if (top++ == 5) {
 					break;
@@ -40,19 +43,22 @@ public class ListMovieTopSale extends BaseMenu {
 		}
 
 
-		choices.add("Movie Info");
+//		choices.add("Movie Info");
 		choices.add("Shop Top 5 by rating");
 		choices.add("Back to all movies");
+		printMenuItems(choices, 0);
 
 		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
 
 		BaseMenu nextMenu = this;
 
-		if (c < choices.size()) {
+		System.out.println(choices.size());
+
+		if (c < choices.size() - 3) {
 			nextMenu = new MovieInfo(this, movies.get(c));
-		} else if (c == choices.size()) {
+		} else if (c == choices.size() - 2) {
 			nextMenu = new ListMovieTopRate(this.getPreviousMenu());
-		} else if (c == choices.size() + 1) {
+		} else if (c == choices.size() - 1) {
 			nextMenu = this.getPreviousMenu();
 		}
 

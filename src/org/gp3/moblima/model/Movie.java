@@ -1,5 +1,7 @@
 package org.gp3.moblima.model;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -12,6 +14,15 @@ public class Movie implements Model
 	private int ratingTimes;
 	private ArrayList<String> casts;
     private ArrayList<Slot> slots;
+    private ArrayList<Review> reviews;
+
+	public Movie(String title) {
+		this.title = title;
+	}
+
+	public Movie(){
+
+	}
 
 
 	// getters
@@ -85,17 +96,66 @@ public class Movie implements Model
         this.casts = casts;
     }
     public void addCast(String some_cast) {
-        this.casts.add(some_cast);
-        // this.casts = sortCasts(this.casts);
+		if (this.casts == null) {
+			ArrayList<String> c = new ArrayList<String>();
+			setCasts(c);
+		}
+		this.casts.add(some_cast);
+		// this.casts = sortCasts(this.casts);
     }
-    public void removeCast(String some_cast) {
-        for(int i = 0; i < this.casts.size(); i++)
-            if (this.casts.get(i) == some_cast) {
-                this.casts.remove(i);
+
+
+	/**
+	 * Remove Cast from Movie
+	 * Use equals to compare
+	 * @param some_cast
+	 */
+	public void removeCast(String some_cast) {
+        for(String c : this.casts)
+            if (c.equals(some_cast)) {
+                this.casts.remove(c);
                 return;
             }
     }
-    public boolean actorInCasts(String some_cast) {
+
+	/**
+	 * Set Review
+	 * @param reviews
+	 */
+	public void setReviews(ArrayList<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	/**
+	 * Add Review to Movie
+	 * Review is of type String
+	 * @param review
+	 */
+	public void addReview(Review review) {
+		if (this.reviews == null) {
+			ArrayList<Review> r = new ArrayList<Review>();
+			this.setReviews(r);
+		}
+		this.reviews.add(review);
+		this.addRatingTimes(1);
+		// TODO overAllRating Logic not clear
+
+	}
+
+	/**
+	 * Remove the review of a Movie
+	 * Review is of type String
+	 * @param review
+	 */
+	public void removeReview(Review review) {
+		for (Review rev : this.reviews) {
+			if (this.reviews.equals(review)) {
+				this.reviews.remove(review);
+			}
+		}
+	}
+
+	public boolean actorInCasts(String some_cast) {
         for(int i = 0; i < this.casts.size(); i++)
             if (this.casts.get(i) == some_cast)
                 return true;
