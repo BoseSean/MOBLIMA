@@ -1,15 +1,16 @@
 package org.gp3.moblima.view.moviegoer;
 
-import org.gp3.moblima.view.BaseMenu;
 import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Movie;
+import org.gp3.moblima.view.BaseMenu;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.ArrayList;
 
-import static org.gp3.moblima.view.IOUtil.*;
 import static org.gp3.moblima.model.Constant.Tables;
+import static org.gp3.moblima.view.IOUtil.printMenuItems;
+import static org.gp3.moblima.view.IOUtil.readChoice;
 
 public class ListMovieTopRate extends BaseMenu {
     public ListMovieTopRate(BaseMenu previousMenu) {
@@ -49,7 +50,7 @@ public class ListMovieTopRate extends BaseMenu {
 
         printMenuItems(choices, 0);
 
-        int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+        int c = readChoice(0, choices.size());
 
         BaseMenu nextMenu = this;
 

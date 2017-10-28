@@ -37,7 +37,7 @@ public class ListMoviesMenu extends BaseMenu {
 		choices.add("Quit");
 		printMenuItems(choices, 0);
 
-		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+		int c = readChoice(0, choices.size());
 
 		BaseMenu nextMenu = this;
 		if (c < movies.size())

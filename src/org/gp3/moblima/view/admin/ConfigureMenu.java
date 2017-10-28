@@ -24,7 +24,7 @@ public class ConfigureMenu extends BaseMenu {
 
 		printMenuItems(choices, 0);
 
-		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+		int c = readChoice(0, choices.size());
 
 		BaseMenu nextMenu = this;
 

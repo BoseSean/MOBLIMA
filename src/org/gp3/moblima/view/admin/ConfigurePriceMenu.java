@@ -10,6 +10,7 @@ public class ConfigurePriceMenu extends BaseMenu {
 
     @Override
     public BaseMenu execute() {
+        // TODO by DAXIONGDI
         return null;
     }
 }

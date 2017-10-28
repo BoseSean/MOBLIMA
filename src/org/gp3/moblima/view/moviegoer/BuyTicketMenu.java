@@ -2,7 +2,8 @@ package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
-import static org.gp3.moblima.view.IOUtil.*;
+
+import static org.gp3.moblima.view.IOUtil.printTitle;
 
 public class BuyTicketMenu extends BaseMenu {
     private final Movie movie;
@@ -15,6 +16,15 @@ public class BuyTicketMenu extends BaseMenu {
     @Override
     public BaseMenu execute() {
 		printTitle("Buy Ticket Menu");
-		return null;
+        // TODO
+        // Find slot
+        // Find seat
+        // Select seat
+        // Payment
+        // Ask if student or senior
+        // Confirm
+        // Login
+        // Create booking
+        return null;
     }
 }

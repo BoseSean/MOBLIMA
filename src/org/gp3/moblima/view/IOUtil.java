@@ -3,7 +3,6 @@ package org.gp3.moblima.view;
 //import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -31,13 +30,11 @@ public class IOUtil {
         System.out.print(message);
     }
 
-    // TODO deep refinement for readInt() required.
     public static int readInt(String message, int min, int max) {
         int c = 0;
-
         do {
-
             c = readInt(message + " (" + min + "~" + max + "): ");
+            if (!(c >= min && c <= max)) print("Please enter valid option. ");
         } while (!(c >= min && c <= max));
         return c;
     }
@@ -46,9 +43,10 @@ public class IOUtil {
         print(Message);
         while (true) {
             try {
-                return sc.nextInt();
-            } catch (InputMismatchException e) {
-                println("Please, input a valid choice.");
+                String s = sc.next();
+                return Integer.parseInt(s);
+            } catch (NumberFormatException e) {
+                println("Please, input a valid decimal number. ");
             }
         }
     }
@@ -63,10 +61,10 @@ public class IOUtil {
      * */
     public static boolean confirm(String message) {
         while (true) {
-            String in = read(message + " (Y/N): ").toLowerCase();
-            if (in.equals("y"))
+            String in = read(message + " (Y/N): ");
+            if (in.equalsIgnoreCase("y"))
                 return true;
-            else if (in.equals("n"))
+            else if (in.equalsIgnoreCase("n"))
                 return false;
         }
     }
@@ -84,10 +82,6 @@ public class IOUtil {
         return readInt(message, 0, choice);
     }
 
-//    public static String read(String message) {
-//        println(message);
-//        return sc.next();
-//	}
 
     public static String read(String message) {
         String input = "";

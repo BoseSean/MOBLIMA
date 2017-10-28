@@ -5,8 +5,7 @@ import org.gp3.moblima.model.Admin;
 import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.view.BaseMenu;
 
-import static org.gp3.moblima.view.IOUtil.printTitle;
-import static org.gp3.moblima.view.IOUtil.read;
+import static org.gp3.moblima.view.IOUtil.*;
 
 /**
  * Created by zhangxinye on 19/10/17.
@@ -32,6 +31,7 @@ public class StaffLoginMenu extends BaseMenu {
         );
 
         if (admin == null) {
+            println("Wrong Username or Password");
             return this.getPreviousMenu();
         } else {
             // In StaffMainMenu back option will redirect to MainMenu

@@ -29,7 +29,7 @@ public class StaffMainMenu extends BaseMenu {
 		choices.add("Back");
 		printMenuItems(choices, 0);
 
-		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+		int c = readChoice(0, choices.size());
 
 		BaseMenu nextMenu = this;
 		switch (c) {

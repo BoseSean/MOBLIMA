@@ -4,11 +4,10 @@ import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
-import static org.gp3.moblima.model.Constant.Tables.MOVIE;
-
-import static org.gp3.moblima.view.IOUtil.*;
-
 import java.util.ArrayList;
+
+import static org.gp3.moblima.model.Constant.Tables.MOVIE;
+import static org.gp3.moblima.view.IOUtil.*;
 
 public class ListMovies extends BaseMenu {
     public ListMovies(BaseMenu previousMenu) {
@@ -32,7 +31,7 @@ public class ListMovies extends BaseMenu {
 
 		printMenuItems(choices, 0);
 
-		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+		int c = readChoice(0, choices.size());
 
 		BaseMenu nextMenu = this;
 		if (c < choices.size() -1 ) {

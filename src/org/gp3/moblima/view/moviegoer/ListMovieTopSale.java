@@ -48,7 +48,7 @@ public class ListMovieTopSale extends BaseMenu {
 		choices.add("Back to all movies");
 		printMenuItems(choices, 0);
 
-		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+		int c = readChoice(0, choices.size());
 
 		BaseMenu nextMenu = this;
 

@@ -4,14 +4,14 @@ import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Holiday;
 import org.gp3.moblima.view.BaseMenu;
 
-import java.util.ArrayList;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
-import static org.gp3.moblima.view.IOUtil.*;
 import static org.gp3.moblima.model.Constant.Tables.HOLIDAY;
+import static org.gp3.moblima.view.IOUtil.*;
 
 public class ConfigureHolidayMenu extends BaseMenu {
     public ConfigureHolidayMenu(BaseMenu previousMenu) {
@@ -34,7 +34,7 @@ public class ConfigureHolidayMenu extends BaseMenu {
 
 		printMenuItems(choices, 0);
 
-		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+		int c = readChoice(0, choices.size());
 
 		// TODO
 		// Date format for holiday to be determined

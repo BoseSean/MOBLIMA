@@ -32,7 +32,7 @@ public class MovieInfo extends BaseMenu {
 
 
 //        int c = readChoice();
-        int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
+        int c = readChoice(0, choices.size());
 
         BaseMenu nextMenu = this;
         switch (c) {
