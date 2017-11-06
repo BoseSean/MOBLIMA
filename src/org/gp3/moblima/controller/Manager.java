@@ -57,7 +57,7 @@ public class Manager {
      */
     public <T extends Model> ArrayList<T> getAll(Constant.Tables from) {
         try {
-            return getTable(from);
+            return (ArrayList<T>) getTable(from).clone();
         } catch (DBException e) {
             e.printStackTrace();
             exit(1);
