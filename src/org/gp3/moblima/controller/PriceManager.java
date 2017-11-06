@@ -71,7 +71,7 @@ public class PriceManager {
                     return TicketPrice.getPrice()[19];
                 else
                     return TicketPrice.getPrice()[20];
-            } else if (tickettype == Constant.TicketType.FIR_SUN_AND_PH) {
+            } else {
                 if (movietype == Constant.MovieType.TWO_D)
                     return TicketPrice.getPrice()[21];
                 else if (movietype == Constant.MovieType.THREE_D)
@@ -89,4 +89,5 @@ public class PriceManager {
             }
         }
     }
+
 }
