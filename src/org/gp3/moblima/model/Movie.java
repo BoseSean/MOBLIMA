@@ -138,8 +138,7 @@ public class Movie implements Model
 		}
 		this.reviews.add(review);
 		this.addRatingTimes(1);
-		// TODO overAllRating Logic not clear
-
+		setOverAllRating(getOverAllRating() + review.getRating() / getRatingTimes());
 	}
 
 	/**

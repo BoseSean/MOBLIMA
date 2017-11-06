@@ -21,7 +21,14 @@ public class HistoryMenu extends BaseMenu {
         super(previousMenu);
     }
 
-    @Override
+	/**
+	 * Display user booking history menu
+	 * Ask user for login information
+	 * Display all user booking detail
+	 * Return to previous menu when done
+	 * @return
+	 */
+	@Override
     public BaseMenu execute() {
         printTitle("History");
 
