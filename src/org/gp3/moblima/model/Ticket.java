@@ -10,63 +10,31 @@ import java.util.ArrayList;
 
 public class Ticket implements Model{
 
-    private double price;
-    private TicketType tickettype;
-    private MovieType movietype;
-    private boolean platinum;
+//    private double price;
+//    private TicketType tickettype;
+//    private MovieType movietype;
+//    private boolean platinum;
     private Seat seat;
-
+//    private boolean Snack;
     private Booking booking;
-
+    private TicketPrice ticketprice;
 
     //todo how to calculate ticket price?
-    public Ticket(boolean platium, MovieType movietype, TicketType tickettype, Seat seat){
-        this.platinum = platium;
-        this.movietype = movietype;
-        this.tickettype = tickettype;
+    public Ticket(){}
+
+    public Ticket(Seat seat, Booking booking, TicketPrice ticketprice){
         this.seat = seat;
-    }
-
-    public double getPrice() {
-        return this.price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public boolean isPlatium() {
-        return platinum;
-    }
-
-    public void setPlatium(boolean platium) {
-        this.platinum = platinum;
-    }
-
-    public MovieType getMovietype() {
-        return movietype;
-    }
-
-    public void setMovietype(MovieType movietype) {
-        this.movietype = movietype;
-    }
-
-    public TicketType getTickettype() {
-        return tickettype;
-    }
-
-    public void setTickettype(TicketType tickettype) {
-        this.tickettype = tickettype;
-    }
-
-    public void setBooking(Booking booking) {
         this.booking = booking;
+        this.ticketprice = ticketprice;
     }
 
-    public Booking getBooking() {
-        return booking;
+    public TicketPrice getTicketprice() {
+        return ticketprice;
     }
 
+    public void setTicketprice(TicketPrice ticketprice) {
+        this.ticketprice = ticketprice;
+    }
 
     public Seat getSeat() {
         return seat;
@@ -75,11 +43,13 @@ public class Ticket implements Model{
     public void setSeat(Seat seat) {
         this.seat = seat;
     }
+
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Ticket) {
             Ticket t = (Ticket) obj;
-            return (t.platinum == platinum && t.movietype ==movietype && t.tickettype == tickettype);
+            return (t.seat == seat && t.ticketprice == ticketprice);
         }
         return super.equals(obj);
     }

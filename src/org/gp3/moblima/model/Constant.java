@@ -25,8 +25,12 @@ public class Constant {
     public enum MovieType {
         TWO_D("2D Movies"),
         THREE_D("3D Movies"),
-        JEM("JEM & West Mall"),
-        WESTMALL("West Mall");
+//      JEM("JEM & West Mall"),
+//      WESTMALL("West Mall"),
+        TWO_D_AND_JEM("Ultima 2D @ JEM & West Mall"),
+        THREE_D_AND_JEM("Ultima 3D @ JEM & West Mall"),
+        TWO_D_AND_WESTMALL("Elite Club 2D@ West Mall"),
+        THREE_D_AND_WESTMALL("Elite Club 3D@ West Mall");
 
         private String date;
 
@@ -52,6 +56,7 @@ public class Constant {
         ADMIN,
         REVIEW,
         HOLIDAY,
+        TICKETPRICE;
     }
 
 }
