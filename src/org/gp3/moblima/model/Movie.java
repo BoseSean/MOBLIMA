@@ -178,6 +178,7 @@ public class Movie implements Model
             }
     }
 
+
 //	public static ArrayList<Movie> sortTicketSales(ArrayList<Movie> movies) {
 //		Collections.sort(movies, new Comparator<Movie>() {
 //			@Override
