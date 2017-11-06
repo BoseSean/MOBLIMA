@@ -1,7 +1,7 @@
 package org.gp3.moblima.model;
 
-import org.gp3.moblima.model.Constant.TicketType;
 import org.gp3.moblima.model.Constant.MovieType;
+import org.gp3.moblima.model.Constant.TicketType;
 /**
  * Created by hannancao on 6/11/17.
  */
@@ -14,7 +14,6 @@ public class TicketPrice{
 
     public TicketPrice(){}
     public TicketPrice(boolean platium, MovieType movietype, TicketType tickettype, boolean snack){
-
         this.price =  new Double[]{5.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 7.0, 8.0, -1.0, -1.0, -1.0, -1.0, -1.0, 9.0, 14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 13.0,  14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 28.0, 38.0};
         this.platinum = platium;
         this.movietype = movietype;
