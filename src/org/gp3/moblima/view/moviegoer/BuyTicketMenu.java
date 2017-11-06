@@ -51,9 +51,19 @@ public class BuyTicketMenu extends BaseMenu {
 
         // Payment
         // Ask if student or senior
+        if(confirm("Are you eligible for student discount?"))
+        {
+
+        }
+        else if(confirm("Are you eligible for senior discount?"))
+        {
+
+        }
+
         // Confirm
         // Login
         // Create booking
+        //todo if(booking not successful, release selected seats)
         return null;
     }
 
@@ -102,19 +112,19 @@ public class BuyTicketMenu extends BaseMenu {
 
     private Seat chooseSeats(ArrayList<ArrayList<Seat>> seats, int row, int col) {
         println("Please choose your seat(s).");
-
+        int i,j;
         do {
-            row = readInt("Please input row number");
-            col = readInt("Please input col number");
+            i = readInt("Please input row number",1,row);
+            j = readInt("Please input col number",1,col);
 
-            if (seats.get(--row).get(--col).isOcccupied() || seats.get(--row).get(--col).isSelected())
+            if (seats.get(--i).get(--j).isOcccupied() || seats.get(--i).get(--j).isSelected())
                 println("Already been taken/selected please choose another seats.");
             else break;
         } while (true);
 
-        seats.get(row).get(col).setSelected(true);
-        print("Selected Seat: Row" + row + " Col" + col);
+        seats.get(i).get(j).setSelected(true);
+        print("Selected Seat: Row" + i + " Col" + j);
 
-        return new Seat(row, col, false);
+        return new Seat(i, j, false);
     }
 }
