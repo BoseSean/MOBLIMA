@@ -20,7 +20,6 @@ public class ConfigurePriceMenu extends BaseMenu {
 
     @Override
     public BaseMenu execute() {
-        // TODO by DAXIONGDI
         printTitle("Configure Price Menu");
 
         priceManager = PriceManager.getInstance();
