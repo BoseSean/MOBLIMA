@@ -6,7 +6,7 @@ import org.gp3.moblima.model.Constant.MovieType;
  * Created by hannancao on 6/11/17.
  */
 public class TicketPrice{
-    private double price;
+    private Double[] price;
     private TicketType tickettype;
     private MovieType movietype;
     private boolean platinum;
@@ -14,6 +14,8 @@ public class TicketPrice{
 
     public TicketPrice(){}
     public TicketPrice(boolean platium, MovieType movietype, TicketType tickettype, boolean snack){
+
+        this.price =  new Double[]{5.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 7.0, 8.0, -1.0, -1.0, -1.0, -1.0, -1.0, 9.0, 14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 13.0,  14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 28.0, 38.0};
         this.platinum = platium;
         this.movietype = movietype;
         this.tickettype = tickettype;
@@ -25,10 +27,6 @@ public class TicketPrice{
 
     public MovieType getMovietype() {
         return movietype;
-    }
-
-    public double getPrice() {
-        return price;
     }
 
     public boolean isPlatinum() {
@@ -43,11 +41,11 @@ public class TicketPrice{
         snack = snack;
     }
 
-    public void setTickettype(Constant.TicketType tickettype) {
+    public void setTickettype(TicketType tickettype) {
         this.tickettype = tickettype;
     }
 
-    public void setMovietype(Constant.MovieType movietype) {
+    public void setMovietype(MovieType movietype) {
         this.movietype = movietype;
     }
 
@@ -55,9 +53,6 @@ public class TicketPrice{
         this.platinum = platinum;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public double calculatePrice(){
         if(platinum){
