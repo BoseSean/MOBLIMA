@@ -2,6 +2,7 @@ package org.gp3.moblima.view.admin;
 
 import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Holiday;
+import org.gp3.moblima.model.TicketPrice;
 import org.gp3.moblima.view.BaseMenu;
 import org.gp3.moblima.model.Constant.TicketType;
 import org.gp3.moblima.model.Constant.MovieType;
@@ -14,8 +15,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static org.gp3.moblima.model.Constant.Tables.HOLIDAY;
-import static org.gp3.moblima.model.Constant.Tables.PRICE;
+
 import static org.gp3.moblima.model.Constant.Tables.TICKET;
+import static org.gp3.moblima.model.Constant.Tables.TICKETPRICE;
 import static org.gp3.moblima.view.IOUtil.*;
 import static org.gp3.moblima.view.IOUtil.println;
 
@@ -31,14 +33,13 @@ public class ConfigurePriceMenu extends BaseMenu {
         // TODO by DAXIONGDI
         printTitle("Configure Price Menu");
 
-        Manager manager = Manager.getInstance();
+        Manager manager = PriceManager.getInstance();
 
         ArrayList<String> choices = new ArrayList<String>();
 
-        Ticket ticket = new Ticket();
+        TicketPrice ticketprice = new TicketPrice();
 
         choices.add("Update Price");
-        choices.add("Remove Price");
         choices.add("Add New Price");
 
         printMenuItems(choices, 0);
@@ -47,7 +48,7 @@ public class ConfigurePriceMenu extends BaseMenu {
         switch(c){
             case 0:
                 String name = read("Input Ticket type");
-                ticket = manager.getEntry(TICKET, (Ticket h) -> (h.equals(name));
+                ticketprice = manager.getEntry(TICKETPRICE, (TicketPrice h) -> (h.equals(name));
                 if(ticket != null) {
                     int price = readInt("Input Ticket price");
                 }
