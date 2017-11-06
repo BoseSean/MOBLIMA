@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Ticket implements Model{
 
-//    private double price;
+    private double price;
 //    private TicketType tickettype;
 //    private MovieType movietype;
 //    private boolean platinum;
@@ -38,6 +38,14 @@ public class Ticket implements Model{
 
     public Seat getSeat() {
         return seat;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public void setSeat(Seat seat) {
