@@ -56,44 +56,8 @@ public class TicketPrice{
         return price;
     }
 
-    public double calculatePrice(){
-        if(platinum){
-            if(getTickettype() == TicketType.MON_THU && !snack)
-                return 28;
-            else
-                return 38;
-        }
-        else{
-            if(getMovietype() == MovieType.TWO_D && getTickettype() == TicketType.SENIOR)
-                return 5;
-            else if(getTickettype() == TicketType.SENIOR){
-                return -1;
-            }
-            else if(getTickettype() == TicketType.STUDENT){
-                if(getMovietype() == MovieType.TWO_D)
-                    return 7;
-                else if(getMovietype() == MovieType.THREE_D)
-                    return 8;
-                else
-                    return -1;
-            }
-            else if(getTickettype() == TicketType.MON_THU){
-                if(getMovietype() == MovieType.TWO_D)
-                    return 9;
-                else if(getMovietype() == MovieType.THREE_D_AND_JEM || getMovietype() == MovieType.THREE_D_AND_WESTMALL)
-                    return 16;
-                else
-                    return 14;
-            }
-            else{
-                if(getMovietype() == MovieType.TWO_D)
-                    return 13;
-                else if(getMovietype() == MovieType.THREE_D_AND_JEM || getMovietype() == MovieType.THREE_D_AND_WESTMALL)
-                    return 16;
-                else
-                    return 14;
-            }
-        }
+    public static void updatePrice(int pos, double new_price){
+        price[pos] = new_price;
     }
 
     @Override
