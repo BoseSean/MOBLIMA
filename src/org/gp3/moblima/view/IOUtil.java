@@ -41,6 +41,7 @@ public class IOUtil {
         return c;
     }
 
+
     public static int readInt(String Message) {
         print(Message);
         while (true) {

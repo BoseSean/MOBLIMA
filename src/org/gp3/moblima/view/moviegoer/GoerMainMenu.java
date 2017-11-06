@@ -14,6 +14,17 @@ public class GoerMainMenu extends BaseMenu {
         super(previousMenu);
     }
 
+    /**
+     * Display main user menu
+     * Ask user to choice the next menu
+     * and bring user to next stage of application
+     * Consist of four menu
+     * 1. Search for movies
+     * 2. Display all movies
+	 * 3. View history ( login required )
+     * 4. Back to previous menu
+     * @return
+     */
     @Override
     public BaseMenu execute() {
         printTitle("Welcome to MOvie Booking and LIsting Management Application (MOBLIMA)");
