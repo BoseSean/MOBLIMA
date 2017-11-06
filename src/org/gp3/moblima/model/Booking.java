@@ -17,6 +17,15 @@ public class Booking implements Model
     private User user;
     private Slot slot;
 
+    /**
+     * Booking CLass constructor
+     * @param tid
+     * @param date
+     * @param totalPrice
+     * @param movie
+     * @param cinema
+     * @param tickets
+     */
     public Booking(String tid, String date, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
         TID = tid;
         this.date = date;
@@ -27,6 +36,9 @@ public class Booking implements Model
     }
 
 
+    /**
+     * Get Movie info
+     */
     public void getInfo() {
 		System.out.println(this.getTID());
 		System.out.println(this.getDate());
@@ -35,6 +47,10 @@ public class Booking implements Model
 		System.out.println(this.getMovie().getTitle());
 	}
 
+    /**
+     * Get Ticket ID
+     * @return
+     */
 	public String getTID() {
         return TID;
     }
