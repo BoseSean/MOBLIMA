@@ -1,23 +1,13 @@
 package org.gp3.moblima.view.admin;
 
 import org.gp3.moblima.controller.Manager;
-import org.gp3.moblima.model.Holiday;
-import org.gp3.moblima.view.BaseMenu;
-import org.gp3.moblima.model.Constant.TicketType;
-import org.gp3.moblima.model.Constant.MovieType;
 import org.gp3.moblima.model.Ticket;
+import org.gp3.moblima.view.BaseMenu;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
-import static org.gp3.moblima.model.Constant.Tables.HOLIDAY;
-import static org.gp3.moblima.model.Constant.Tables.PRICE;
 import static org.gp3.moblima.model.Constant.Tables.TICKET;
 import static org.gp3.moblima.view.IOUtil.*;
-import static org.gp3.moblima.view.IOUtil.println;
 
 public class ConfigurePriceMenu extends BaseMenu {
 
@@ -47,7 +37,7 @@ public class ConfigurePriceMenu extends BaseMenu {
         switch(c){
             case 0:
                 String name = read("Input Ticket type");
-                ticket = manager.getEntry(TICKET, (Ticket h) -> (h.equals(name));
+                ticket = manager.getEntry(TICKET, (Ticket h) -> (h.equals(name)));
                 if(ticket != null) {
                     int price = readInt("Input Ticket price");
                 }
