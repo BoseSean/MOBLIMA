@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.printTitle;
 import static org.gp3.moblima.view.IOUtil.read;
+import static org.gp3.moblima.view.IOUtil.readInt;
 
 public class ReviewsMenu extends BaseMenu {
     private final Movie movie;
@@ -21,7 +22,7 @@ public class ReviewsMenu extends BaseMenu {
     public BaseMenu execute() {
         printTitle(movie.getTitle());
 
-		Review review = new Review(read("Please Enter your comment for "+ movie.getTitle()));
+		Review review = new Review(read("Please Enter your comment for : " + movie.getTitle()), readInt("Please enter your rating for : " + movie.getTitle()));
 
 		movie.addReview(review);
 		return this.getPreviousMenu();
