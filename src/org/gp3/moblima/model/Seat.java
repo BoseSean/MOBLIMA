@@ -9,7 +9,7 @@ public class Seat implements Model
 
     private int col,row;
 
-    private boolean occcupied;
+    private boolean occcupied,selected;
 
 //    private Slot slot;
 
@@ -17,6 +17,7 @@ public class Seat implements Model
         this.col = col;
         this.row = row;
         this.occcupied = occcupied;
+        this.selected = false;
     }
 
     public int getCol() {
@@ -61,5 +62,13 @@ public class Seat implements Model
 
         if (col != seat.col) return false;
         return row == seat.row;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

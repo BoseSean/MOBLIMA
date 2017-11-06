@@ -21,7 +21,6 @@ public class MovieInfo extends BaseMenu {
     public BaseMenu execute() {
         printTitle(movie.getTitle());
 
-        //todo
         printMovieInfo();
 
         ArrayList<String> choices = new ArrayList<>();
@@ -49,12 +48,11 @@ public class MovieInfo extends BaseMenu {
         return nextMenu;
     }
 
-    //todo: fix the info and format
     public void printMovieInfo() {
-        System.out.println(this.movie.getTitle());
-        System.out.println(this.movie.getRuntime());
-        System.out.println(this.movie.getDirector());
-        System.out.println(this.movie.getOpening());
-        System.out.println(this.movie.getSynopsis());
+        println("Title: " + this.movie.getTitle());
+        println("Rumtime: " + this.movie.getRuntime());
+        println("Director: " + this.movie.getDirector());
+        println("Opening: " + this.movie.getOpening());
+        println("Synopsis: " + this.movie.getSynopsis());
     }
 }
