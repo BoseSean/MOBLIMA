@@ -90,4 +90,7 @@ public class PriceManager {
         }
     }
 
+    public static Double updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean snack, Double newPrice) {
+
+    }
 }
