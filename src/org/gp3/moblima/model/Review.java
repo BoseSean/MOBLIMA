@@ -1,26 +1,22 @@
 package org.gp3.moblima.model;
 
 public class Review implements Model {
-	// TODO add rating number 
 	/**
 	 * Review of a Movie in the form
 	 * of comment
 	 * String Type
 	 */
 	private String comment;
-
-	/**
-	 * Getter
-	 *
-	 * @return
-	 */
+	private int rating;
 
 	/**
 	 * Constructor for Review
+	 *
 	 * @param comment
 	 */
-	public Review(String comment) {
+	public Review(String comment, int rating) {
 		this.comment = comment;
+		this.rating = rating;
 	}
 
 	public Review() {
@@ -31,15 +27,17 @@ public class Review implements Model {
 		return comment;
 	}
 
-
-	/**
-	 * Setter
-	 * @param comment
-	 */
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
 
+	public double getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
 
 	/**
 	 * Check if a review already exists
@@ -53,7 +51,8 @@ public class Review implements Model {
 
 		Review review = (Review) o;
 
-		return getComment().equals(review.getComment());
+		if (rating != review.rating) return false;
+		return getComment() != null ? getComment().equals(review.getComment()) : review.getComment() == null;
 	}
 
 }

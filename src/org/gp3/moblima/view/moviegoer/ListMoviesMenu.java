@@ -19,7 +19,18 @@ public class ListMoviesMenu extends BaseMenu {
         super(previousMenu);
     }
 
-    @Override
+	/**
+	 * Display all current available movie
+	 * Ask user to choice the next menu
+	 * and bring user to next stage of application
+	 * Consist of four menu
+	 * 1. Show Top 5 movies by sales
+	 * 2. Show Top 5 movies by rating
+	 * 3. Back to previous menu
+	 * 4. Quit Booking System
+	 * @return
+	 */
+	@Override
     public BaseMenu execute() {
         printTitle("Movie Listing");
 		Manager mg = Manager.getInstance();

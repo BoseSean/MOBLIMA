@@ -138,8 +138,7 @@ public class Movie implements Model
 		}
 		this.reviews.add(review);
 		this.addRatingTimes(1);
-		// TODO overAllRating Logic not clear
-
+		setOverAllRating(getOverAllRating() + review.getRating() / getRatingTimes());
 	}
 
 	/**
@@ -177,6 +176,7 @@ public class Movie implements Model
                 return;
             }
     }
+
 
 //	public static ArrayList<Movie> sortTicketSales(ArrayList<Movie> movies) {
 //		Collections.sort(movies, new Comparator<Movie>() {

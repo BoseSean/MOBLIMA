@@ -30,6 +30,8 @@ public class IOUtil {
         System.out.print(message);
     }
 
+    public static void print(int num){System.out.print(num);}
+
     public static int readInt(String message, int min, int max) {
         int c = 0;
         do {
@@ -38,6 +40,7 @@ public class IOUtil {
         } while (!(c >= min && c <= max));
         return c;
     }
+
 
     public static int readInt(String Message) {
         print(Message);

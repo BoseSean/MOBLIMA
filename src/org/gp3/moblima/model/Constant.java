@@ -30,8 +30,8 @@ public class Constant {
         TWO_D_AND_JEM("Ultima 2D @ JEM & West Mall"),
         THREE_D_AND_JEM("Ultima 3D @ JEM & West Mall"),
         TWO_D_AND_WESTMALL("Elite Club 2D@ West Mall"),
-        THREE_D_AND_WESTMALL("Elite Club 3D@ West Mall");
-
+        THREE_D_AND_WESTMALL("Elite Club 3D@ West Mall"),
+        DOLBY_AUTO("Dolby Atmos 2D");
         private String date;
 
         MovieType(String data) {
@@ -56,7 +56,7 @@ public class Constant {
         ADMIN,
         REVIEW,
         HOLIDAY,
-        TICKETPRICE;
+        TICKETPRICE
     }
 
 }
