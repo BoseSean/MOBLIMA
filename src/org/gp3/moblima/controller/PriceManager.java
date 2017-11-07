@@ -90,7 +90,75 @@ public class PriceManager {
         }
     }
 
-    public static Double updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean snack, Double newPrice) {
-
+    public static void updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean snack, double price){
+        if (platinum) {
+            if (tickettype == Constant.TicketType.MON_THU && !snack)
+                TicketPrice.updatePrice(28 , price);
+            else
+                TicketPrice.updatePrice(29 , price);
+        }
+        else{
+            if (tickettype == Constant.TicketType.SENIOR) {
+                if (movietype == Constant.MovieType.TWO_D)
+                    TicketPrice.updatePrice(0 , price);
+                else if (movietype == Constant.MovieType.THREE_D)
+                    TicketPrice.updatePrice(1 , price);
+                else if (movietype == Constant.MovieType.DOLBY_AUTO)
+                    TicketPrice.updatePrice(2 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_JEM)
+                    TicketPrice.updatePrice(3 , price);
+                else if (movietype == Constant.MovieType.THREE_D_AND_JEM)
+                    TicketPrice.updatePrice(4 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_WESTMALL)
+                    TicketPrice.updatePrice(5 , price);
+                else
+                    TicketPrice.updatePrice(6 , price);
+            } else if (tickettype == Constant.TicketType.STUDENT) {
+                if (movietype == Constant.MovieType.TWO_D)
+                    TicketPrice.updatePrice(7 , price);
+                else if (movietype == Constant.MovieType.THREE_D)
+                    TicketPrice.updatePrice(8 , price);
+                else if (movietype == Constant.MovieType.DOLBY_AUTO)
+                    TicketPrice.updatePrice(9 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_JEM)
+                    TicketPrice.updatePrice(10 , price);
+                else if (movietype == Constant.MovieType.THREE_D_AND_JEM)
+                    TicketPrice.updatePrice(11 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_WESTMALL)
+                    TicketPrice.updatePrice(12 , price);
+                else
+                    TicketPrice.updatePrice(13 , price);
+            } else if (tickettype == Constant.TicketType.MON_THU) {
+                if (movietype == Constant.MovieType.TWO_D)
+                    TicketPrice.updatePrice(14 , price);
+                else if (movietype == Constant.MovieType.THREE_D)
+                    TicketPrice.updatePrice(15 , price);
+                else if (movietype == Constant.MovieType.DOLBY_AUTO)
+                    TicketPrice.updatePrice(16 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_JEM)
+                    TicketPrice.updatePrice(17 , price);
+                else if (movietype == Constant.MovieType.THREE_D_AND_JEM)
+                    TicketPrice.updatePrice(18 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_WESTMALL)
+                    TicketPrice.updatePrice(19 , price);
+                else
+                    TicketPrice.updatePrice(20 , price);
+            } else {
+                if (movietype == Constant.MovieType.TWO_D)
+                    TicketPrice.updatePrice(21 , price);
+                else if (movietype == Constant.MovieType.THREE_D)
+                    TicketPrice.updatePrice(22 , price);
+                else if (movietype == Constant.MovieType.DOLBY_AUTO)
+                    TicketPrice.updatePrice(23 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_JEM)
+                    TicketPrice.updatePrice(24 , price);
+                else if (movietype == Constant.MovieType.THREE_D_AND_JEM)
+                    TicketPrice.updatePrice(25 , price);
+                else if (movietype == Constant.MovieType.TWO_D_AND_WESTMALL)
+                    TicketPrice.updatePrice(26 , price);
+                else
+                    TicketPrice.updatePrice(27 , price);
+            }
+        }
     }
 }
