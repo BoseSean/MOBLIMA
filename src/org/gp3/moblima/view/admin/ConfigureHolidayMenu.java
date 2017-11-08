@@ -36,8 +36,6 @@ public class ConfigureHolidayMenu extends BaseMenu {
 
 		int c = readChoice(0, choices.size());
 
-		// TODO
-		// Date format for holiday to be determined
 		switch (c) {
 			case 0:
 				String name = read("Input Holiday Name");

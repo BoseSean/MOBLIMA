@@ -23,7 +23,6 @@ public class CreateMovie extends BaseMenu {
 	@Override
 	public BaseMenu execute()
     {
-        //todo: movie title line cannot be proper read
         movie = new Movie();
         readln(""); //filter out the \n removed/ignored by sc.next()
         buf = readln("Input movie title: ");

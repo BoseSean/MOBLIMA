@@ -72,7 +72,7 @@ public class IOUtil {
         }
     }
 
-    // TODO deep refinement for readChoice() required.
+
     public static int readChoice(int min, int max) {
         return readChoice("Choice", min, max);
     }

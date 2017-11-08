@@ -10,8 +10,7 @@ public class Holiday implements Model {
     // What is id for ?
     // How to assign when adding new holiday ?
     private int id;
-	// TODO
-	// Date format to be determined
+
 	private Date date;
     private String name;
 
