@@ -23,10 +23,9 @@ public class Constant {
     }
 
     public enum MovieType {
+
         TWO_D("2D Movies"),
         THREE_D("3D Movies"),
-//      JEM("JEM & West Mall"),
-//      WESTMALL("West Mall"),
         TWO_D_AND_JEM("Ultima 2D @ JEM & West Mall"),
         THREE_D_AND_JEM("Ultima 3D @ JEM & West Mall"),
         TWO_D_AND_WESTMALL("Elite Club 2D@ West Mall"),
@@ -34,6 +33,7 @@ public class Constant {
         DOLBY_AUTO("Dolby Atmos 2D");
         private String date;
 
+        //todo 这个date为什么是string? 为什么movietype有date
         MovieType(String data) {
             this.date = data;
         }
