@@ -43,9 +43,9 @@ public class PriceManager {
             } else if (tickettype == Constant.TicketType.STUDENT) {
                 if (movietype == Constant.MovieType.TWO_D)
                     return TicketPrice.getPrice()[7];
-                else if (movietype == Constant.MovieType.THREE_D)
+                else if (movietype.equals(Constant.MovieType.THREE_D))
                     return TicketPrice.getPrice()[8];
-                else if (movietype == Constant.MovieType.DOLBY_AUTO)
+                else if (movietype.equals(Constant.MovieType.DOLBY_AUTO))
                     return TicketPrice.getPrice()[9];
                 else if (movietype == Constant.MovieType.TWO_D_AND_JEM)
                     return TicketPrice.getPrice()[10];

@@ -19,6 +19,7 @@ public class TestRunner {
         manager.add(Constant.Tables.CINEMA, new Cinema("JEM",false, new ArrayList<Slot>()));
         manager.add(Constant.Tables.CINEMA, new Cinema("West Mall",false, new ArrayList<Slot>()));
         MenuLoop loop = new MenuLoop(new MainMenu(null));
+        System.out.println(TicketPrice.getPrice().length);
         loop.start();
 
         manager.commit();
