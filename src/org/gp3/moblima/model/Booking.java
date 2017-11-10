@@ -1,6 +1,7 @@
 package org.gp3.moblima.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Shen Youlin on 14/10/17.
@@ -8,7 +9,8 @@ import java.util.ArrayList;
 
 public class Booking implements Model
 {
-    private String TID,date;
+    private String TID;
+    private Date date;
     private double totalPrice;
     private Movie movie;
     private Cinema cinema;
@@ -26,7 +28,7 @@ public class Booking implements Model
      * @param cinema
      * @param tickets
      */
-    public Booking(String tid, String date, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
+    public Booking(String tid, Date date, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
         TID = tid;
         this.date = date;
         this.totalPrice = totalPrice;
@@ -59,11 +61,11 @@ public class Booking implements Model
         this.TID = TID;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

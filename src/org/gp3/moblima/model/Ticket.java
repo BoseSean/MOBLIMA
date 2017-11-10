@@ -13,18 +13,17 @@ public class Ticket implements Model{
     private double price;
     private TicketType tickettype;
     private MovieType movietype;
-    private boolean platinum;
     private Seat seat;
     private boolean snack;
-    private Booking booking;
     private TicketPrice ticketprice;
+
 
     public Ticket(){}
 
-    public Ticket(Seat seat, Booking booking, TicketPrice ticketprice){
+    public Ticket(Seat seat, MovieType movieType, TicketType ticketType)
+    {
         this.seat = seat;
-        this.booking = booking;
-        this.ticketprice = ticketprice;
+        this.movietype = movieType;
     }
 
     public TicketPrice getTicketprice() {
@@ -59,9 +58,6 @@ public class Ticket implements Model{
         return movietype;
     }
 
-    public boolean isPlatinum() {
-        return platinum;
-    }
 
     public boolean isSnack() {
         return snack;
@@ -77,10 +73,6 @@ public class Ticket implements Model{
 
     public void setMovietype(MovieType movietype) {
         this.movietype = movietype;
-    }
-
-    public void setPlatinum(boolean platinum) {
-        this.platinum = platinum;
     }
 
 

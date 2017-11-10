@@ -138,9 +138,13 @@ public class UpdateMovieMenu extends BaseMenu {
 			choices.add(mt.toString());
 		printMenuItems(choices,0);
 		int c = readChoice("Choose movie type",0,choices.size());
+		boolean isplatinum = false;
+		if((readInt("Input 1 for platinum slot",0,1)) == 1)
+			isplatinum = true;
+
 		//todo choose movietype is from 0 to 6 not form 0 to 7
 		Constant.MovieType mt = Constant.MovieType.values()[c];
-		return new Slot(col, row,  cinema,  movie, startDate , mt);
+		return new Slot(col, row,  cinema,  movie, startDate , mt , isplatinum);
 
 	}
 }
