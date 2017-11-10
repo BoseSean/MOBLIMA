@@ -9,6 +9,7 @@ import org.gp3.moblima.view.BaseMenu;
 import javax.jws.soap.SOAPBinding;
 import java.awt.print.Book;
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -84,46 +85,36 @@ public class BuyTicketMenu extends BaseMenu {
         // Create booking & Payment
 
         Ticket ticket = tickets.get(0);
-        double totalprice = PriceManager.getPrice(ticket.getTickettype(),ticket.getMovietype(),slot.isPlatinum(),slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
-        //todo tid
-        String tid = "XXXYYYYMMDDhhmm" ;
+        //double totalprice = PriceManager.getPrice(ticket.getTickettype(),ticket.getMovietype(),slot.isPlatinum(),issnack, isblockbuster, isfirstweek) * tickets.size();
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(Calendar.getInstance().getTime());
+        String tid;
+        if(slot.getCinema().getName().equals("JEM"))
+            tid = "001"+timeStamp;
+        else
+            tid = "002"+timeStamp;
         Booking booking = new Booking(tid,slot.getDate(),totalprice,movie,slot.getCinema(),tickets);
 
-
+        User user;
         if (confirm("Do you have an account (Y/N) ?")) {
-            login();
+            user = login();
         } else {
             String name = read("Name: ");
             String passwd = read("Password: ");
 //            manager.add(Constant.Tables.USER, new User(name, "12312312312", "));
-            User user = new User(name, "1111", passwd);
+            user = new User(name, "1111", passwd);
             manager.add(Constant.Tables.USER, user);
         }
-        // Login
-//        User user = null;
-//        do {
-//            String name = read("Name: ");
-////			name = read("Name: ");
-//            user = manager.getEntry(USER, (User u) -> (u.getName().equals(name)));
-//            if (user == null) {
-//                println("Wrong name, please try again.");
-//            }
-//
-//        } while (user == null);
-//
-//        do {
-//            String email = read("Password: ");
-////			email = read("Email: ");
-//            user = manager.getEntry(USER, (User u) -> (u.getPassword().equals(email)));
-//            if (user == null) {
-//                println("Wrong email, please try again.");
-//            }
-//        } while (user == null);
 
         // Confirm
         if(confirm("Confirm to book? "))
         {
-            //todo add to db
+            user.addBookings(booking);
+            booking.setUser(user);
+            manager.add(Constant.Tables.BOOKING,booking);
+            //todo db 保存？
+            //manager.add(Constant.Tables.TICKET,tickets);
+            println("Booking successful, tid=" + tid);
+
         }
         else
         {

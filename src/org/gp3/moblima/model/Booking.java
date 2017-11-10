@@ -139,4 +139,12 @@ public class Booking implements Model
         }
         return super.equals(obj);
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
