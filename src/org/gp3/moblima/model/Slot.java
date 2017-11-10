@@ -13,9 +13,9 @@ public class Slot implements Model, Comparable
     private Date date,time;
     private Constant.MovieType movieType;
     private boolean platinum;
-    private boolean blockbuster, firstweek;
+    private boolean SneakOrFirstWeekorblockbuster;
 
-    public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Date time, Constant.MovieType movieType, boolean plat, boolean blockbuster, boolean firstweek) {
+    public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Date time, Constant.MovieType movieType, boolean plat, boolean SneakOrFirstWeekorblockbuster) {
 
         for(int i=0;i<row;i++)
         {
@@ -26,8 +26,7 @@ public class Slot implements Model, Comparable
                 this.seats.get(i).add(tmpseat);
             }
         }
-        this.blockbuster = blockbuster;
-        this.firstweek = firstweek;
+        this.SneakOrFirstWeekorblockbuster = SneakOrFirstWeekorblockbuster;
         this.platinum = plat;
         this.cinema = cinema;
         this.movie = movie;
@@ -132,19 +131,11 @@ public class Slot implements Model, Comparable
         this.time = time;
     }
 
-    public boolean isFirstweek() {
-        return firstweek;
+    public boolean isSneakOrFirstWeekorblockbuster() {
+        return SneakOrFirstWeekorblockbuster;
     }
 
-    public void setFirstweek(boolean firstweek) {
-        this.firstweek = firstweek;
-    }
-
-    public boolean isBlockbuster() {
-        return blockbuster;
-    }
-
-    public void setBlockbuster(boolean blockbuster) {
-        this.blockbuster = blockbuster;
+    public void setSneakOrFirstWeekorblockbuster(boolean sneakOrFirstWeekorblockbuster) {
+        SneakOrFirstWeekorblockbuster = sneakOrFirstWeekorblockbuster;
     }
 }

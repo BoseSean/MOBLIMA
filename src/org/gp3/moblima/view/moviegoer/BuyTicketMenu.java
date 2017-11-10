@@ -82,14 +82,9 @@ public class BuyTicketMenu extends BaseMenu {
         }
 
         // Create booking & Payment
-        boolean issnack = false;
-        if(confirm("Do you want to buy the sneaks? ")) issnack = true;
-        boolean isblockbuster = false;
-        if(confirm("Are you buying blockbuster? ")) isblockbuster = true;
-        boolean isfirstweek = false;
-        if(confirm("Is the movie showing on the first week? ")) isfirstweek = true;
+
         Ticket ticket = tickets.get(0);
-        double totalprice = PriceManager.getPrice(ticket.getTickettype(),ticket.getMovietype(),slot.isPlatinum(),issnack, isblockbuster, isfirstweek) * tickets.size();
+        double totalprice = PriceManager.getPrice(ticket.getTickettype(),ticket.getMovietype(),slot.isPlatinum(),slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
         //todo tid
         String tid = "XXXYYYYMMDDhhmm" ;
         Booking booking = new Booking(tid,slot.getDate(),totalprice,movie,slot.getCinema(),tickets);

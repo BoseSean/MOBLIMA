@@ -14,7 +14,6 @@ public class Ticket implements Model{
     private TicketType tickettype;
     private MovieType movietype;
     private Seat seat;
-    private boolean snack;
     private TicketPrice ticketprice;
 
     public Ticket(){}
@@ -55,15 +54,6 @@ public class Ticket implements Model{
 
     public MovieType getMovietype() {
         return movietype;
-    }
-
-
-    public boolean isSnack() {
-        return snack;
-    }
-
-    public void setSnack(boolean snack) {
-        snack = snack;
     }
 
     public void setTickettype(TicketType tickettype) {
