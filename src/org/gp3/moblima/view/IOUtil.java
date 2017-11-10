@@ -19,19 +19,6 @@ public class IOUtil {
     private static Scanner sc = new Scanner(System.in);
 
 
-//    public static Date readTime(String message) {
-//        do {
-//            // TODO correct the following code
-//            try {
-//                String time = read(message + " (" + Constant.FORMAT_TIME_CLOCK + "): ");
-//                return Constant.clockFormat.parse(time);
-//            } catch (ParseException ime) {
-//                println("Please enter a correct time format");
-//                sc.nextLine();
-//            }
-//        } while (true);
-//    }
-
     public static void print(String message) {
         System.out.print(message);
     }

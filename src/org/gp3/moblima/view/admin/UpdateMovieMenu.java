@@ -128,9 +128,9 @@ public class UpdateMovieMenu extends BaseMenu {
 		if((readInt("Input 1 for platinum slot",0,1)) == 1)
 			isplatinum = true;
 
-		//todo choose movietype is from 0 to 6 not form 0 to 7
+
 		Constant.MovieType mt = Constant.MovieType.values()[c];
-		return new Slot(col, row,  cinema,  movie, startDate , mt , isplatinum);
+		return new Slot(col, row,  cinema,  movie, startDate , startTime, mt , isplatinum);
 
 	}
 }

@@ -56,7 +56,6 @@ public class Constant {
         DOLBY_AUTO("Dolby Atmos 2D");
         private String date;
 
-        //todo 这个date为什么是string? 为什么movietype有date
         MovieType(String data) {
             this.date = data;
         }

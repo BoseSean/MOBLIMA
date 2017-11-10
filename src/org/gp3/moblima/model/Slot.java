@@ -9,11 +9,11 @@ public class Slot implements Model, Comparable
     private ArrayList<ArrayList<Seat>> seats = new ArrayList<ArrayList<Seat>>();
     private Cinema cinema;
     private Movie movie;
-    private Date date;
+    private Date date,time;
     private Constant.MovieType movieType;
     private boolean platinum;
 
-    public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Constant.MovieType movieType, boolean plat) {
+    public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Date time, Constant.MovieType movieType, boolean plat) {
 
         for(int i=0;i<row;i++)
         {
@@ -29,6 +29,7 @@ public class Slot implements Model, Comparable
         this.movie = movie;
         this.date = date;
         this.movieType = movieType;
+        this.time = time;
     }
 
     public Slot()
@@ -92,9 +93,12 @@ public class Slot implements Model, Comparable
         return date;
     }
 
+
     public String getFormattedDate() {
         return Constant.holidayFormat.format(date);
     }
+
+    public String getFormattedTime() { return  Constant.datetimeFormat.format(time);}
 
     public void setDate(Date date) {
         this.date = date;
@@ -114,5 +118,13 @@ public class Slot implements Model, Comparable
 
     public void setPlatinum(boolean platinum) {
         this.platinum = platinum;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
