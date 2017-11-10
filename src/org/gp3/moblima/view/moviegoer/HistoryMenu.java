@@ -32,7 +32,7 @@ public class HistoryMenu extends BaseMenu {
     public BaseMenu execute() {
         printTitle("History");
 
-		printTitle("Please Login Using Username and Password");
+		printTitle("Please Login Using Username and Email");
 
 
 		Manager man = Manager.getInstance();
@@ -64,7 +64,7 @@ public class HistoryMenu extends BaseMenu {
 //			name = read("Name: ");
 			user = man.getEntry(USER, (User u) -> (u.getName().equals(name)));
 			if (user == null) {
-				println("Wrong Name");
+				println("Wrong name, please try again.");
 			}
 
 		} while (user == null);
@@ -74,7 +74,7 @@ public class HistoryMenu extends BaseMenu {
 //			email = read("Email: ");
 			user = man.getEntry(USER, (User u) -> (u.getEmail().equals(email)));
 			if (user == null) {
-				println("Wrong Email");
+				println("Wrong email, please try again.");
 			}
 		} while (user == null);
 
