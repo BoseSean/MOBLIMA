@@ -1,9 +1,10 @@
 package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.controller.Manager;
-import org.gp3.moblima.model.*;
 import org.gp3.moblima.model.Constant;
+import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
+
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
@@ -11,10 +12,8 @@ import static org.gp3.moblima.view.IOUtil.*;
  */
 public class SearchMovieMenu extends BaseMenu {
 
-    Manager manager = Manager.getInstance();
-    Movie movie = null;
-    MovieInfo nextMenu = null;
-    String movieName;
+    private Manager manager = Manager.getInstance();
+    private String movieName;
     public SearchMovieMenu(BaseMenu previousMenu) {
         super(previousMenu);
     }
@@ -22,10 +21,13 @@ public class SearchMovieMenu extends BaseMenu {
     @Override
     public BaseMenu execute()
     {
+        MovieInfo nextMenu = null;
+        Movie movie;
+        movieName = null;
         printTitle("Movie Search");
         movieName = read("Input movie name to search: ");
 
-        while(movie == null)
+        while (true)
         {
             movie = manager.getEntry(Constant.Tables.MOVIE, (Movie m)->(m.getTitle().equals(movieName)));
             if(movie == null)

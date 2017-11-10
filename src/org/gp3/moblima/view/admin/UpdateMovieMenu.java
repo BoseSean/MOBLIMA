@@ -139,7 +139,6 @@ public class UpdateMovieMenu extends BaseMenu {
 		printMenuItems(choices,0);
 		int c = readChoice("Choose movie type",0,choices.size());
 		//todo choose movietype is from 0 to 6 not form 0 to 7
-		int c = readChoice("Choose movie type: ",0,choices.size());
 		Constant.MovieType mt = Constant.MovieType.values()[c];
 		return new Slot(col, row,  cinema,  movie, startDate , mt);
 
