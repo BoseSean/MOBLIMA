@@ -9,20 +9,22 @@ import org.gp3.moblima.view.BaseMenu;
 import java.awt.print.Book;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static org.gp3.moblima.model.Constant.Tables.USER;
 import static org.gp3.moblima.view.IOUtil.*;
 
 public class BuyTicketMenu extends BaseMenu {
     private final Movie movie;
-
+    private Manager manager = Manager.getInstance();
     public BuyTicketMenu(BaseMenu previousMenu, Movie movie) {
         super(previousMenu);
         this.movie = movie;
     }
     @Override
     public BaseMenu execute() {
-        Manager manager = Manager.getInstance();
+
 
         ArrayList<String> choices = new ArrayList<>();
         int c;
@@ -190,5 +192,24 @@ public class BuyTicketMenu extends BaseMenu {
         print("Selected Seat: Row" + i + " Col" + j);
 
         return new Seat(i, j, false);
+    }
+
+    public Constant.TicketType dayOfweek(Date date){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        int day = c.get(Calendar.DAY_OF_WEEK);
+        if(day <= 5 && day >= 2){
+            boolean flag = false;
+            ArrayList<Holiday>holidays = manager.getAll(Constant.Tables.HOLIDAY);
+            for(Holiday holiday: holidays){
+                if(holiday.getDate() == date){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+                return Constant.TicketType.MON_THU;
+        }
+        return Constant.TicketType.FIR_SUN_AND_PH;
     }
 }
