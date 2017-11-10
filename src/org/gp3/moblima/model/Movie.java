@@ -47,8 +47,8 @@ public class Movie implements Model
 	}
 
     public double getOverAllRating() {
-        return overAllRating;
-    }
+		return overAllRating;
+	}
     public int getRatingTimes() {
         return ratingTimes;
     }
@@ -75,6 +75,10 @@ public class Movie implements Model
 
 	public void setOverAllRating(double overAllRating) {
 		this.overAllRating = overAllRating;
+//		for (Review r : this.reviews) {
+//			this.overAllRating += r.getRating();
+//		}
+//		this.overAllRating = this.overAllRating / reviews.size();
 	}
     public void addOverAllRating(double delta) {
         this.overAllRating += delta;
@@ -139,7 +143,8 @@ public class Movie implements Model
 		}
 		this.reviews.add(review);
 		this.addRatingTimes(1);
-		setOverAllRating(getOverAllRating() + review.getRating() / getRatingTimes());
+		double r = (getOverAllRating() + review.getRating()) / getRatingTimes();
+		setOverAllRating(r);
 	}
 
 	/**
@@ -153,6 +158,13 @@ public class Movie implements Model
 				this.reviews.remove(review);
 			}
 		}
+	}
+
+	public ArrayList<Review> getReview(){
+		if (reviews == null) {
+			this.reviews = new ArrayList<Review>();
+		}
+		return  this.reviews;
 	}
 
 	public boolean actorInCasts(String some_cast) {

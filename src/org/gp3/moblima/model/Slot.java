@@ -1,11 +1,17 @@
 package org.gp3.moblima.model;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Slot implements Model, Comparable
 {
+    private ArrayList<ArrayList<Seat>> seats = new ArrayList<ArrayList<Seat>>();
+    private Cinema cinema;
+    private Movie movie;
+    private Date date;
+    private Constant.MovieType movieType;
+
     public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Constant.MovieType movieType) {
 
         for(int i=0;i<row;i++)
@@ -23,15 +29,10 @@ public class Slot implements Model, Comparable
         this.date = date;
         this.movieType = movieType;
     }
+
     public Slot()
     {}
 
-
-    private ArrayList<ArrayList<Seat>> seats = new ArrayList<ArrayList<Seat>>();
-    private Cinema cinema;
-    private Movie movie;
-    private Date date;
-    private Constant.MovieType movieType;
 
 
 

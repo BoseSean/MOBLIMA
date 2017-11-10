@@ -7,15 +7,15 @@ import java.util.ArrayList;
  */
 
 public class User implements Model {
-    private String name,phone,email;
+    private String name, phone, password;
     private ArrayList<Booking> bookings;
 
 
-    public User(String name, String phone, String email)
+    public User(String name, String phone, String password)
     {
         this.name = name;
         this.phone = phone;
-        this.email = email;
+        this.password = password;
         this.bookings = new ArrayList<>();
     }
 
@@ -36,12 +36,12 @@ public class User implements Model {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public ArrayList<Booking> getBookings() {

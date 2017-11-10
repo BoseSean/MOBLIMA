@@ -1,6 +1,7 @@
 package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.model.Movie;
+import org.gp3.moblima.model.Review;
 import org.gp3.moblima.view.BaseMenu;
 
 import java.util.ArrayList;
@@ -54,5 +55,9 @@ public class MovieInfo extends BaseMenu {
         println("Director: " + this.movie.getDirector());
         println("Opening: " + this.movie.getOpening());
         println("Synopsis: " + this.movie.getSynopsis());
+        for (Review r : movie.getReview()) {
+        	println("Review: " + r.getComment());
+        }
+        println("Overall Rating: " + this.movie.getOverAllRating());
     }
 }

@@ -1,14 +1,13 @@
 package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.controller.Manager;
-import org.gp3.moblima.view.BaseMenu;
-import org.gp3.moblima.model.User;
 import org.gp3.moblima.model.Booking;
-import static org.gp3.moblima.model.Constant.Tables.USER;
+import org.gp3.moblima.model.User;
+import org.gp3.moblima.view.BaseMenu;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 
+import static org.gp3.moblima.model.Constant.Tables.USER;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
@@ -43,7 +42,7 @@ public class HistoryMenu extends BaseMenu {
 //		User user = man.getEntry(USER,
 //				(User u) -> (
 //						u.getName().equals(name) &&
-//								u.getEmail().equals(email))
+//								u.getPassword().equals(email))
 //		);
 //
 //		if (user == null) {
@@ -70,20 +69,20 @@ public class HistoryMenu extends BaseMenu {
 		} while (user == null);
 
 		do {
-			String email = read("Email: ");
+			String email = read("Password: ");
 //			email = read("Email: ");
-			user = man.getEntry(USER, (User u) -> (u.getEmail().equals(email)));
+			user = man.getEntry(USER, (User u) -> (u.getPassword().equals(email)));
 			if (user == null) {
 				println("Wrong email, please try again.");
 			}
 		} while (user == null);
 
 
-			ArrayList<Booking> booking = user.getBookings();
+		ArrayList<Booking> booking = user.getBookings();
 
-			for (Booking book : booking) {
-				book.getInfo();
-			}
+		for (Booking book : booking) {
+			book.getInfo();
+		}
 
 		return this.getPreviousMenu();
 	}
