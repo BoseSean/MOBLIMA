@@ -2,12 +2,13 @@ package org.gp3.moblima.controller;
 
 import org.gp3.moblima.model.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by zhangxinye on 14/10/17.
  */
-class SerializeDB {
+class SerializeDB implements Serializable {
 
     ArrayList<Admin> admins;
     ArrayList<Booking> bookings;

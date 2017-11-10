@@ -1,13 +1,11 @@
 package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.controller.Manager;
-import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Seat;
 import org.gp3.moblima.model.Slot;
 import org.gp3.moblima.view.BaseMenu;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.*;
@@ -32,7 +30,7 @@ public class BuyTicketMenu extends BaseMenu {
         // Find slot
         for(Slot slot:movie.getSlots())
         {
-            choices.add(slot.getCinema() + " " + slot.getDate() + " " + " ");
+            choices.add(slot.getCinema().getName() + " " + slot.getDate() + " " + " ");
         }
         printMenuItems(choices, 0);
         c = readChoice("Please Choose a slot", 0, choices.size());
