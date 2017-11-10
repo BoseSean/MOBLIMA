@@ -31,7 +31,7 @@ public class BuyTicketMenu extends BaseMenu {
         // Find slot
         for(Slot slot:movie.getSlots())
         {
-            choices.add(slot.getCinema().getName() + " " + slot.getDate() + " " + " ");
+            choices.add(slot.getCinema().getName() + " : " + slot.getFormattedDate() + " " + " ");
         }
         printMenuItems(choices, 0);
         c = readChoice("Please Choose a slot", 0, choices.size());

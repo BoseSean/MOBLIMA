@@ -147,6 +147,11 @@ public class IOUtil {
 
     }
 
+    /**
+     * This method will only read in a format of the date with label
+     * @param label is the message to be printed when asking for input
+     * @return Date when a correct format if entered, Otherwise keep prompting
+     */
     public static Date readDate(String label) {
         return readDate(label, "");
     }
@@ -172,6 +177,12 @@ public class IOUtil {
         } while(true);
     }
 
+
+    /**
+     * This method will only read in a format of the time with label
+     * @param label is the message to be printed when asking for input
+     * @return Date when a correct format if entered, Otherwise keep prompting
+     */
     public static Date readTime(String label) {
         do {
             try {
@@ -182,6 +193,11 @@ public class IOUtil {
                 sc.nextLine();
             }
         } while(true);
+    }
+
+
+    public String printDate(Date date) {
+        return Constant.holidayFormat.format(date);
     }
 
     public static void printTitle(String title) {
