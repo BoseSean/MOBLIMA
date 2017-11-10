@@ -22,7 +22,7 @@ public class ReviewsMenu extends BaseMenu {
     public BaseMenu execute() {
         printTitle(movie.getTitle());
 
-		Review review = new Review(read("Please Enter your comment for : " + movie.getTitle()), readInt("Please enter your rating for : " + movie.getTitle()));
+		Review review = new Review(read("Please Enter your comment for " + movie.getTitle() + ": ")  , readInt("Please enter your rating (1-5) for " + movie.getTitle() + " : "));
 
 		movie.addReview(review);
 		return this.getPreviousMenu();

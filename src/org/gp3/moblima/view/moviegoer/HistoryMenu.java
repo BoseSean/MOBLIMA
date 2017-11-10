@@ -79,11 +79,11 @@ public class HistoryMenu extends BaseMenu {
 		} while (user == null);
 
 
-			ArrayList<Booking> booking = user.getBookings();
+		ArrayList<Booking> booking = user.getBookings();
 
-			for (Booking book : booking) {
-				book.getInfo();
-			}
+		for (Booking book : booking) {
+			book.getInfo();
+		}
 
 		return this.getPreviousMenu();
 	}
