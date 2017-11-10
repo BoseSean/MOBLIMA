@@ -93,22 +93,17 @@ public class UpdateMovieMenu extends BaseMenu {
 			println("Slot added.");
 		}
 		if (confirm("Remove Slot")) {
-			//todo 输入slot还是选择slot？
-			Slot slot = readSlot();
-			while(true)
+			ArrayList<String>choices = new ArrayList<>();
+			for(Slot slot: movie.getSlots())
 			{
-				for(Slot s : movie.getSlots())
-				{
-					if(s.equals(slot))
-					{
-						movie.removeSlot(s);
-						println("Slot removed");
-						break;
-					}
-				}
-				println("No same slot found, please check your input");
+				choices.add(slot.getCinema().toString()+" "+slot.getDate().toString());
 			}
-
+			printMenuItems(choices,0);
+			int c = readChoice("Please choose a slot to remove",0,choices.size());
+			Slot slot = movie.getSlots().get(c);
+			Movie m = manager.getEntry(Constant.Tables.MOVIE,(Movie movie)->(movie.getTitle().equals(movie)));
+			m.removeSlot(slot);
+			println("Slot removed");
 		}
 
 
