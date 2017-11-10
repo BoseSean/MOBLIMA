@@ -27,6 +27,7 @@ public class SearchMovieMenu extends BaseMenu {
         printTitle("Movie Search");
         movieName = read("Input movie name to search: ");
 
+        movie = null;
         while (true)
         {
             movie = manager.getEntry(Constant.Tables.MOVIE, (Movie m)->(m.getTitle().equals(movieName)));
