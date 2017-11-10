@@ -121,17 +121,18 @@ public class UpdateMovieMenu extends BaseMenu {
 		int row = readInt("Input seat rows: ");
 		int col = readInt("Input seat cols: ");
 
-		String date = read("Input New Date (DD/MM): ");
-		//TODO need to set restriction to dd/mm
-		date = date + "/2017";
-		DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
-		Date startDate = new Date();
-		try {
-			startDate = df.parse(date);
-		}
-		catch (ParseException e) {
-			e.printStackTrace();
-		}
+		Date startDate = readDate("Please input Date");
+//		String date = read("Input New Date (DD/MM): ");
+//		//TODO need to set restriction to dd/mm
+//		date = date + "/2017";
+//		DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
+//		Date startDate = new Date();
+//		try {
+//			startDate = df.parse(date);
+//		}
+//		catch (ParseException e) {
+//			e.printStackTrace();
+//		}
 		ArrayList<String> choices = new ArrayList<>();
 		println("Select movie type: ");
 		for(Constant.MovieType mt : Constant.MovieType.values())

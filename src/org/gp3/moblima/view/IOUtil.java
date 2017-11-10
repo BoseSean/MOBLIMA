@@ -1,9 +1,15 @@
 package org.gp3.moblima.view;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
 //import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import org.gp3.moblima.model.Constant;
 
 /**
  * Created by zhangxinye on 19/10/17.
@@ -139,6 +145,43 @@ public class IOUtil {
                     + rightBuilder.toString());
         }
 
+    }
+
+    public static Date readDate(String label) {
+        return readDate(label, "");
+    }
+
+    public static Date readDate(String label, String format) {
+        SimpleDateFormat sdf;
+
+        if (format.isEmpty()) { // default value
+            sdf = Constant.dateFormatShort;
+            format = Constant.FORMAT_DATE_SHORT;
+        } else {
+            sdf = new SimpleDateFormat(format);
+        }
+
+        do {
+            try {
+                String date = read(label+" ("+format+"): ");
+                return sdf.parse(date);
+            } catch (ParseException ime) {
+                println("Please enter a correct date format");
+                sc.nextLine();
+            }
+        } while(true);
+    }
+
+    public static Date readTime(String label) {
+        do {
+            try {
+                String time = read(label+" ("+Constant.FORMAT_TIME_CLOCK+"): ");
+                return Constant.clockFormat.parse(time);
+            } catch (ParseException ime) {
+                println("Please enter a correct time format");
+                sc.nextLine();
+            }
+        } while(true);
     }
 
     public static void printTitle(String title) {

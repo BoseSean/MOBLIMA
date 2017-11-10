@@ -43,18 +43,20 @@ public class ConfigureHolidayMenu extends BaseMenu {
 				if (holiday != null) {
 					String newName = read("Input New Holiday Name: ");
 					holiday.setName(newName);
-					String date = read("Input New Date (DD/MM): ");
-					date = date + "/2017";
-					DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
-					Date startDate;
-					try {
-						startDate = df.parse(date);
-						holiday.setDate(startDate);
-					} catch (ParseException e) {
-						e.printStackTrace();
-					} finally {
-						println("Update Done");
-					}
+					Date startdate = readDate("Please new Date: ");
+					holiday.setDate(startdate);
+//					String date = read("Input New Date (DD/MM): ");
+//					date = date + "/2017";
+//					DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
+//					Date startDate;
+//					try {
+//						startDate = df.parse(date);
+//						holiday.setDate(startDate);
+//					} catch (ParseException e) {
+//						e.printStackTrace();
+//					} finally {
+//						println("Update Done");
+//					}
 
 				} else {
 					println("Holiday Does Not Exists");
@@ -72,20 +74,23 @@ public class ConfigureHolidayMenu extends BaseMenu {
 			case 2:
 				name = read("Input New Holiday Name: ");
 				holiday.setName(name);
-				String date = read("Input New Date (DD/MM): ");
-				date = date + "/2017";
-				DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
-				Date startDate;
-				try {
-					startDate = df.parse(date);
-					holiday.setDate(startDate);
-					manager.add(HOLIDAY, holiday);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				finally {
-					println("New Holiday Added");
-				}
+				Date startdate = readDate("Please input Date: ");
+				holiday.setDate(startdate);
+				manager.add(HOLIDAY, holiday);
+//				String date = read("Input New Date (DD/MM): ");
+//				date = date + "/2017";
+//				DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
+//				Date startDate;
+//				try {
+//					startDate = df.parse(date);
+//					holiday.setDate(startDate);
+//					manager.add(HOLIDAY, holiday);
+//				} catch (ParseException e) {
+//					e.printStackTrace();
+//				}
+//				finally {
+//					println("New Holiday Added");
+//				}
 				break;
 		}
 
