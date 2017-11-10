@@ -1,7 +1,12 @@
 package org.gp3.moblima.view;
 
+import org.gp3.moblima.controller.Manager;
+
+import static org.gp3.moblima.model.Constant.Tables.USER;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+
+import org.gp3.moblima.model.User;
 import java.text.ParseException;
 
 //import org.jetbrains.annotations.Contract;
@@ -15,6 +20,8 @@ import org.gp3.moblima.model.Constant;
  * Created by zhangxinye on 19/10/17.
  */
 public class IOUtil {
+    private static Manager manager = Manager.getInstance();
+
     public static int SCREEN_WIDTH = 80;
     private static Scanner sc = new Scanner(System.in);
 
@@ -23,7 +30,9 @@ public class IOUtil {
         System.out.print(message);
     }
 
-    public static void print(int num){System.out.print(num);}
+    public static void print(int num) {
+        System.out.print(num);
+    }
 
     public static int readInt(String message, int min, int max) {
         int c = 0;
@@ -54,7 +63,7 @@ public class IOUtil {
      * return 	 true  if input is 'y' or
      * return 	 false if input is 'n'
      * Otherwise it will repeatedly prompt user for input
-     * */
+     */
     public static boolean confirm(String message) {
         while (true) {
             String in = read(message + " (Y/N): ");
@@ -71,7 +80,7 @@ public class IOUtil {
     }
 
     public static int readChoice(String message, int min, int max) {
-        return readInt(message, min, max-1);
+        return readInt(message, min, max - 1);
     }
 
 //    public static int readChoice(String message, int choice) {
@@ -83,15 +92,14 @@ public class IOUtil {
         String input = "";
         print(message);
 
-        do{
+        do {
             input = sc.nextLine();
-        }while(input.trim().equals(""));
+        } while (input.trim().equals(""));
 
         return input;
     }
 
-	public static String readln(String message)
-    {
+    public static String readln(String message) {
         println(message);
         return sc.nextLine();
     }
@@ -101,9 +109,9 @@ public class IOUtil {
     }
 
     public static void println() {
-		System.out.println();
+        System.out.println();
 
-	}
+    }
 
     public static void printSplitLine() {
         for (int i = SCREEN_WIDTH; i > 0; i--)
@@ -136,6 +144,7 @@ public class IOUtil {
 
     /**
      * This method will only read in a format of the date with label
+     *
      * @param label is the message to be printed when asking for input
      * @return Date when a correct format if entered, Otherwise keep prompting
      */
@@ -155,31 +164,32 @@ public class IOUtil {
 
         do {
             try {
-                String date = read(label+" ("+format+"): ");
+                String date = read(label + " (" + format + "): ");
                 return sdf.parse(date);
             } catch (ParseException ime) {
                 println("Please enter a correct date format");
                 sc.nextLine();
             }
-        } while(true);
+        } while (true);
     }
 
 
     /**
      * This method will only read in a format of the time with label
+     *
      * @param label is the message to be printed when asking for input
      * @return Date when a correct format if entered, Otherwise keep prompting
      */
     public static Date readTime(String label) {
         do {
             try {
-                String time = read(label+" ("+Constant.FORMAT_TIME_CLOCK+"): ");
+                String time = read(label + " (" + Constant.FORMAT_TIME_CLOCK + "): ");
                 return Constant.clockFormat.parse(time);
             } catch (ParseException ime) {
                 println("Please enter a correct time format");
                 sc.nextLine();
             }
-        } while(true);
+        } while (true);
     }
 
 
@@ -193,11 +203,37 @@ public class IOUtil {
         printSplitLine();
 
     }
-    //todo new opening time need to strict to time string only.
+
+
+    public static User login() {
+        // Login
+        User user = null;
+        do {
+            String name = read("Name: ");
+            user = manager.getEntry(USER, (User u) -> (u.getName().equals(name)));
+            if (user == null) {
+                println("Wrong name, please try again.");
+            }
+
+        } while (user == null);
+
+        do {
+            String email = read("Password: ");
+            user = manager.getEntry(USER, (User u) -> (u.getPassword().equals(email)));
+            if (user == null) {
+                println("Wrong email, please try again.");
+            }
+        } while (user == null);
+
+        return user;
+    }
+
+        //todo new opening time need to strict to time string only.
+
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {
             println((choiceIdFrom++) + ": " + choice);
-			System.out.println();
-		}
+            System.out.println();
+        }
     }
-}
+    }
