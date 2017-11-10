@@ -8,9 +8,10 @@ public class Slot implements Model, Comparable
 {
     public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Constant.MovieType movieType) {
 
-        for(int i=1;i<=row;i++)
+        for(int i=0;i<row;i++)
         {
-            for(int j=1;j<=col;j++)
+            this.seats.add(new ArrayList<Seat>());
+            for(int j=0;j<col;j++)
             {
                 Seat tmpseat = new Seat(j,i,false);
                 this.seats.get(i).add(tmpseat);

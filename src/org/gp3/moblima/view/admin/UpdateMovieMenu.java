@@ -116,9 +116,13 @@ public class UpdateMovieMenu extends BaseMenu {
     }
     private Slot readSlot()
 	{
-		Cinema cinema = manager.getEntry(Constant.Tables.CINEMA,(Cinema c)->(c.getName().equals(read("Input Cinema"))));
-		int row = readInt("Input seat rows"), col = readInt("Input seat cols");
+		String s = read("Input Cinema: ");
+		Cinema cinema = manager.getEntry(Constant.Tables.CINEMA,(Cinema c)->(c.getName().equals(s)));
+		int row = readInt("Input seat rows: ");
+		int col = readInt("Input seat cols: ");
+
 		String date = read("Input New Date (DD/MM): ");
+		//TODO need to set restriction to dd/mm
 		date = date + "/2017";
 		DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
 		Date startDate = new Date();
@@ -129,10 +133,13 @@ public class UpdateMovieMenu extends BaseMenu {
 			e.printStackTrace();
 		}
 		ArrayList<String> choices = new ArrayList<>();
+		println("Select movie type: ");
 		for(Constant.MovieType mt : Constant.MovieType.values())
 			choices.add(mt.toString());
 		printMenuItems(choices,0);
 		int c = readChoice("Choose movie type",0,choices.size());
+		//todo choose movietype is from 0 to 6 not form 0 to 7
+		int c = readChoice("Choose movie type: ",0,choices.size());
 		Constant.MovieType mt = Constant.MovieType.values()[c];
 		return new Slot(col, row,  cinema,  movie, startDate , mt);
 
