@@ -12,9 +12,10 @@ public class Slot implements Model, Comparable
     private Movie movie;
     private Date date,time;
     private Constant.MovieType movieType;
-    private boolean isplatinum;
+    private boolean platinum;
+    private boolean blockbuster, firstweek;
 
-    public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Date time, Constant.MovieType movieType, boolean plat) {
+    public Slot(int col, int row, Cinema cinema, Movie movie, Date date, Date time, Constant.MovieType movieType, boolean plat, boolean blockbuster, boolean firstweek) {
 
         for(int i=0;i<row;i++)
         {
@@ -25,7 +26,9 @@ public class Slot implements Model, Comparable
                 this.seats.get(i).add(tmpseat);
             }
         }
-        this.isplatinum = plat;
+        this.blockbuster = blockbuster;
+        this.firstweek = firstweek;
+        this.platinum = plat;
         this.cinema = cinema;
         this.movie = movie;
         this.date = date;
@@ -114,11 +117,11 @@ public class Slot implements Model, Comparable
     }
 
     public boolean isPlatinum() {
-        return isplatinum;
+        return platinum;
     }
 
     public void setPlatinum(boolean platinum) {
-        this.isplatinum = platinum;
+        this.platinum = platinum;
     }
 
     public Date getTime() {
@@ -127,5 +130,21 @@ public class Slot implements Model, Comparable
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public boolean isFirstweek() {
+        return firstweek;
+    }
+
+    public void setFirstweek(boolean firstweek) {
+        this.firstweek = firstweek;
+    }
+
+    public boolean isBlockbuster() {
+        return blockbuster;
+    }
+
+    public void setBlockbuster(boolean blockbuster) {
+        this.blockbuster = blockbuster;
     }
 }

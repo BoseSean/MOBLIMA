@@ -17,7 +17,6 @@ public class Ticket implements Model{
     private boolean snack;
     private TicketPrice ticketprice;
 
-
     public Ticket(){}
 
     public Ticket(Seat seat, MovieType movieType, TicketType ticketType)

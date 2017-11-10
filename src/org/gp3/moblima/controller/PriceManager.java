@@ -18,10 +18,9 @@ public class PriceManager {
         return singleInstance;
     }
 
-
-    public static Double getPrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean snack) {
+    public static Double getPrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean snack, boolean blockbuster, boolean firstweek) {
         if (platinum) {
-            if (tickettype == Constant.TicketType.MON_THU && !snack)
+            if (tickettype == Constant.TicketType.MON_THU && !snack && !blockbuster && !firstweek)
                 return TicketPrice.getPrice()[28];
             else
                 return TicketPrice.getPrice()[29];
@@ -90,9 +89,9 @@ public class PriceManager {
         }
     }
 
-    public static void updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean snack, double price){
+    public static void updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean snack, double price, boolean blockbuster, boolean firstweek){
         if (platinum) {
-            if (tickettype == Constant.TicketType.MON_THU && !snack)
+            if (tickettype == Constant.TicketType.MON_THU && !snack && !blockbuster && !firstweek)
                 TicketPrice.updatePrice(28 , price);
             else
                 TicketPrice.updatePrice(29 , price);
