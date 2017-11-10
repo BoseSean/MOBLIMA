@@ -18,6 +18,7 @@ public class Movie implements Model
 
 	public Movie(String title) {
 		this.title = title;
+
 	}
 
 	public Movie(){
@@ -166,6 +167,10 @@ public class Movie implements Model
         this.slots = slots;
     }
     public void addSlot(Slot some_slot) {
+	    if(slots ==null)
+        {
+            slots = new ArrayList<Slot>();
+        }
         this.slots.add(some_slot);
         // this.slots = sortSlots(this.slots);
     }
