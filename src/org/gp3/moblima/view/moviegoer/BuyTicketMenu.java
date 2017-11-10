@@ -133,23 +133,23 @@ public class BuyTicketMenu extends BaseMenu {
         Seat seat;
 
         printTitle(" Select Seats");
-        println("           |      Screen       |");
-        println("           ---------------------");
+        println("|      Screen       |");
+        println("---------------------");
 
-
+        print("   ");
         for(int i=0; i<col; i++){
-            print(" " + (i+1) +" ");
+            print((i+1)+"  ");
         }
 
         println("");
 
         for(int i =0; i<row; i++)
         {
-            print("   "+(i+1) +" ");
+            print((i+1) +" ");
 
             for(int j=0; j<col; j++)
             {
-                seat = seats.get(row).get(col);
+                seat = seats.get(i).get(j);
                 if(seat.isOcccupied())
                 {
                     print("[x]");
@@ -166,8 +166,8 @@ public class BuyTicketMenu extends BaseMenu {
         }
 
         println("");
-        println("                ----------");
-        println("                |Entrance|\n");
+        println("     ----------");
+        println("     |Entrance|\n");
         println("([#] Your seat  [ ] Avaliable  [x] Sold)");
     }
 
@@ -177,8 +177,8 @@ public class BuyTicketMenu extends BaseMenu {
         do {
             i = readInt("Please input row number",1,row);
             j = readInt("Please input col number",1,col);
-
-            if (seats.get(--i).get(--j).isOcccupied() || seats.get(--i).get(--j).isSelected())
+            i--;j--;
+            if (seats.get(i).get(j).isOcccupied() || seats.get(i).get(j).isSelected())
                 println("Already been taken/selected please choose another seats.");
             else break;
         } while (true);

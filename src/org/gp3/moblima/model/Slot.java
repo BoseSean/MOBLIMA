@@ -102,7 +102,7 @@ public class Slot implements Model, Comparable
         return Constant.holidayFormat.format(date);
     }
 
-    public String getFormattedTime() { return  Constant.datetimeFormat.format(time);}
+    public String getFormattedTime() { return  Constant.clockFormat.format(time);}
 
     public void setDate(Date date) {
         this.date = date;
