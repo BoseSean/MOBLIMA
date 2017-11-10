@@ -85,7 +85,7 @@ public class BuyTicketMenu extends BaseMenu {
         // Create booking & Payment
 
         Ticket ticket = tickets.get(0);
-
+        double totalprice = PriceManager.getPrice(ticket.getTickettype(),ticket.getMovietype(),slot.isPlatinum(),slot.isSneakOrFirstWeekorblockbuster()) *tickets.size();
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(Calendar.getInstance().getTime());
         String tid;
         if(slot.getCinema().getName().equals("JEM"))
