@@ -11,7 +11,8 @@ public class PriceManager {
 
     private PriceManager() {
         Manager manager = Manager.getInstance();
-        this.priceDB = manager.getAll(Constant.Tables.TICKETPRICE);
+        //todo
+        //this.priceDB = manager.getAll(Constant.Tables.TICKETPRICE);
     }
 
     public static PriceManager getInstance() {
