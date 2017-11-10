@@ -58,30 +58,33 @@ public class HistoryMenu extends BaseMenu {
 //
 //		}
 
-		do {
-			String name = read("Name: ");
-//			name = read("Name: ");
-			user = man.getEntry(USER, (User u) -> (u.getName().equals(name)));
-			if (user == null) {
-				println("Wrong name, please try again.");
+//		do {
+//			String name = read("Name: ");
+////			name = read("Name: ");
+//			user = man.getEntry(USER, (User u) -> (u.getName().equals(name)));
+//			if (user == null) {
+//				println("Wrong name, please try again.");
+//			}
+//
+//		} while (user == null);
+//
+//		do {
+//			String email = read("Password: ");
+////			email = read("Email: ");
+//			user = man.getEntry(USER, (User u) -> (u.getPassword().equals(email)));
+//			if (user == null) {
+//				println("Wrong email, please try again.");
+//			}
+//		} while (user == null);
+
+		user = login();
+
+		if (user != null) {
+			ArrayList<Booking> booking = user.getBookings();
+
+			for (Booking book : booking) {
+				book.getInfo();
 			}
-
-		} while (user == null);
-
-		do {
-			String email = read("Password: ");
-//			email = read("Email: ");
-			user = man.getEntry(USER, (User u) -> (u.getPassword().equals(email)));
-			if (user == null) {
-				println("Wrong email, please try again.");
-			}
-		} while (user == null);
-
-
-		ArrayList<Booking> booking = user.getBookings();
-
-		for (Booking book : booking) {
-			book.getInfo();
 		}
 
 		return this.getPreviousMenu();
