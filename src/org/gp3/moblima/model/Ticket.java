@@ -11,15 +11,14 @@ import java.util.ArrayList;
 public class Ticket implements Model{
 
     private double price;
-//    private TicketType tickettype;
-//    private MovieType movietype;
-//    private boolean platinum;
+    private TicketType tickettype;
+    private MovieType movietype;
+    private boolean platinum;
     private Seat seat;
-//    private boolean Snack;
+    private boolean snack;
     private Booking booking;
     private TicketPrice ticketprice;
 
-    //todo how to calculate ticket price?
     public Ticket(){}
 
     public Ticket(Seat seat, Booking booking, TicketPrice ticketprice){
@@ -51,6 +50,39 @@ public class Ticket implements Model{
     public void setSeat(Seat seat) {
         this.seat = seat;
     }
+
+    public TicketType getTickettype() {
+        return tickettype;
+    }
+
+    public MovieType getMovietype() {
+        return movietype;
+    }
+
+    public boolean isPlatinum() {
+        return platinum;
+    }
+
+    public boolean isSnack() {
+        return snack;
+    }
+
+    public void setSnack(boolean snack) {
+        snack = snack;
+    }
+
+    public void setTickettype(TicketType tickettype) {
+        this.tickettype = tickettype;
+    }
+
+    public void setMovietype(MovieType movietype) {
+        this.movietype = movietype;
+    }
+
+    public void setPlatinum(boolean platinum) {
+        this.platinum = platinum;
+    }
+
 
 
     @Override

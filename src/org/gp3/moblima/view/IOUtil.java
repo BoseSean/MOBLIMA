@@ -78,12 +78,12 @@ public class IOUtil {
     }
 
     public static int readChoice(String message, int min, int max) {
-        return readInt(message, min, max);
+        return readInt(message, min, max-1);
     }
 
-    public static int readChoice(String message, int choice) {
-        return readInt(message, 0, choice);
-    }
+//    public static int readChoice(String message, int choice) {
+//        return readInt(message, 0, choice);
+//    }
 
 
     public static String read(String message) {
@@ -147,12 +147,11 @@ public class IOUtil {
         printSplitLine();
 
     }
-
+    //todo new opening time need to strict to time string only.
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {
             println((choiceIdFrom++) + ": " + choice);
 			System.out.println();
-
 		}
     }
 }
