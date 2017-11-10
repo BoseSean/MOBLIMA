@@ -21,6 +21,7 @@ public class Ticket implements Model{
     public Ticket(Seat seat, MovieType movieType, TicketType ticketType)
     {
         this.seat = seat;
+        this.tickettype = ticketType;
         this.movietype = movieType;
     }
 
