@@ -101,7 +101,7 @@ public class UpdateMovieMenu extends BaseMenu {
 			printMenuItems(choices,0);
 			int c = readChoice("Please choose a slot to remove",0,choices.size());
 			Slot slot = movie.getSlots().get(c);
-			Movie m = manager.getEntry(Constant.Tables.MOVIE,(Movie movie)->(return movie.getTitle().equals(movie));
+			Movie m = manager.getEntry(Constant.Tables.MOVIE,(Movie movie)->(movie.getTitle().equals(movie)));
 			m.removeSlot(slot);
 			println("Slot removed");
 		}
