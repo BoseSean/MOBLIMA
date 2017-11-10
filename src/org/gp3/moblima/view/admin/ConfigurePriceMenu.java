@@ -24,9 +24,7 @@ public class ConfigurePriceMenu extends BaseMenu {
 
         priceManager = PriceManager.getInstance();
         boolean toUpdatePlatinum = false;
-        boolean toUpdateSnake = false;
-        boolean toBlockbuster = false;
-        boolean toFirstweek = false;
+        boolean toSneakOrFirstWeekorblockbuster = false;
         MovieType movieTypeToChange;
         TicketType ticketTypeToChange;
         ArrayList<String> choices = new ArrayList<String>();
@@ -45,45 +43,19 @@ public class ConfigurePriceMenu extends BaseMenu {
         }
 
         println("Do you want to change ticket price for Blockbuster or Not Blockbuster?");
-        choices.add("Blockbuster");
-        choices.add("Not Blockbuster");
+        choices.add("Sneak or First Week or blockbuster");
+        choices.add("Not Sneak not First Week not blockbuster");
         c = readChoice(0, choices.size());
         switch (c) {
             case 0:
-                toBlockbuster = true;
+                toSneakOrFirstWeekorblockbuster = true;
                 break;
             case 1:
-                toBlockbuster = false;
+                toSneakOrFirstWeekorblockbuster = false;
                 break;
         }
 
-        println("Do you want to change ticket price for Sneaks or No Sneaks?");
-        choices.clear();
-        choices.add("Sneaks");
-        choices.add("No Sneaks");
-        c = readChoice(0, choices.size());
-        switch (c) {
-            case 0:
-                toUpdateSnake = true;
-                break;
-            case 1:
-                toUpdateSnake = false;
-                break;
-        }
 
-        println("Do you want to change ticket price for First Week show or No First Week show?");
-        choices.clear();
-        choices.add("FirstWeek");
-        choices.add("No FirstWeek");
-        c = readChoice(0, choices.size());
-        switch (c) {
-            case 0:
-                toFirstweek = true;
-                break;
-            case 1:
-                toFirstweek = false;
-                break;
-        }
         println("What kind of movie to change price?");
         choices.clear();
         for (MovieType type : MovieType.values()){
@@ -101,7 +73,7 @@ public class ConfigurePriceMenu extends BaseMenu {
         ticketTypeToChange = TicketType.values()[c];
 
         int newPrice = readInt("What kind of ticket to change price?");
-        PriceManager.updatePrice(ticketTypeToChange, movieTypeToChange, toUpdatePlatinum, toUpdateSnake, newPrice, toBlockbuster, toFirstweek);
+        PriceManager.updatePrice(ticketTypeToChange, movieTypeToChange, toUpdatePlatinum, toSneakOrFirstWeekorblockbuster, newPrice);
         return this.getPreviousMenu();
     }
 }
