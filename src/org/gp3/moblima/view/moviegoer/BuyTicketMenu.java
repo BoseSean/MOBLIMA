@@ -72,16 +72,7 @@ public class BuyTicketMenu extends BaseMenu {
         }
         else
         {
-            //todo
-            Constant.TicketType ticketType;
-            //date mon-thu -> MON_THU
-            ticketType  = Constant.TicketType.MON_THU;
-
-            //date fri-sun &ph -> FRI_SUN&PH
-            ticketType = Constant.TicketType.FIR_SUN_AND_PH;
-
-            //date after 6pm ->6PM
-            ticketType = Constant.TicketType.MON_FRI_6;
+            Constant.TicketType ticketType = dayOfweek(slot.getDate());
             for( Seat seat : selected)
             {
                 Ticket ticket = new Ticket(seat,slot.getMovieType(),ticketType);
