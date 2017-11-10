@@ -180,7 +180,7 @@ public class BuyTicketMenu extends BaseMenu {
         } while (true);
 
         seats.get(i).get(j).setSelected(true);
-        print("Selected Seat: Row" + i + " Col" + j);
+        print("Selected Seat: Row: " + i + " Col: " + j);
 
         return new Seat(i, j, false);
     }
