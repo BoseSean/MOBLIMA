@@ -129,7 +129,7 @@ public class UpdateMovieMenu extends BaseMenu {
 			isplatinum = true;
 		boolean isSneakOrFirstWeekorblockbuster = false;
 		if((readInt("Input 1 for sneak or first week shown or blockbuster slot",0,1)) == 1)
-			isplatinum = true;
+			isSneakOrFirstWeekorblockbuster = true;
 
 		Constant.MovieType mt = Constant.MovieType.values()[c];
 		return new Slot(col, row,  cinema,  movie, startDate , startTime, mt , isplatinum, isSneakOrFirstWeekorblockbuster);
