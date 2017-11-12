@@ -4,18 +4,19 @@ package org.gp3.moblima.model;
  * Created by hannancao on 6/11/17.
  */
 public class TicketPrice implements Model {
-    private static Double[] price =  new Double[]{5.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 7.0, 8.0, -1.0, -1.0, -1.0, -1.0, -1.0, 9.0, 14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 13.0, 14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 28.0, 38.0};
+    private Double[] price = new Double[]{5.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 7.0, 8.0, -1.0, -1.0, -1.0, -1.0, -1.0, 9.0, 14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 13.0, 14.0, 14.0, 14.0, 16.0, 14.0, 16.0, 28.0, 38.0};
 //    private TicketType tickettype;
 //    private MovieType movietype;
 //    private boolean platinum;
 //    private boolean snack;
 
     public TicketPrice(){}
-    public static Double[] getPrice() {
-        return price;
+
+    public Double getPrice(int i) {
+        return price[i];
     }
 
-    public static void updatePrice(int pos, double new_price){
+    public void updatePrice(int pos, double new_price) {
         price[pos] = new_price;
     }
 //    public TicketPrice(boolean platium, MovieType movietype, TicketType tickettype, boolean snack){
