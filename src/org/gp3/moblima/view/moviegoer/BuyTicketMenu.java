@@ -185,7 +185,7 @@ public class BuyTicketMenu extends BaseMenu {
         return new Seat(i, j, false);
     }
 
-    public Constant.TicketType dayOfweek(Date date){
+    private Constant.TicketType dayOfweek(Date date){
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int day = c.get(Calendar.DAY_OF_WEEK);
@@ -198,7 +198,7 @@ public class BuyTicketMenu extends BaseMenu {
                     break;
                 }
             }
-            if(flag)
+            if(!flag)
                 return Constant.TicketType.MON_THU;
         }
         return Constant.TicketType.FIR_SUN_AND_PH;
