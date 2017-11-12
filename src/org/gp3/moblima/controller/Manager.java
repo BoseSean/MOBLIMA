@@ -21,6 +21,9 @@ public class Manager {
 
     private Manager() {
         init();
+//        ArrayList<TicketPrice> temp = new ArrayList();
+//        temp.add(new TicketPrice());
+//        db.ticketprice = temp;
     }
 
     public static Manager getInstance() {

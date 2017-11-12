@@ -2,16 +2,16 @@ package org.gp3.moblima.view.admin;
 
 
 import org.gp3.moblima.controller.PriceManager;
-
-import org.gp3.moblima.view.BaseMenu;
-import org.gp3.moblima.model.Constant.TicketType;
 import org.gp3.moblima.model.Constant.MovieType;
+import org.gp3.moblima.model.Constant.TicketType;
+import org.gp3.moblima.view.BaseMenu;
+
 import java.util.ArrayList;
+
 import static org.gp3.moblima.view.IOUtil.*;
-import static org.gp3.moblima.view.IOUtil.println;
 
 public class ConfigurePriceMenu extends BaseMenu {
-    private PriceManager priceManager;
+    private PriceManager priceManager = PriceManager.getInstance();
 
 
     public ConfigurePriceMenu(BaseMenu previousMenu) {
@@ -73,7 +73,7 @@ public class ConfigurePriceMenu extends BaseMenu {
         ticketTypeToChange = TicketType.values()[c];
 
         int newPrice = readInt("What kind of ticket to change price?");
-        PriceManager.updatePrice(ticketTypeToChange, movieTypeToChange, toUpdatePlatinum, toSneakOrFirstWeekorblockbuster, newPrice);
+        priceManager.updatePrice(ticketTypeToChange, movieTypeToChange, toUpdatePlatinum, toSneakOrFirstWeekorblockbuster, newPrice);
         return this.getPreviousMenu();
     }
 }

@@ -5,21 +5,17 @@ import org.gp3.moblima.controller.PriceManager;
 import org.gp3.moblima.model.*;
 import org.gp3.moblima.view.BaseMenu;
 
-
-import javax.jws.soap.SOAPBinding;
-import java.awt.print.Book;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.gp3.moblima.model.Constant.Tables.USER;
 import static org.gp3.moblima.view.IOUtil.*;
 
 public class BuyTicketMenu extends BaseMenu {
     private final Movie movie;
     private Manager manager = Manager.getInstance();
+    private PriceManager priceManager = PriceManager.getInstance();
     public BuyTicketMenu(BaseMenu previousMenu, Movie movie) {
         super(previousMenu);
         this.movie = movie;
@@ -85,7 +81,7 @@ public class BuyTicketMenu extends BaseMenu {
         // Create booking & Payment
 
         Ticket ticket = tickets.get(0);
-        double totalprice = PriceManager.getPrice(ticket.getTickettype(),ticket.getMovietype(),slot.isPlatinum(),slot.isSneakOrFirstWeekorblockbuster()) *tickets.size();
+        double totalprice = priceManager.getPrice(ticket.getTickettype(), ticket.getMovietype(), slot.isPlatinum(), slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(Calendar.getInstance().getTime());
         String tid;
         if(slot.getCinema().getName().equals("JEM"))

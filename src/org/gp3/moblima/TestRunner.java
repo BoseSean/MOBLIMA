@@ -1,8 +1,8 @@
 package org.gp3.moblima;
 
 import org.gp3.moblima.controller.Manager;
+import org.gp3.moblima.controller.PriceManager;
 import org.gp3.moblima.model.Constant;
-import org.gp3.moblima.model.TicketPrice;
 import org.gp3.moblima.view.MainMenu;
 import org.gp3.moblima.view.MenuLoop;
 
@@ -16,7 +16,8 @@ public class TestRunner {
 //        manager.add(Constant.Tables.USER, new User("user", "12312312312", "user@email.com"));
 //        manager.add(Constant.Tables.CINEMA, new Cinema("JEM",false, new ArrayList<Slot>()));
 //        manager.add(Constant.Tables.CINEMA, new Cinema("West Mall",false, new ArrayList<Slot>()));
-        manager.add(Constant.Tables.TICKETPRICE, new TicketPrice());
+        PriceManager pm = PriceManager.getInstance();
+        System.out.println(pm.getPrice(Constant.TicketType.MON_THU, Constant.MovieType.TWO_D_AND_WESTMALL, true, true));
         MenuLoop loop = new MenuLoop(new MainMenu(null));
 
         loop.start();
