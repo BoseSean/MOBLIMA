@@ -24,7 +24,7 @@ public class CreateMovie extends BaseMenu {
 	public BaseMenu execute()
     {
         movie = new Movie();
-        readln(""); //filter out the \n removed/ignored by sc.next()
+        //readln(""); //filter out the \n removed/ignored by sc.next()
         buf = readln("Input movie title: ");
         movie.setTitle(buf);
         buf = readln("Input director: ");

@@ -107,7 +107,7 @@ public class IOUtil {
         do {
             s = sc.nextLine();
         }
-        while (!s.equals("\n"));
+        while (s.equals(""));
         return s;
     }
 

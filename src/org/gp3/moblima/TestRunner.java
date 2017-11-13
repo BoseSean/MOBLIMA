@@ -6,6 +6,8 @@ import org.gp3.moblima.model.*;
 import org.gp3.moblima.view.MainMenu;
 import org.gp3.moblima.view.MenuLoop;
 
+import java.util.ArrayList;
+
 public class TestRunner {
     public static void main(String[] args) {
         Manager manager = Manager.getInstance();
