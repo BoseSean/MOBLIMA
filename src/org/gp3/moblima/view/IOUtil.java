@@ -103,7 +103,12 @@ public class IOUtil {
 
     public static String readln(String message) {
         println(message);
-        return sc.nextLine();
+        String s;
+        do {
+            s = sc.nextLine();
+        }
+        while (s.equals(""));
+        return s;
     }
 
     public static void println(String message) {
