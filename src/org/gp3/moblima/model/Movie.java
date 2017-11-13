@@ -15,7 +15,7 @@ public class Movie implements Model
 	private ArrayList<String> casts;
     private ArrayList<Slot> slots;
     private ArrayList<Review> reviews;
-
+    //todo: language/ opening/runtime/ 分级／
 	public Movie(String title) {
 		this.title = title;
 
