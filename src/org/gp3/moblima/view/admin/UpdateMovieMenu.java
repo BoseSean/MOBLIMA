@@ -111,8 +111,8 @@ public class UpdateMovieMenu extends BaseMenu {
 			}
 		}while(cinema==null);
 
-		int row = readInt("Input seat rows: ",1,9);
-		int col = readInt("Input seat cols: ",1,9);
+        int row = readInt("Input seat rows: ", 1, 99);
+        int col = readInt("Input seat cols: ", 1, 99);
 
 		Date startDate = readDate("Please input Date");
 		Date startTime = readTime("Please input time");
@@ -123,11 +123,12 @@ public class UpdateMovieMenu extends BaseMenu {
 		printMenuItems(choices,0);
 		int c = readChoice("Choose movie type",0,choices.size());
 		boolean isplatinum = false;
-		if((readInt("Input 1 for platinum slot",0,1)) == 1)
-			isplatinum = true;
+
+
+        isplatinum = confirm("Is this a platinum");
+
 		boolean isSneakOrFirstWeekorblockbuster = false;
-		if((readInt("Input 1 for sneak or first week shown or blockbuster slot",0,1)) == 1)
-			isSneakOrFirstWeekorblockbuster = true;
+        isSneakOrFirstWeekorblockbuster = confirm("Is this a sneak, first week shown or blockbuster slot");
 
 		Constant.MovieType mt = Constant.MovieType.values()[c];
 		return new Slot(col, row,  cinema,  movie, startDate , startTime, mt , isplatinum, isSneakOrFirstWeekorblockbuster);
