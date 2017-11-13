@@ -37,7 +37,6 @@ public class HistoryMenu extends BaseMenu {
 
 		User user = null;
 
-
 //		User user = man.getEntry(USER,
 //				(User u) -> (
 //						u.getName().equals(name) &&
@@ -83,15 +82,16 @@ public class HistoryMenu extends BaseMenu {
             println("In total "+booking.size() +" bookings found under "+user.getName()+".");
 			int cnt=1;
 			for (Booking book : booking) {
-				println("Booking "+cnt);
+				println("Booking "+cnt + " :");
                 cnt++;
 				println("TID: " + book.getTID());
 				println("Date: " + book.getDate());
-				println("Total Price: " + book.getTotalPrice());
+				println("Total Price (GST included): S$" + book.getTotalPrice());
 				println("Cinema: " + book.getCinema().getName());
 				println("Movie: " + book.getMovie().getTitle());
 			}
 		}
+        while(readInt("Press 0 to return to previous menu: ") != 0);
 		return this.getPreviousMenu();
 	}
 

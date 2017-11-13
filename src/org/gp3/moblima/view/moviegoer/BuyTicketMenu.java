@@ -97,12 +97,27 @@ public class BuyTicketMenu extends BaseMenu {
             tid = "002"+timeStamp;
         Booking booking = new Booking(tid,slot.getDate(),totalprice,movie,slot.getCinema(),tickets);
 
-        User user = login();
+        User user;
+        if (confirm("Do you have an account (Y/N) ?")) {
+            user = login();
+        } else {
+            String name = read("Name: ");
+            String email = read("Email: ");
+            String phone = read("Phone number: ");
+//            manager.add(Constant.Tables.USER, new User(name, "12312312312", "));
+            user = new User(name, phone, email);
+            manager.add(Constant.Tables.USER, user);
+        }
 
         // Confirm
-        println("Total price is "+booking.getTotalPrice());
+        println("Total price is S$"+ booking.getTotalPrice() + " (Inclusive of GST).");
         if(confirm("Confirm to book? "))
         {
+            for(Seat seat : selected)
+            {
+                seat.setSelected(false);
+                seat.setOcccupied(true);
+            }
             user.addBookings(booking);
             booking.setUser(user);
             manager.add(Constant.Tables.BOOKING,booking);
@@ -145,7 +160,7 @@ public class BuyTicketMenu extends BaseMenu {
                 seat = seats.get(i).get(j);
                 if(seat.isOcccupied())
                 {
-                    print("[x]");
+                    print("[X]");
                 }
                 else if(seat.isSelected())
                 {
@@ -161,7 +176,7 @@ public class BuyTicketMenu extends BaseMenu {
         println("");
         println("     ----------");
         println("     |Entrance|\n");
-        println("([#] Your seat  [ ] Avaliable  [x] Sold)");
+        println("([ ] Available  [#] Seat Selected  [X] Sold)");
     }
 
     private Seat chooseSeats(ArrayList<ArrayList<Seat>> seats, int row, int col) {
@@ -179,7 +194,7 @@ public class BuyTicketMenu extends BaseMenu {
         seats.get(i).get(j).setSelected(true);
         println("Selected Seat: Row: " + (i+1) + " Col: " + (j+1));
 
-        return new Seat(i, j, false);
+        return seats.get(i).get(j);
     }
 
     private Constant.TicketType dayOfweek(Date date){
