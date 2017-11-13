@@ -38,16 +38,6 @@ public class Booking implements Model
     }
 
 
-    /**
-     * Get Movie info
-     */
-    public void getInfo() {
-		System.out.println(this.getTID());
-		System.out.println(this.getDate());
-		System.out.println(this.getTotalPrice());
-		System.out.println(this.getCinema().getName());
-		System.out.println(this.getMovie().getTitle());
-	}
 
     /**
      * Get Ticket ID

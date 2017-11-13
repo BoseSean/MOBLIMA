@@ -30,7 +30,6 @@ public class HistoryMenu extends BaseMenu {
 	@Override
     public BaseMenu execute() {
         printTitle("History");
-
 		printTitle("Please Login Using Username and Email");
 
 
@@ -81,12 +80,19 @@ public class HistoryMenu extends BaseMenu {
 
 		if (user != null) {
 			ArrayList<Booking> booking = user.getBookings();
-
+            println(booking.size() +" bookings found");
+			int cnt=0;
 			for (Booking book : booking) {
-				book.getInfo();
+				println("Booking "+cnt);
+                cnt++;
+				println("TID: " + book.getTID());
+				println("Date: " + book.getDate());
+				println("Total Price: " + book.getTotalPrice());
+				println("Cinema: " + book.getCinema().getName());
+				println("Movie: " + book.getMovie().getTitle());
 			}
 		}
-
 		return this.getPreviousMenu();
 	}
+
 }
