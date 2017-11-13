@@ -23,14 +23,13 @@ public class BuyTicketMenu extends BaseMenu {
     @Override
     public BaseMenu execute() {
 
-
         ArrayList<String> choices = new ArrayList<>();
         int c;
         printTitle("Buy Ticket Menu");
 
         // Find slot
         //todo 如果没有slot呢？
-        if(movie.getSlots().size() == 0)
+        if(movie.getSlots().isEmpty())
         {
             println("Sorry, there is no available slot currently.");
             return this.getPreviousMenu();
