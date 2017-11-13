@@ -28,7 +28,7 @@ public class MovieInfo extends BaseMenu {
 
         ArrayList<String> choices = new ArrayList<>();
         int c=0;
-        if(!movie.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING))
+        if(!(movie.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING) && movie.getShowingStatus().equals(Constant.ShowingStatus.COMING_SOON)))
             choices.add("Buy Tickets");
         else
             c=1;
