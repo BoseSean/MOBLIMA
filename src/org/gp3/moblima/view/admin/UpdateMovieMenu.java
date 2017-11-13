@@ -27,26 +27,6 @@ public class UpdateMovieMenu extends BaseMenu {
     public BaseMenu execute() {
     	printTitle("Update Movie Info Menu");
 
-//		ArrayList<String> choices = new ArrayList<>();
-
-//		choices.add("Update Title");
-//		choices.add("Update Director");
-//		choices.add("Update Opening Time");
-//		choices.add("Update Runtime");
-//		choices.add("Update Synopsis");
-//		choices.add("Add Casts");
-//		choices.add("Remove Casts");
-//		choices.add("Update Slot");
-//		choices.add("Remove Slot");
-//		choices.add("Back");
-
-//		printMenuItems(choices, 0);
-
-//		int c = readChoice("Choice (0-" + choices.size() + ") : ", choices.size());
-
-//		BaseMenu nextMenu = this;
-
-
 		if (confirm("Update Title")) {
 			String title = read("New Title: ");
 			movie.setTitle(title);
@@ -59,8 +39,17 @@ public class UpdateMovieMenu extends BaseMenu {
 			String opening = read("New Opening Time: ");
 			movie.setOpening(opening);
 		}
-		if (confirm("Update Runtime")) {
-			String run = read("New Runtime: ");
+        if (confirm("Update Showing Status")) {
+            ArrayList<String> choices = new ArrayList();
+            for (Constant.ShowingStatus status : Constant.ShowingStatus.values()) {
+                choices.add(status.toString());
+            }
+            printMenuItems(choices, 0);
+            int c = readChoice(0, choices.size());
+            movie.setShowingStatus(Constant.ShowingStatus.values()[c]);
+        }
+        if (confirm("Update Runtime")) {
+            String run = read("New Runtime: ");
 			movie.setRuntime(run);
 		}
 		if (confirm("Update Synopsis")) {
@@ -68,9 +57,9 @@ public class UpdateMovieMenu extends BaseMenu {
 			movie.setSynopsis(synopsis);
 		}
 		if (confirm("Update Casts")) {
-			System.out.println("Separate by comma. ");
-			String cast = read("New cast: ");
-			ArrayList<String> castList= new ArrayList<String>();
+            println("Separate by comma. ");
+            String cast = read("New cast: ");
+            ArrayList<String> castList= new ArrayList<String>();
 			Collections.addAll(castList,cast.split(","));
 			movie.setCasts(castList);
 		}
@@ -84,7 +73,6 @@ public class UpdateMovieMenu extends BaseMenu {
 			for (String c : castList) {
 				movie.removeCast(c);
 			}
-//			movie.removeCast(castR);
 		}
 		if (confirm("Add A New Slot")) {
 			Slot slot = readSlot();
