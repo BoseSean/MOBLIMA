@@ -177,17 +177,7 @@ public class PriceManager {
 
             Date six = Constant.clockFormat.parse("1800");
             int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-//
-//            if (showtime.getCinema().isPlatinum()) {
-//                // Monday to Thursday
-//                if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.THURSDAY) {
-//                    return Constant.TicketType.MON_TO_THU;
-//                    // Friday to Sun
-//                } else {
-//                    return Constant.TicketType.FRI_TO_SUN;
-//                }
-//            }
-//            else {
+
             // Sat, Sun, Eve of PH or PH
             boolean hol = false;
             ArrayList<Holiday> holidays = manager.getAll(Constant.Tables.HOLIDAY);
