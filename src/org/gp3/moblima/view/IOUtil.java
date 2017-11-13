@@ -107,19 +107,37 @@ public class IOUtil {
     }
 
     public static void println(String message) {
-        StringBuilder builder = new StringBuilder(
-                message.length() + "\n  ".length() * (message.length() / SCREEN_WIDTH) + 1);
-        int index = 0;
-        String prefix = "";
-        while (index < message.length()) {
-            // Don't put the insert in the very first iteration.
-            // This is easier than appending it *after* each substring
-            builder.append(prefix);
-            prefix = "\n  ";
+        println(message, 0);
+//        StringBuilder builder = new StringBuilder(
+//                message.length() + "\n  ".length() * (message.length() / SCREEN_WIDTH) + 1);
+//        int index = 0;
+//        String prefix = "";
+//        while (index < message.length()) {
+//            // Don't put the insert in the very first iteration.
+//            // This is easier than appending it *after* each substring
+//            builder.append(prefix);
+//            prefix = "\n                ";
+//
+//            builder.append(message.substring(index,
+//                    Math.min(index + SCREEN_WIDTH, message.length())));
+//            index += SCREEN_WIDTH;
+//        }
+//        System.out.println(builder.toString());
+    }
 
+    public static void println(String message, int indentedBy) {
+        StringBuilder builder = new StringBuilder();
+        int index = 0;
+        StringBuilder prefix = new StringBuilder();
+        prefix.append("");
+        while (index < message.length()) {
+            builder.append(prefix);
+            prefix.replace(0, prefix.length(), "\n");
+            for(int i=0; i<indentedBy; i++)
+                prefix.append(" ");
             builder.append(message.substring(index,
-                    Math.min(index + SCREEN_WIDTH, message.length())));
-            index += SCREEN_WIDTH;
+                    Math.min(index + SCREEN_WIDTH-indentedBy, message.length())));
+            index += SCREEN_WIDTH-indentedBy;
         }
         System.out.println(builder.toString());
     }
