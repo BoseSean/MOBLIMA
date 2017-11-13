@@ -175,7 +175,7 @@ public class PriceManager {
             Calendar cal = Calendar.getInstance();
             cal.setTime(showtime.getDate());
 
-            Date six = Constant.clockFormat.parse("1800");
+            Date six = Constant.clockFormat.parse("18:00");
             int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
 
             // Sat, Sun, Eve of PH or PH

@@ -2,6 +2,7 @@ package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Booking;
+import org.gp3.moblima.model.Ticket;
 import org.gp3.moblima.model.User;
 import org.gp3.moblima.view.BaseMenu;
 
@@ -90,6 +91,10 @@ public class HistoryMenu extends BaseMenu {
 				println("Cineplex: " + book.getCinema().getCineplex().toString());
 				println("Cinema: " + book.getCinema().getName());
 				println("Movie: " + book.getMovie().getTitle());
+				print("Seats :");
+				for(Ticket ticket: book.getTickets()){
+					println("       Row: "+(ticket.getSeat().getRow()+1)+" Col: "+ (ticket.getSeat().getCol()+1));
+				}
 			}
 		}
         while(readInt("Press 0 to return to previous menu: ") != 0);
