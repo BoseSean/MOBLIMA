@@ -52,10 +52,12 @@ public class MovieInfo extends BaseMenu {
 
     public void printMovieInfo() {
         println("Title: " + this.movie.getTitle());
+        println("Showinng Status: " + this.movie.getShowingStatus().toString());
         println("Rumtime: " + this.movie.getRuntime());
         println("Director: " + this.movie.getDirector());
         println("Opening: " + this.movie.getOpening());
         println("Synopsis: " + this.movie.getSynopsis());
+
         if(movie.getRatingTimes() != 0 )
         {
             for (Review r : movie.getReview()) {

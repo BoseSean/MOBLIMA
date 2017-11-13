@@ -1,19 +1,20 @@
 package org.gp3.moblima.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Movie implements Model
 {
-    private String title, synopsis, opening, runtime, director;
+    private String title, synopsis, director, language;
+    private Constant.ContentRating contentRating;
     private Constant.ShowingStatus showingStatus;
-    private int ticketSales;
-
-	private double overAllRating;
+    private int ticketSales, runtime;
+    private Date opening;//todo by weiliang
+    private double overAllRating;
 	private int ratingTimes;
     private ArrayList<String> casts = new ArrayList<>();
     private ArrayList<Slot> slots = new ArrayList<>();
     private ArrayList<Review> reviews = new ArrayList<>();
-    //todo: language/ opening/runtime/ 分级／
 	public Movie(String title) {
 		this.title = title;
 
@@ -27,11 +28,13 @@ public class Movie implements Model
 	public String getDirector() {
         return director;
     }
-    public String getOpening() {
+
+    public Date getOpening() {
         return opening;
     }
-    public String getRuntime() {
-        return runtime;
+
+    public void setOpening(Date opening) {
+        this.opening = opening;
     }
     public String getSynopsis() {
         return synopsis;
@@ -67,10 +70,14 @@ public class Movie implements Model
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
     }
-    public void setOpening(String opening) {
-        this.opening = opening;
+
+    public int getRuntime() {
+        return runtime;
     }
-    public void setRuntime(String runtime) { this.runtime = runtime; }
+
+    public void setRuntime(int runtime) {
+        this.runtime = runtime;
+    }
 
 	public void setOverAllRating(double overAllRating) {
 		this.overAllRating = overAllRating;
@@ -227,5 +234,21 @@ public class Movie implements Model
 
     public void setShowingStatus(Constant.ShowingStatus showingStatus) {
         this.showingStatus = showingStatus;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public Constant.ContentRating getContentRating() {
+        return contentRating;
+    }
+
+    public void setContentRating(Constant.ContentRating contentRating) {
+        this.contentRating = contentRating;
     }
 }

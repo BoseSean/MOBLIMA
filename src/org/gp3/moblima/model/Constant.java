@@ -48,6 +48,7 @@ public class Constant {
     }
 
 
+
     public enum MovieType {
 
         TWO_D("2D Movies"),
@@ -72,7 +73,8 @@ public class Constant {
 
         COMING_SOON("Coming Soon"),
         PREVIEW("Preview"),
-        NOW_SHOWING("Now Showing");
+        NOW_SHOWING("Now Showing"),
+        END_SHOWING("Showing Ended");
 
         private String s;
 
@@ -85,6 +87,25 @@ public class Constant {
         }
     }
 
+    public enum ContentRating {
+
+        G("G"),
+        PG("PG"),
+        PG13("PG13"),
+        NC16("NC16"),
+        M18("M18"),
+        R21("R21");
+
+        private String s;
+
+        ContentRating(String s) {
+            this.s = s;
+        }
+
+        public String toString() {
+            return this.s;
+        }
+    }
     /**
      *
      */
