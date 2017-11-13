@@ -10,6 +10,8 @@ public class PriceManager {
 
     private PriceManager() {
         Manager manager = Manager.getInstance();
+        if (manager.getAll(Constant.Tables.TICKETPRICE).isEmpty())
+            manager.add(Constant.Tables.TICKETPRICE, new TicketPrice());
         ticketPrice = (TicketPrice) manager.getAll(Constant.Tables.TICKETPRICE).get(0);
     }
 

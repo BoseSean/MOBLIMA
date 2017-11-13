@@ -78,7 +78,7 @@ public class Constant {
         ADMIN,
         REVIEW,
         HOLIDAY,
-        TICKETPRICE
+        TICKETPRICE,
     }
 
 }

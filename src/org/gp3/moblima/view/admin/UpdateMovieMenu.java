@@ -7,9 +7,6 @@ import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Slot;
 import org.gp3.moblima.view.BaseMenu;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -112,7 +109,8 @@ public class UpdateMovieMenu extends BaseMenu {
 
 		return this.getPreviousMenu();
     }
-    private Slot readSlot()
+
+	private Slot readSlot()
 	{
 		String s = read("Input Cinema: ");
 		Cinema cinema = manager.getEntry(Constant.Tables.CINEMA,(Cinema c)->(c.getName().equals(s)));

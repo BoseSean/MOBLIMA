@@ -19,8 +19,9 @@ class SerializeDB implements Serializable {
     ArrayList<User> users;
     ArrayList<Review> reviews;
 	ArrayList<Holiday> holidays;
-	ArrayList<TicketPrice> ticketprice; // new added feature
-	SerializeDB(){
+    ArrayList<TicketPrice> ticketprice; // new added feature
+
+    SerializeDB() {
         admins = new ArrayList<>();
         bookings = new ArrayList<>();
         cinemas = new ArrayList<>();
@@ -30,7 +31,7 @@ class SerializeDB implements Serializable {
         users = new ArrayList<>();
         reviews = new ArrayList<>();
 		holidays = new ArrayList<>();
-		ticketprice = new ArrayList<>(); //new added
-	}
+        ticketprice = new ArrayList<>(); //new added
+    }
 
 }

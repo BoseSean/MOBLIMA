@@ -210,10 +210,11 @@ public class Manager {
             case HOLIDAY:
                 tempArray = db.holidays;
                 break;
-            case TICKETPRICE:PRICE:  //new added
+            case TICKETPRICE:  //new added
                 tempArray = db.ticketprice;
+                break;
             default:
-                tempArray=null;
+                tempArray = null;
         }
         return tempArray;
     }
