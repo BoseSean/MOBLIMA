@@ -1,20 +1,18 @@
 package org.gp3.moblima.view;
 
 import org.gp3.moblima.controller.Manager;
-
-import static org.gp3.moblima.model.Constant.Tables.USER;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-
+import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.User;
+
 import java.text.ParseException;
-
-//import org.jetbrains.annotations.Contract;
-
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
-import org.gp3.moblima.model.Constant;
+import static org.gp3.moblima.model.Constant.Tables.USER;
+
+//import org.jetbrains.annotations.Contract;
 
 /**
  * Created by zhangxinye on 19/10/17.
@@ -105,7 +103,21 @@ public class IOUtil {
     }
 
     public static void println(String message) {
-        System.out.println(message);
+        StringBuilder builder = new StringBuilder(
+                message.length() + "\n  ".length() * (message.length() / SCREEN_WIDTH) + 1);
+        int index = 0;
+        String prefix = "";
+        while (index < message.length()) {
+            // Don't put the insert in the very first iteration.
+            // This is easier than appending it *after* each substring
+            builder.append(prefix);
+            prefix = "\n  ";
+
+            builder.append(message.substring(index,
+                    Math.min(index + SCREEN_WIDTH, message.length())));
+            index += SCREEN_WIDTH;
+        }
+        System.out.println(builder.toString());
     }
 
     public static void println() {
