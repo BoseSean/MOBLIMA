@@ -80,8 +80,8 @@ public class HistoryMenu extends BaseMenu {
 
 		if (user != null) {
 			ArrayList<Booking> booking = user.getBookings();
-            println(booking.size() +" bookings found");
-			int cnt=0;
+            println("In total "+booking.size() +" bookings found under "+user.getName()+".");
+			int cnt=1;
 			for (Booking book : booking) {
 				println("Booking "+cnt);
                 cnt++;
