@@ -14,7 +14,7 @@ public class Booking implements Model
     private double totalPrice;
     private Movie movie;
     private Cinema cinema;
-    private ArrayList<Ticket>tickets;
+    private ArrayList<Ticket> tickets = new ArrayList<>();
 
     private User user;
     private Slot slot;
@@ -34,7 +34,7 @@ public class Booking implements Model
         this.totalPrice = totalPrice;
         this.movie = movie;
         this.cinema = cinema;
-        this.tickets = new ArrayList<>();
+        this.tickets = tickets;
     }
 
 

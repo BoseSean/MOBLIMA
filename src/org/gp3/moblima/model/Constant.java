@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
  */
 public class Constant {
 
-    public static final String FORMAT_TIME_CLOCK = "HHmm";
+    public static final String FORMAT_TIME_CLOCK = "HH:mm";
     public static final String FORMAT_TIME_HOUR  = "hh:mma";
     public static final String FORMAT_DATE_SHORT = "dd/MM/yyyy";
     public static final String FORMAT_DATE_LONG  = "dd MMM yyyy";
