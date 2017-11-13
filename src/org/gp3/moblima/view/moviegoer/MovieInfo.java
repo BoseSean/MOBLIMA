@@ -1,5 +1,6 @@
 package org.gp3.moblima.view.moviegoer;
 
+import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Review;
 import org.gp3.moblima.view.BaseMenu;
@@ -26,14 +27,15 @@ public class MovieInfo extends BaseMenu {
         printMovieInfo();
 
         ArrayList<String> choices = new ArrayList<>();
-        choices.add("Buy Tickets");
+        int c=0;
+        if(!movie.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING))
+            choices.add("Buy Tickets");
+        else
+            c=1;
         choices.add("Reviews");
         choices.add("Back");
         printMenuItems(choices, 0);
-
-
-//        int c = readChoice();
-        int c = readChoice(0, choices.size());
+        c = c + readChoice(0, choices.size());
 
         BaseMenu nextMenu = this;
         switch (c) {
@@ -47,6 +49,9 @@ public class MovieInfo extends BaseMenu {
                 nextMenu = this.getPreviousMenu();
                 break;
         }
+
+
+
         return nextMenu;
     }
 

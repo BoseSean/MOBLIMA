@@ -80,8 +80,9 @@ public class ConfigurePriceMenu extends BaseMenu {
         c = readChoice(0, choices.size());
         ticketTypeToChange = TicketType.values()[c];
 
-        int newPrice = readInt("Update to what price");
+        int newPrice = readInt("New price: ");
         priceManager.updatePrice(ticketTypeToChange, movieTypeToChange, toUpdatePlatinum, toSneakOrFirstWeekorblockbuster, newPrice);
+        println("Update Successful");
         return this.getPreviousMenu();
     }
 }
