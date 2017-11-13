@@ -29,7 +29,6 @@ public class BuyTicketMenu extends BaseMenu {
         printTitle("Buy Ticket Menu");
 
         // Find slot
-        //todo 如果没有slot呢？
         if(movie.getSlots().isEmpty())
         {
             println("Sorry, there is no available slot currently.");
@@ -92,11 +91,7 @@ public class BuyTicketMenu extends BaseMenu {
         Ticket ticket = tickets.get(0);
         double totalprice = priceManager.getPrice(ticket.getTickettype(), ticket.getMovietype(), slot.isPlatinum(), slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(Calendar.getInstance().getTime());
-        String tid;
-        if(slot.getCinema().getName().equals("JEM"))
-            tid = "001"+timeStamp;
-        else
-            tid = "002"+timeStamp;
+        String tid = slot.getCinema().getCinemaCode()+timeStamp;
         Booking booking = new Booking(tid,slot.getDate(),totalprice,movie,slot.getCinema(),tickets);
 
         User user;
@@ -106,7 +101,7 @@ public class BuyTicketMenu extends BaseMenu {
             String name = read("Name: ");
             String email = read("Email: ");
             String phone = read("Phone number: ");
-//            manager.add(Constant.Tables.USER, new User(name, "12312312312", "));
+//          manager.add(Constant.Tables.USER, new User(name, "12312312312", "));
             user = new User(name, phone, email);
             manager.add(Constant.Tables.USER, user);
         }
