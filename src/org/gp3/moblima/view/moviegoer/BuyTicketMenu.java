@@ -16,6 +16,8 @@ public class BuyTicketMenu extends BaseMenu {
     private final Movie movie;
     private Manager manager = Manager.getInstance();
     private PriceManager priceManager = PriceManager.getInstance();
+    private boolean isstudent = false;
+    private boolean issenior = false;
     public BuyTicketMenu(BaseMenu previousMenu, Movie movie) {
         super(previousMenu);
         this.movie = movie;
@@ -61,6 +63,7 @@ public class BuyTicketMenu extends BaseMenu {
 
         if(confirm("Are you eligible for student discount?"))
         {
+            isstudent = true;
             for( Seat seat : selected)
             {
                 Ticket ticket = new Ticket(seat,slot.getMovieType(),Constant.TicketType.STUDENT);
@@ -69,6 +72,7 @@ public class BuyTicketMenu extends BaseMenu {
         }
         else if(confirm("Are you eligible for senior discount?"))
         {
+            issenior = true;
             for( Seat seat : selected)
             {
                 Ticket ticket = new Ticket(seat,slot.getMovieType(),Constant.TicketType.SENIOR);
@@ -77,7 +81,7 @@ public class BuyTicketMenu extends BaseMenu {
         }
         else
         {
-            Constant.TicketType ticketType = dayOfweek(slot.getDate());
+            Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
             for( Seat seat : selected)
             {
                 Ticket ticket = new Ticket(seat,slot.getMovieType(),ticketType);
@@ -182,22 +186,22 @@ public class BuyTicketMenu extends BaseMenu {
         return new Seat(i, j, false);
     }
 
-    private Constant.TicketType dayOfweek(Date date){
-        Calendar c = Calendar.getInstance();
-        c.setTime(date);
-        int day = c.get(Calendar.DAY_OF_WEEK);
-        if(day <= 5 && day >= 2){
-            boolean flag = false;
-            ArrayList<Holiday>holidays = manager.getAll(Constant.Tables.HOLIDAY);
-            for(Holiday holiday: holidays){
-                if(holiday.getDate() == date){
-                    flag = true;
-                    break;
-                }
-            }
-            if(!flag)
-                return Constant.TicketType.MON_THU;
-        }
-        return Constant.TicketType.FIR_SUN_AND_PH;
-    }
+//    private Constant.TicketType dayOfweek(Date date){
+//        Calendar c = Calendar.getInstance();
+//        c.setTime(date);
+//        int day = c.get(Calendar.DAY_OF_WEEK);
+//        if(day <= 5 && day >= 2){
+//            boolean flag = false;
+//            ArrayList<Holiday>holidays = manager.getAll(Constant.Tables.HOLIDAY);
+//            for(Holiday holiday: holidays){
+//                if(holiday.getDate() == date){
+//                    flag = true;
+//                    break;
+//                }
+//            }
+//            if(!flag)
+//                return Constant.TicketType.MON_THU;
+//        }
+//        return Constant.TicketType.FIR_SUN_AND_PH;
+//    }
 }

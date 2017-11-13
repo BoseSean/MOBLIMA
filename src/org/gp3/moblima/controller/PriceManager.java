@@ -1,7 +1,14 @@
 package org.gp3.moblima.controller;
 
 import org.gp3.moblima.model.Constant;
+import org.gp3.moblima.model.Holiday;
+import org.gp3.moblima.model.Slot;
 import org.gp3.moblima.model.TicketPrice;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class PriceManager {
@@ -21,11 +28,12 @@ public class PriceManager {
 
     public Double getPrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean SneakOrFirstWeekorblockbuster) {
         if (platinum) {
-            if (tickettype == Constant.TicketType.MON_THU && !SneakOrFirstWeekorblockbuster)
+            if (tickettype == Constant.TicketType.MON_TO_THU && !SneakOrFirstWeekorblockbuster)
                 return ticketPrice.getPrice(28);
             else
                 return ticketPrice.getPrice(29);
-        } else {
+        }
+        else {
             if (tickettype == Constant.TicketType.SENIOR) {
                 if (movietype == Constant.MovieType.TWO_D)
                     return ticketPrice.getPrice(0);
@@ -56,7 +64,7 @@ public class PriceManager {
                     return ticketPrice.getPrice(12);
                 else
                     return ticketPrice.getPrice(13);
-            } else if (tickettype == Constant.TicketType.MON_THU) {
+            } else if (tickettype == Constant.TicketType.MON_TO_THU) {
                 if (movietype == Constant.MovieType.TWO_D)
                     return ticketPrice.getPrice(14);
                 else if (movietype == Constant.MovieType.THREE_D)
@@ -92,12 +100,11 @@ public class PriceManager {
 
     public void updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean SneakOrFirstWeekorblockbuster, double price) {
         if (platinum) {
-            if (tickettype == Constant.TicketType.MON_THU && !SneakOrFirstWeekorblockbuster)
+            if (tickettype == Constant.TicketType.MON_TO_THU && !SneakOrFirstWeekorblockbuster)
                 ticketPrice.updatePrice(28, price);
             else
                 ticketPrice.updatePrice(29, price);
-        }
-        else{
+        } else {
             if (tickettype == Constant.TicketType.SENIOR) {
                 if (movietype == Constant.MovieType.TWO_D)
                     ticketPrice.updatePrice(0, price);
@@ -128,7 +135,7 @@ public class PriceManager {
                     ticketPrice.updatePrice(12, price);
                 else
                     ticketPrice.updatePrice(13, price);
-            } else if (tickettype == Constant.TicketType.MON_THU) {
+            } else if (tickettype == Constant.TicketType.MON_TO_THU) {
                 if (movietype == Constant.MovieType.TWO_D)
                     ticketPrice.updatePrice(14, price);
                 else if (movietype == Constant.MovieType.THREE_D)
@@ -160,5 +167,73 @@ public class PriceManager {
                     ticketPrice.updatePrice(27, price);
             }
         }
+    }
+
+    public Constant.TicketType getTicketType(Slot showtime, boolean isStudent, boolean isSeniorCitizen) {
+        try {
+            Manager manager = Manager.getInstance();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(showtime.getDate());
+
+            Date six = Constant.clockFormat.parse("1800");
+            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+//
+//            if (showtime.getCinema().isPlatinum()) {
+//                // Monday to Thursday
+//                if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.THURSDAY) {
+//                    return Constant.TicketType.MON_TO_THU;
+//                    // Friday to Sun
+//                } else {
+//                    return Constant.TicketType.FRI_TO_SUN;
+//                }
+//            }
+//            else {
+            // Sat, Sun, Eve of PH or PH
+            boolean hol = false;
+            ArrayList<Holiday> holidays = manager.getAll(Constant.Tables.HOLIDAY);
+            for (Holiday holiday : holidays) {
+                if (holiday.getDate() == showtime.getDate()) {
+                    hol = true;
+                    break;
+                }
+            }
+            if (hol || (dayOfWeek >= Calendar.SATURDAY && dayOfWeek <= Calendar.SUNDAY)) {
+                return Constant.TicketType.SAT_TO_SUN;
+            }
+            else {
+                // Mon to Fri
+                if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.FRIDAY) {
+                    if (showtime.getTime().before(six)) {
+                        if (isStudent) {
+                            return Constant.TicketType.STUDENT;
+                        }
+                        else if (isSeniorCitizen) {
+                            return Constant.TicketType.SENIOR;
+                        }
+                        else if (dayOfWeek == Calendar.FRIDAY) {
+                            return Constant.TicketType.FRI_BEFORE_SIX_PM;
+                        }
+                        // Fri after 6pm
+                    }
+                    else if (dayOfWeek == Calendar.FRIDAY) {
+                        return Constant.TicketType.FRI_AFTER_SIX_PM;
+                    }
+
+                    // Mon to Thu
+                    if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.THURSDAY) {
+                        return Constant.TicketType.MON_TO_THU;
+                        // Fri
+                    }
+                    else if (dayOfWeek == Calendar.FRIDAY) {
+                        return Constant.TicketType.FRI;
+                    }
+                }
+            }
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
