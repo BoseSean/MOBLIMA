@@ -2,11 +2,9 @@ package org.gp3.moblima.controller;
 
 import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Model;
-import org.gp3.moblima.model.TicketPrice;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -68,21 +66,6 @@ public class Manager {
             exit(1);
         }
         return null;
-    }
-
-    public TicketPrice getTicketPrice ()
-    {
-        try{
-//            if (db.ticketprice == null)
-//                throw new DBException;
-//            else
-                return db.ticketprice;
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            exit(1);
-        }
     }
 
     /**
@@ -227,10 +210,11 @@ public class Manager {
             case HOLIDAY:
                 tempArray = db.holidays;
                 break;
-            case TICKETPRICE:   //new added
-                tempArray = new ArrayList<Double>(Arrays.asList(db.ticketprice.getPriceList()));
+            case TICKETPRICE:  //new added
+                tempArray = db.ticketprice;
+                break;
             default:
-                tempArray=null;
+                tempArray = null;
         }
         return tempArray;
     }

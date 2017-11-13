@@ -1,9 +1,6 @@
 package org.gp3.moblima.model;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Movie implements Model
 {
@@ -52,7 +49,10 @@ public class Movie implements Model
         return ratingTimes;
     }
 
-    public ArrayList<String> getCasts() { return casts; };
+    public ArrayList<String> getCasts() {
+        return casts;
+    }
+
     public ArrayList<Slot> getSlots() { return slots; }
 
 
@@ -98,24 +98,25 @@ public class Movie implements Model
     public void setCasts(ArrayList<String> casts) {
         this.casts = casts;
     }
-    public void addCast(String some_cast) {
-		if (this.casts == null) {
-			ArrayList<String> c = new ArrayList<String>();
+
+    public void addCast(String newCast) {
+        if (this.casts == null) {
+            ArrayList<String> c = new ArrayList<String>();
 			setCasts(c);
 		}
-		this.casts.add(some_cast);
-		// this.casts = sortCasts(this.casts);
+        this.casts.add(newCast);
+        // this.casts = sortCasts(this.casts);
     }
 
 
 	/**
 	 * Remove Cast from Movie
 	 * Use equals to compare
-	 * @param some_cast
-	 */
-	public void removeCast(String some_cast) {
+     * @param cast a cast to be removed
+     */
+    public void removeCast(String cast) {
         for(String c : this.casts)
-            if (c.equals(some_cast)) {
+            if (c.equals(cast)) {
                 this.casts.remove(c);
                 return;
             }
