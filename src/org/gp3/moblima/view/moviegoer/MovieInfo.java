@@ -49,40 +49,50 @@ public class MovieInfo extends BaseMenu {
                 nextMenu = this.getPreviousMenu();
                 break;
         }
-
-
-
         return nextMenu;
     }
 
     public void printMovieInfo() {
-        println("Title: " + this.movie.getTitle());
-        println("Showinng Status: " + this.movie.getShowingStatus().toString());
-        println("Rumtime: " + this.movie.getRuntime());
-        println("Director: " + this.movie.getDirector());
-        print("Casts: ");
-        printCasts();
-        println("Opening: " + this.movie.getOpening());
-        println("Synopsis: " + this.movie.getSynopsis());
-
-        if(movie.getRatingTimes() != 0 )
-        {
-            for (Review r : movie.getReview()) {
-                println("Review: " + r.getComment());
+        println("Title         : " + this.movie.getTitle());
+        println("Showing Status: " + this.movie.getShowingStatus().toString());
+        println("Content Rating: " + this.movie.getContentRating().toString());
+        println("Runtime       : " + this.movie.getRuntime());
+        println("Director      : " + this.movie.getDirector());
+        println("Opening       : " + this.movie.getOpening());
+        print(  "Synopsis      : ");println( this.movie.getSynopsis(), 16);
+        if(movie.getRatingTimes() != 0 ){
+                print("Overall Rating  :");
+                printStars(movie.getOverAllRating());
             }
-            DecimalFormat df = new DecimalFormat("0.00");
-            println("Overall Rating: " + df.format(movie.getOverAllRating()));
+            else{
+                println("Overall Rating: N/A");
+            }
+        if (movie.getRatingTimes() != 0){
+            for (Review r : movie.getReview()) {
+                print("Review         : ");
+                println(r.getComment());
+                print("Rating         : ");
+                printStars(r.getRating());
+            }
         }
         else
         {
-            println("Review: N/A");
+
             println("Overall Rating: N/A");
         }
     }
-
-    private void printCasts() {
-        for (String castMember : movie.getCasts()) {
-            print(castMember + "/");
-        }
+    public void printStars(double rating) {
+//        double rating = re.getOverAllRating();
+        if(rating <= 1)
+            println("★☆☆☆☆(" + rating + ")");
+        else if(rating <= 2)
+            println("★★☆☆☆(" + rating + ")");
+        else if(rating <= 3)
+            println("★★★☆☆(" + rating + ")");
+        else if(rating <= 4)
+            println("★★★★☆(" + rating + ")");
+        else
+            println("★★★★★(" + rating + ")");
+        println();
     }
 }
