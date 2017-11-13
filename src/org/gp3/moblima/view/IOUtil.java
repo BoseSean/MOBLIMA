@@ -214,25 +214,18 @@ public class IOUtil {
         User user = null;
         do {
             String name = read("Name: ");
-            user = manager.getEntry(USER, (User u) -> (u.getName().equals(name)));
+            String phone = read("Phone number: ");
+            user = manager.getEntry(USER, (User u) -> (u.getName().equals(name) && u.getPhone().equals(phone)));
             if (user == null) {
-                println("Wrong name, please try again.");
+                println("Incorrect username or phone number, please try again.");
             }
 
-        } while (user == null);
-
-        do {
-            String email = read("Password: ");
-            user = manager.getEntry(USER, (User u) -> (u.getPassword().equals(email)));
-            if (user == null) {
-                println("Wrong email, please try again.");
-            }
         } while (user == null);
 
         return user;
     }
 
-        //todo new opening time need to strict to time string only.
+    //todo new opening time need to strict to time string only.
 
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {

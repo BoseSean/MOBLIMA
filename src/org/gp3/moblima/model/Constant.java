@@ -68,6 +68,23 @@ public class Constant {
         }
     }
 
+    public enum ShowingStatus {
+
+        COMING_SOON("Coming Soon"),
+        PREVIEW("Preview"),
+        NOW_SHOWING("Now Showing");
+
+        private String s;
+
+        ShowingStatus(String s) {
+            this.s = s;
+        }
+
+        public String toString() {
+            return this.s;
+        }
+    }
+
     /**
      *
      */

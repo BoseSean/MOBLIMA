@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 
 public class User implements Model {
-    private String name, phone, password;
+    private String name, phone, email;
     private ArrayList<Booking> bookings;
 
 
@@ -15,7 +15,7 @@ public class User implements Model {
     {
         this.name = name;
         this.phone = phone;
-        this.password = password;
+        this.email = password;
         this.bookings = new ArrayList<>();
     }
 
@@ -36,12 +36,12 @@ public class User implements Model {
         this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public ArrayList<Booking> getBookings() {
