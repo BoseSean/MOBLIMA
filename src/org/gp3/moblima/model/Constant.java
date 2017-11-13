@@ -97,5 +97,18 @@ public class Constant {
         HOLIDAY,
         TICKETPRICE,
     }
+    public enum Cineplex{
+        JEM("Jem"),
+        WEST_MALL("West Mall"),
+        CINELEISURE_ORCHARD("Cineleisure Orchard");
 
+        private String s;
+        Cineplex (String s) {
+            this.s = s;
+        }
+        public String toString() {
+            return this.s;
+        }
+
+    }
 }

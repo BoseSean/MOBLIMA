@@ -87,7 +87,8 @@ public class HistoryMenu extends BaseMenu {
 				println("TID: " + book.getTID());
 				println("Date: " + book.getDate());
 				println("Total Price (GST included): S$" + book.getTotalPrice());
-				println("Cinema: " + book.getCinema().getName());
+				println("Cineplex: " + book.getCinema().getCineplex().toString());
+				println("Cinema: " + book.getCinema());
 				println("Movie: " + book.getMovie().getTitle());
 			}
 		}

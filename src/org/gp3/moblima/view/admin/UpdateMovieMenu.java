@@ -100,8 +100,9 @@ public class UpdateMovieMenu extends BaseMenu {
 
 	private Slot readSlot()
 	{
+		String cp = read("Input Cineplex: ");
 		String s = read("Input Cinema: ");
-		Cinema cinema = manager.getEntry(Constant.Tables.CINEMA,(Cinema c)->(c.getName().equals(s)));
+		Cinema cinema = manager.getEntry(Constant.Tables.CINEMA,(Cinema c)->(c.getName().equals(s) && c.getCineplex().toString().equals(cp)));
 		int row = readInt("Input seat rows: ");
 		int col = readInt("Input seat cols: ");
 
