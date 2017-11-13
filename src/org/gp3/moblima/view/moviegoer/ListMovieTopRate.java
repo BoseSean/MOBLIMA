@@ -70,8 +70,8 @@ public class ListMovieTopRate extends BaseMenu {
 		Collections.sort(movies, new Comparator<Movie>() {
 			@Override
 			public int compare(Movie m1, Movie m2) {
-				return Double.compare(m1.getOverAllRating(), m2.getOverAllRating());
-			}
+                return Double.compare(m2.getOverAllRating(), m1.getOverAllRating());
+            }
 		});
     }
 
