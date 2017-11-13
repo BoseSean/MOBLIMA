@@ -35,7 +35,7 @@ public class HistoryMenu extends BaseMenu {
 
 		Manager man = Manager.getInstance();
 
-		User user = null;
+		User user;
 
 //		User user = man.getEntry(USER,
 //				(User u) -> (
@@ -87,6 +87,7 @@ public class HistoryMenu extends BaseMenu {
 				println("TID: " + book.getTID());
 				println("Date: " + book.getDate());
 				println("Total Price (GST included): S$" + book.getTotalPrice());
+				println("Cineplex: " + book.getCinema().getCineplex().toString());
 				println("Cinema: " + book.getCinema().getName());
 				println("Movie: " + book.getMovie().getTitle());
 			}

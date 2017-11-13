@@ -31,6 +31,7 @@ public class ConfigureHolidayMenu extends BaseMenu {
 		choices.add("Update Holiday");
 		choices.add("Remove Holiday");
 		choices.add("Add New Holiday");
+		choices.add("Back");
 
 		printMenuItems(choices, 0);
 

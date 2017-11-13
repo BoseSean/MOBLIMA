@@ -27,11 +27,14 @@ public class ConfigurePriceMenu extends BaseMenu {
         boolean toSneakOrFirstWeekorblockbuster = false;
         MovieType movieTypeToChange;
         TicketType ticketTypeToChange;
-        ArrayList<String> choices = new ArrayList<String>();
+//        ArrayList<String> choices = new ArrayList<>();
+        ArrayList<String> choices = new ArrayList<>();
 
         println("Do you want to change ticket price for Platinum or Not Platinum?");
+        println();
         choices.add("Platinum");
         choices.add("Not Platinum");
+        printMenuItems(choices, 0);
         int c = readChoice(0, choices.size());
         switch (c) {
             case 0:
@@ -42,9 +45,12 @@ public class ConfigurePriceMenu extends BaseMenu {
                 break;
         }
 
+        choices.clear();
         println("Do you want to change ticket price for Blockbuster or Not Blockbuster?");
+        println();
         choices.add("Sneak or First Week or blockbuster");
         choices.add("Not Sneak not First Week not blockbuster");
+        printMenuItems(choices, 0);
         c = readChoice(0, choices.size());
         switch (c) {
             case 0:
@@ -61,6 +67,7 @@ public class ConfigurePriceMenu extends BaseMenu {
         for (MovieType type : MovieType.values()){
             choices.add(type.toString());
         }
+        printMenuItems(choices, 0);
         c = readChoice(0, choices.size());
         movieTypeToChange = MovieType.values()[c];
 
@@ -69,10 +76,11 @@ public class ConfigurePriceMenu extends BaseMenu {
         for (TicketType type : TicketType.values()){
             choices.add(type.toString());
         }
+        printMenuItems(choices, 0);
         c = readChoice(0, choices.size());
         ticketTypeToChange = TicketType.values()[c];
 
-        int newPrice = readInt("What kind of ticket to change price?");
+        int newPrice = readInt("Update to what price");
         priceManager.updatePrice(ticketTypeToChange, movieTypeToChange, toUpdatePlatinum, toSneakOrFirstWeekorblockbuster, newPrice);
         return this.getPreviousMenu();
     }

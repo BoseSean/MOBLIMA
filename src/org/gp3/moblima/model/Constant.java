@@ -30,10 +30,12 @@ public class Constant {
     public enum TicketType {
         SENIOR("Senior Citizens"),
         STUDENT("Student"),
-        MON_THU("Mon - Thu"),
-        FIR_SUN_AND_PH("Fri - Sun & PH"),
-        MON_FRI_6("Mon to Fri, for movies before 6pm");
-
+        FRI("Friday"),
+        FRI_BEFORE_SIX_PM("Fri before 6pm"),
+        FRI_AFTER_SIX_PM("Fri after 6pm"),
+        SAT_AND_SUN("Sat, Sun & PH"),
+        MON_TO_THU("Mon - Thu"),
+        SAT_TO_SUN("Sat - Sun");
         private String date;
 
         TicketType(String data) {
@@ -44,6 +46,7 @@ public class Constant {
             return this.date;
         }
     }
+
 
     public enum MovieType {
 
@@ -97,5 +100,18 @@ public class Constant {
         HOLIDAY,
         TICKETPRICE,
     }
+    public enum Cineplex{
+        JEM("Jem"),
+        WEST_MALL("West Mall"),
+        CINELEISURE_ORCHARD("Cineleisure Orchard");
 
+        private String s;
+        Cineplex (String s) {
+            this.s = s;
+        }
+        public String toString() {
+            return this.s;
+        }
+
+    }
 }
