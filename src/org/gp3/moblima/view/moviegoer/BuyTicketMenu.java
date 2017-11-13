@@ -187,8 +187,12 @@ public class BuyTicketMenu extends BaseMenu {
         }
 
         println("");
-        println("     ----------");
-        println("     |Entrance|\n");
+        for (int i = 0; i < (1 + col) * 3 / 2 - 5; i++)
+            print(" ");
+        println("----------");
+        for (int i = 0; i < (1 + col) * 3 / 2 - 5; i++)
+            print(" ");
+        println("|Entrance|\n");
         println("([ ] Available  [#] Seat Selected  [X] Sold)");
     }
 
