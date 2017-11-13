@@ -135,6 +135,13 @@ public class IOUtil {
         println();
     }
 
+    public static void printf(int value) {
+        System.out.printf("%-3d", value);
+    }
+
+    //    public static void printf_two(int value) {
+//        System.out.printf("%-4d", value);
+//    }
     public static void printCenter(String s) {
         if (s.length() > SCREEN_WIDTH) {
             println(s.substring(0, SCREEN_WIDTH));

@@ -111,8 +111,8 @@ public class UpdateMovieMenu extends BaseMenu {
 			}
 		}while(cinema==null);
 
-		int row = readInt("Input seat rows: ",1,9);
-		int col = readInt("Input seat cols: ",1,9);
+        int row = readInt("Input seat rows: ", 1, 99);
+        int col = readInt("Input seat cols: ", 1, 99);
 
 		Date startDate = readDate("Please input Date");
 		Date startTime = readTime("Please input time");

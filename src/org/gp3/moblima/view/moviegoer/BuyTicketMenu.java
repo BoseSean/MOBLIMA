@@ -8,7 +8,6 @@ import org.gp3.moblima.view.BaseMenu;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
@@ -144,35 +143,50 @@ public class BuyTicketMenu extends BaseMenu {
         Seat seat;
 
         printTitle(" Select Seats");
+        for (int i = 0; i < (1 + col) * 3 / 2 - 8; i++)
+            print(" ");
         println("|      Screen       |");
+        for (int i = 0; i < (1 + col) * 3 / 2 - 8; i++) {
+            print(" ");
+        }
         println("---------------------");
 
-        print("   ");
+        print("    ");
+        int new_row = 0;
         for(int i=0; i<col; i++){
-            print((i+1)+"  ");
+            if (new_row != col / 2 - 1) {
+//                if((i + 1) < 10)
+//                    print(" ");
+                printf(i + 1);
+            } else {
+                print("  ");
+            }
+            new_row++;
         }
 
         println("");
-
+        boolean flag = false;
         for(int i =0; i<row; i++)
         {
-            print((i+1) +" ");
-
+            new_row = 0;
+            printf(i + 1);
             for(int j=0; j<col; j++)
             {
-                seat = seats.get(i).get(j);
-                if(seat.isOcccupied())
-                {
-                    print("[X]");
+                if (new_row != col / 2 - 1) {
+                    seat = seats.get(i).get(j);
+                    if (seat.isOcccupied()) {
+                        print("[X]");
+                    } else if (seat.isSelected()) {
+                        print("[#]");
+                    } else
+                        print("[ ]");
+                } else {
+                    print("   ");
                 }
-                else if(seat.isSelected())
-                {
-                    print("[#]");
-                }
-                else
-                    print("[ ]");
-
+                new_row++;
             }
+            print(" ");
+            printf(i + 1);
             println("");
         }
 
