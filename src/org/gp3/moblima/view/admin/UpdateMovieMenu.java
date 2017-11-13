@@ -36,8 +36,8 @@ public class UpdateMovieMenu extends BaseMenu {
 			movie.setDirector(director);
 		}
 		if (confirm("Update Opening Time")) {
-			String opening = read("New Opening Time: ");
-			movie.setOpening(opening);
+            Date opening = readTime("input time");//todo by weiliang
+            movie.setOpening(opening);
 		}
         if (confirm("Update Showing Status")) {
             ArrayList<String> choices = new ArrayList();
@@ -49,14 +49,28 @@ public class UpdateMovieMenu extends BaseMenu {
             movie.setShowingStatus(Constant.ShowingStatus.values()[c]);
         }
         if (confirm("Update Runtime")) {
-            String run = read("New Runtime: ");
-			movie.setRuntime(run);
+            int run = readInt("New Runtime: ");
+            movie.setRuntime(run);
 		}
 		if (confirm("Update Synopsis")) {
 			String synopsis = read("New Synopsis: ");
 			movie.setSynopsis(synopsis);
 		}
-		if (confirm("Update Casts")) {
+        if (confirm("Update Language")) {
+            String language = read("New Language: ");
+            movie.setLanguage(language);
+        }
+        if (confirm("Update Content Rating")) {
+            println("Choose Content Rating: ");
+            ArrayList<String> choices = new ArrayList();
+            for (Constant.ContentRating cr : Constant.ContentRating.values()) {
+                choices.add(cr.toString());
+            }
+            printMenuItems(choices, 0);
+            int c = readChoice(0, choices.size());
+            movie.setContentRating(Constant.ContentRating.values()[c]);
+        }
+        if (confirm("Update Casts")) {
             println("Separate by comma. ");
             String cast = read("New cast: ");
             ArrayList<String> castList= new ArrayList<String>();

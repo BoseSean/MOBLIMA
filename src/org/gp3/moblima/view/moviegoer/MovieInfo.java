@@ -1,9 +1,11 @@
 package org.gp3.moblima.view.moviegoer;
 
+import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Review;
 import org.gp3.moblima.view.BaseMenu;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.*;
@@ -25,14 +27,15 @@ public class MovieInfo extends BaseMenu {
         printMovieInfo();
 
         ArrayList<String> choices = new ArrayList<>();
-        choices.add("Buy Tickets");
+        int c=0;
+        if(!movie.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING))
+            choices.add("Buy Tickets");
+        else
+            c=1;
         choices.add("Reviews");
         choices.add("Back");
         printMenuItems(choices, 0);
-
-
-//        int c = readChoice();
-        int c = readChoice(0, choices.size());
+        c = c + readChoice(0, choices.size());
 
         BaseMenu nextMenu = this;
         switch (c) {
@@ -50,20 +53,21 @@ public class MovieInfo extends BaseMenu {
     }
 
     public void printMovieInfo() {
-                println("Title         : " + this.movie.getTitle());
-                println("Rumtime       : " + this.movie.getRuntime());
-                println("Director      : " + this.movie.getDirector());
-                println("Opening       : " + this.movie.getOpening());
-                  print("Synopsis      : ");
-                println(this.movie.getSynopsis(), 16);
-            if(movie.getRatingTimes() != 0) {
-                print("Overall Rating  :");
+        println("Title         : " + this.movie.getTitle());
+        println("Showing Status: " + this.movie.getShowingStatus().toString());
+        println("Content Rating: " + this.movie.getContentRating().toString());
+        println("Runtime       : " + this.movie.getRuntime());
+        println("Director      : " + this.movie.getDirector());
+        println("Opening       : " + this.movie.getOpening());
+        print(  "Synopsis      : ");println( this.movie.getSynopsis(), 16);
+        if(movie.getRatingTimes() != 0 ){
+        print("Overall Rating  :");
                 printStars(movie.getOverAllRating());
             }
             else{
                 println("Overall Rating: N/A");
             }
-        if (movie.getRatingTimes() != 0) {
+        if (movie.getRatingTimes() != 0){
             for (Review r : movie.getReview()) {
                 print("Review         : ");
                 println(r.getComment());
@@ -71,20 +75,12 @@ public class MovieInfo extends BaseMenu {
                 printStars(r.getRating());
             }
         }
+        else
+        {
+
+            println("Overall Rating: N/A");
+        }
     }
-//        if(movie.getRatingTimes() != 0 )
-//        {
-//            for (Review r : movie.getReview()) {
-//                println("Review: " + r.getComment());
-//            }
-//            DecimalFormat df = new DecimalFormat("0.00");
-//            println("Overall Rating: " + df.format(movie.getOverAllRating()));
-//        }
-//        else
-//        {
-//            println("Review: N/A");
-//            println("Overall Rating: N/A");
-//        }
     public void printStars(double rating) {
 //        double rating = re.getOverAllRating();
         if(rating <= 1)
