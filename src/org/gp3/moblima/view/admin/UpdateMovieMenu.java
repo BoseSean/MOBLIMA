@@ -125,8 +125,8 @@ public class UpdateMovieMenu extends BaseMenu {
 			}
 		}while(cinema==null);
 
-        int row = readInt("Input seat rows: ", 1, 99);
-        int col = readInt("Input seat cols: ", 1, 99);
+//        int row = readInt("Input seat rows: ", 1, 99);
+//        int col = readInt("Input seat cols: ", 1, 99);
 
 		Date startDate = readDate("Please input Date");
 		Date startTime = readTime("Please input time");
@@ -145,7 +145,7 @@ public class UpdateMovieMenu extends BaseMenu {
         isSneakOrFirstWeekorblockbuster = confirm("Is this a sneak, first week shown or blockbuster slot");
 
 		Constant.MovieType mt = Constant.MovieType.values()[c];
-		return new Slot(col, row,  cinema,  movie, startDate , startTime, mt , isplatinum, isSneakOrFirstWeekorblockbuster);
+		return new Slot(cinema.getCol(), cinema.getRow(),  cinema,  movie, startDate , startTime, mt , isplatinum, isSneakOrFirstWeekorblockbuster);
 
 	}
 }

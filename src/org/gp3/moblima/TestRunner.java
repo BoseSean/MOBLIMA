@@ -17,8 +17,8 @@ public class TestRunner {
 
          manager.add(Constant.Tables.MOVIE, new Movie(""));
         manager.add(Constant.Tables.USER, new User("user", "12312312312", "user@email.com"));
-        manager.add(Constant.Tables.CINEMA, new Cinema("JEM", false, new ArrayList<Slot>(), "JEM",Constant.Cineplex.JEM));
-        manager.add(Constant.Tables.CINEMA, new Cinema("West Mall", false, new ArrayList<Slot>(), "WEM",Constant.Cineplex.WEST_MALL));
+        manager.add(Constant.Tables.CINEMA, new Cinema("JEM", false, new ArrayList<Slot>(), "JEM",Constant.Cineplex.JEM,10,10));
+        manager.add(Constant.Tables.CINEMA, new Cinema("West Mall", false, new ArrayList<Slot>(), "WEM",Constant.Cineplex.WEST_MALL,10, 10));
         PriceManager pm = PriceManager.getInstance();
 
 //        String s = "Suburbicon is a peaceful, idyllic suburban community with affordable homes and manicured lawns…the perfect place to raise a family, and in the summer of 1959, the Lodge family is doing just that. But the tranquil surface masks a disturbing reality, as husband and father Gardner Lodge (Matt Damon) must navigate the town’s dark underbelly of betrayal, deceit, and violence. This is a tale of very flawed people making very bad choices. This is Suburbicon.";
