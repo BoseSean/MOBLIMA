@@ -13,13 +13,16 @@ public class Cinema implements Model
     private ArrayList<Slot> slots;
     private String cinemaCode;
     private Constant.Cineplex cineplex;
+    private int col,row;
 
-    public Cinema(String name, boolean isPlatinum, ArrayList<Slot> slots, String cinemaCode, Constant.Cineplex cineplex) {
+    public Cinema(String name, boolean isPlatinum, ArrayList<Slot> slots, String cinemaCode, Constant.Cineplex cineplex, int row, int col) {
         this.name = name;
         this.isPlatinum = isPlatinum;
         this.slots = slots;
         this.cinemaCode = cinemaCode;
         this.cineplex = cineplex;
+        this.col = col;
+        this.row = row;
     }
 
     public String getName() {
@@ -87,5 +90,21 @@ public class Cinema implements Model
 
     public void setCinemaCode(String cinemaCode) {
         this.cinemaCode = cinemaCode;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }

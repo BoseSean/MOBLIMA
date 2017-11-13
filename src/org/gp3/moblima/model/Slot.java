@@ -60,21 +60,6 @@ public class Slot implements Model, Comparable
         }
     }
 
-    public boolean occupySeat(int row, int col)
-    {
-        if(this.seats.get(row).get(col).isOcccupied())
-            return false;
-        this.seats.get(row).get(col).setOcccupied(true);
-        return true;
-    }
-
-    public boolean freeSeat(int row, int col)
-    {
-        if(!this.seats.get(row).get(col).isOcccupied())
-            return false;
-        this.seats.get(row).get(col).setOcccupied(false);
-        return true;
-    }
 
     public Cinema getCinema() {
         return cinema;
