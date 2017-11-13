@@ -43,6 +43,7 @@ public class CreateMovie extends BaseMenu {
 
         movie.setTicketSales(0);
         movie.setOverAllRating(0.0);
+        movie.setRatingTimes(0);
 
         if( confirm("Confirm to add movie "+movie.getTitle()) )
         {

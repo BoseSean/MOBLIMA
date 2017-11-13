@@ -29,6 +29,7 @@ public class BuyTicketMenu extends BaseMenu {
         printTitle("Buy Ticket Menu");
 
         // Find slot
+        //todo 如果没有slot呢？
         for(Slot slot:movie.getSlots())
         {
             choices.add(slot.getCinema().getName() + " -- " + slot.getFormattedDate() + " " + slot.getFormattedTime());

@@ -78,6 +78,8 @@ public class UpdateMovieMenu extends BaseMenu {
 			movie.setCasts(castList);
 		}
 		if (confirm("Remove Cast")) {
+			//todo 不存在的cast不能remove
+
 			System.out.println("Separate by comma");
 			String castR = read("Casts to be remove: ");
 			ArrayList<String> castList= new ArrayList<String>();
@@ -87,7 +89,7 @@ public class UpdateMovieMenu extends BaseMenu {
 			}
 //			movie.removeCast(castR);
 		}
-		if (confirm("Update Slot")) {
+		if (confirm("Add A New Slot")) {
 			Slot slot = readSlot();
 			movie.addSlot(slot);
 			println("Slot added.");
@@ -96,13 +98,14 @@ public class UpdateMovieMenu extends BaseMenu {
 			ArrayList<String>choices = new ArrayList<>();
 			for(Slot slot: movie.getSlots())
 			{
-				choices.add(slot.getCinema().toString()+" "+slot.getDate().toString());
+				//todo time format
+				choices.add("Cinema: " + slot.getCinema().getName()+"   Time: "+ slot.getFormattedTime() +" " + slot.getFormattedDate());
 			}
 			printMenuItems(choices,0);
 			int c = readChoice("Please choose a slot to remove",0,choices.size());
 			Slot slot = movie.getSlots().get(c);
-			Movie m = manager.getEntry(Constant.Tables.MOVIE,(Movie movie)->(movie.getTitle().equals(movie)));
-			m.removeSlot(slot);
+			//Movie m = manager.getEntry(Constant.Tables.MOVIE,(Movie movie)->(movie.getTitle().equals(movie)));
+			movie.removeSlot(slot);
 			println("Slot removed");
 		}
 

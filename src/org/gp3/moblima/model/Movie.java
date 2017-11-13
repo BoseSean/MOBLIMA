@@ -22,7 +22,6 @@ public class Movie implements Model
 	}
 
 	public Movie(){
-
 	}
 
 
@@ -52,7 +51,6 @@ public class Movie implements Model
     public int getRatingTimes() {
         return ratingTimes;
     }
-    public double getAvgRating() { return overAllRating / (double)ratingTimes; }
 
     public ArrayList<String> getCasts() { return casts; };
     public ArrayList<Slot> getSlots() { return slots; }
@@ -141,10 +139,10 @@ public class Movie implements Model
 			ArrayList<Review> r = new ArrayList<Review>();
 			this.setReviews(r);
 		}
-		this.reviews.add(review);
-		this.addRatingTimes(1);
-		double r = (getOverAllRating() + review.getRating()) / getRatingTimes();
+		reviews.add(review);
+		double r = (overAllRating * ratingTimes + review.getRating()) / (ratingTimes+1);
 		setOverAllRating(r);
+        addRatingTimes(1);
 	}
 
 	/**

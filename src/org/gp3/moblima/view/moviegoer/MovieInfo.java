@@ -4,6 +4,7 @@ import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Review;
 import org.gp3.moblima.view.BaseMenu;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.*;
@@ -55,9 +56,18 @@ public class MovieInfo extends BaseMenu {
         println("Director: " + this.movie.getDirector());
         println("Opening: " + this.movie.getOpening());
         println("Synopsis: " + this.movie.getSynopsis());
-        for (Review r : movie.getReview()) {
-        	println("Review: " + r.getComment());
+        if(movie.getRatingTimes() != 0 )
+        {
+            for (Review r : movie.getReview()) {
+                println("Review: " + r.getComment());
+            }
+            DecimalFormat df = new DecimalFormat("0.00");
+            println("Overall Rating: " + df.format(movie.getOverAllRating()));
         }
-        println("Overall Rating: " + this.movie.getOverAllRating());
+        else
+        {
+            println("Review: N/A");
+            println("Overall Rating: N/A");
+        }
     }
 }

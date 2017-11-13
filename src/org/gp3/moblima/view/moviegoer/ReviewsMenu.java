@@ -25,6 +25,7 @@ public class ReviewsMenu extends BaseMenu {
 		Review review = new Review(read("Please Enter your comment for " + movie.getTitle() + ": ")  , readInt("Please enter your rating (1-5) for " + movie.getTitle() + " : "));
 
 		movie.addReview(review);
+
 		return this.getPreviousMenu();
 	}
 }
