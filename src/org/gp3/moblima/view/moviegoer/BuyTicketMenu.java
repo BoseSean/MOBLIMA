@@ -108,6 +108,7 @@ public class BuyTicketMenu extends BaseMenu {
             user.addBookings(booking);
             booking.setUser(user);
             manager.add(Constant.Tables.BOOKING,booking);
+            movie.addTicketSales(tickets.size());
             //todo db 保存？
             //manager.add(Constant.Tables.TICKET,tickets);
             println("Booking successful, tid=" + tid);
