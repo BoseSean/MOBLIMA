@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class Movie implements Model
 {
     private String title, synopsis, opening, runtime, director;
-	private int ticketSales;
+    private Constant.ShowingStatus showingStatus;
+    private int ticketSales;
 
 	private double overAllRating;
 	private int ratingTimes;
-	private ArrayList<String> casts;
-    private ArrayList<Slot> slots;
-    private ArrayList<Review> reviews;
+    private ArrayList<String> casts = new ArrayList<>();
+    private ArrayList<Slot> slots = new ArrayList<>();
+    private ArrayList<Review> reviews = new ArrayList<>();
     //todo: language/ opening/runtime/ 分级／
 	public Movie(String title) {
 		this.title = title;
@@ -220,4 +221,11 @@ public class Movie implements Model
         return super.equals(ob);
     }
 
+    public Constant.ShowingStatus getShowingStatus() {
+        return showingStatus;
+    }
+
+    public void setShowingStatus(Constant.ShowingStatus showingStatus) {
+        this.showingStatus = showingStatus;
+    }
 }

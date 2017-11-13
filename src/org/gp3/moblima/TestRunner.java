@@ -11,7 +11,7 @@ public class TestRunner {
     public static void main(String[] args) {
         Manager manager = Manager.getInstance();
         manager.add(Constant.Tables.ADMIN, new Admin("admin", "admin"));
-        manager.add(Constant.Tables.MOVIE, new Movie("Matrix"));
+//        manager.add(Constant.Tables.MOVIE, new Movie("Matrix"));
 
         // manager.add(Constant.Tables.MOVIE, new Movie(""));
         manager.add(Constant.Tables.USER, new User("user", "12312312312", "user@email.com"));
