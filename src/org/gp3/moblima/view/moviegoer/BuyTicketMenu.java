@@ -154,6 +154,7 @@ public class BuyTicketMenu extends BaseMenu {
                 printf(i + 1);
             } else {
                 print("  ");
+                i--;
             }
             new_row++;
         }
@@ -176,6 +177,7 @@ public class BuyTicketMenu extends BaseMenu {
                         print("[ ]");
                 } else {
                     print("   ");
+                    j--;
                 }
                 new_row++;
             }

@@ -61,7 +61,7 @@ public class MovieInfo extends BaseMenu {
         println("Opening       : " + this.movie.getOpening());
         print(  "Synopsis      : ");println( this.movie.getSynopsis(), 16);
         if(movie.getRatingTimes() != 0 ){
-        print("Overall Rating  :");
+                print("Overall Rating  :");
                 printStars(movie.getOverAllRating());
             }
             else{
