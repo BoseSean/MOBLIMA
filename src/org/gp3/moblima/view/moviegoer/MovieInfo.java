@@ -55,6 +55,8 @@ public class MovieInfo extends BaseMenu {
         println("Showinng Status: " + this.movie.getShowingStatus().toString());
         println("Rumtime: " + this.movie.getRuntime());
         println("Director: " + this.movie.getDirector());
+        print("Casts: ");
+        printCasts();
         println("Opening: " + this.movie.getOpening());
         println("Synopsis: " + this.movie.getSynopsis());
 
@@ -70,6 +72,12 @@ public class MovieInfo extends BaseMenu {
         {
             println("Review: N/A");
             println("Overall Rating: N/A");
+        }
+    }
+
+    private void printCasts() {
+        for (String castMember : movie.getCasts()) {
+            print(castMember + "/");
         }
     }
 }
