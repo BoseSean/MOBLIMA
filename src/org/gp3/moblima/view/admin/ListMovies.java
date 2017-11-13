@@ -3,6 +3,9 @@ package org.gp3.moblima.view.admin;
 import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
+import org.gp3.moblima.view.Quit;
+import org.gp3.moblima.view.moviegoer.ListMovieTopRate;
+import org.gp3.moblima.view.moviegoer.ListMovieTopSale;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,8 @@ public class ListMovies extends BaseMenu {
 			choices.add("Update info for " + movie.getTitle());
 		}
 
+		choices.add("Show Top 5 by sale");
+		choices.add("Shop Top 5 by rating");
 		choices.add("Back");
 
 		printMenuItems(choices, 0);
@@ -34,12 +39,14 @@ public class ListMovies extends BaseMenu {
 		int c = readChoice(0, choices.size());
 
 		BaseMenu nextMenu = this;
-		if (c < choices.size() -1 ) {
+		if (c < movies.size()) {
 			nextMenu = new UpdateMovieMenu(this, movies.get(c));
-		} else if (c == choices.size() - 1) {
+		} else if (c == movies.size())
+			nextMenu = new StaffTopFiveBySale(this.getPreviousMenu());
+		else if (c == movies.size() + 1)
+			nextMenu = new StaffTopFiveByRate(this.getPreviousMenu());
+		else if (c == movies.size() + 2)
 			nextMenu = this.getPreviousMenu();
-		}
-
 		return nextMenu;
     }
 }
