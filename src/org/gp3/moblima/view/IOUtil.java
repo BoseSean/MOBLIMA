@@ -37,9 +37,9 @@ public class IOUtil {
     public static int readInt(String message, int min, int max) {
         int c = 0;
         do {
-//            if(min == max)
-//                readInt(message + " :");
-//            else
+            if(min == max)
+                readInt(message + " (" + max + "):");
+            else
                 c = readInt(message + " (" + min + "~" + max + "): ");
             if (!(c >= min && c <= max))
                 print("Please enter valid option. ");
