@@ -9,7 +9,7 @@ public class Movie implements Model
     private Constant.ContentRating contentRating;
     private Constant.ShowingStatus showingStatus;
     private int ticketSales, runtime;
-    private Date opening;//todo by weiliang
+    private Date opening;//todo by weiliang // What is wrong
     private double overAllRating;
 	private int ratingTimes;
     private ArrayList<String> casts = new ArrayList<>();
@@ -32,6 +32,10 @@ public class Movie implements Model
     public Date getOpening() {
         return opening;
     }
+
+	public String getFormattedDate() {
+		return Constant.holidayFormat.format(opening);
+	}
 
     public void setOpening(Date opening) {
         this.opening = opening;

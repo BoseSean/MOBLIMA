@@ -63,7 +63,7 @@ public class MovieInfo extends BaseMenu {
         }
         println("");
         println("Language      : " + this.movie.getLanguage());
-        println("Opening       : " + this.movie.getOpening());
+        println("Opening       : " + this.movie.getFormattedDate());
         print(  "Synopsis      : ");println( this.movie.getSynopsis(), 16);
         if(movie.getRatingTimes() != 0 ){
                 print("Overall Rating  :");

@@ -36,8 +36,8 @@ public class UpdateMovieMenu extends BaseMenu {
 			movie.setDirector(director);
 		}
 		if (confirm("Update Opening Time")) {
-            Date opening = readTime("input time");//todo by weiliang
-            movie.setOpening(opening);
+            Date opening = readDate("input time");//todo by weiliang
+            movie.setOpening(opening);					// readDate instead of readTime
 		}
         if (confirm("Update Showing Status")) {
             ArrayList<String> choices = new ArrayList();
@@ -79,13 +79,19 @@ public class UpdateMovieMenu extends BaseMenu {
 		}
 		if (confirm("Remove Cast")) {
 			//todo 不存在的cast不能remove
+			// Done
 
 			System.out.println("Separate by comma");
 			String castR = read("Casts to be remove: ");
 			ArrayList<String> castList= new ArrayList<String>();
 			Collections.addAll(castList, castR.split(","));
+			ArrayList<String> currentCast = movie.getCasts();
 			for (String c : castList) {
-				movie.removeCast(c);
+				if (currentCast.contains(c)) {
+					movie.removeCast(c);
+				} else {
+					println(c + " not a cast.");
+				}
 			}
 		}
 		if (confirm("Add A New Slot")) {
@@ -94,18 +100,22 @@ public class UpdateMovieMenu extends BaseMenu {
 			println("Slot added.");
 		}
 		if (confirm("Remove Slot")) {
+			// Added check empty slot
 			ArrayList<String>choices = new ArrayList<>();
-			for(Slot slot: movie.getSlots())
-			{
-				//todo time format
-				choices.add("Cinema: " + slot.getCinema().getName()+"   Time: "+ slot.getFormattedTime() +" " + slot.getFormattedDate());
+			if (movie.getSlots().size() != 0) {
+				for(Slot slot: movie.getSlots())
+				{
+					//todo time format
+					// What is wrong
+					choices.add("Cinema: " + slot.getCinema().getName()+"   Time: "+ slot.getFormattedTime() +" " + slot.getFormattedDate());
+				}
+				printMenuItems(choices,0);
+				int c = readChoice("Please choose a slot to remove",0,choices.size());
+				Slot slot = movie.getSlots().get(c);
+				//Movie m = manager.getEntry(Constant.Tables.MOVIE,(Movie movie)->(movie.getTitle().equals(movie)));
+				movie.removeSlot(slot);
+				println("Slot removed");
 			}
-			printMenuItems(choices,0);
-			int c = readChoice("Please choose a slot to remove",0,choices.size());
-			Slot slot = movie.getSlots().get(c);
-			//Movie m = manager.getEntry(Constant.Tables.MOVIE,(Movie movie)->(movie.getTitle().equals(movie)));
-			movie.removeSlot(slot);
-			println("Slot removed");
 		}
 
 
