@@ -180,7 +180,7 @@ public class Movie implements Model
 
 	public boolean actorInCasts(String some_cast) {
         for(int i = 0; i < this.casts.size(); i++)
-            if (this.casts.get(i) == some_cast)
+            if (this.casts.get(i).equals(some_cast))
                 return true;
         return false;
     }
