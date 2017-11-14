@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static org.gp3.moblima.view.IOUtil.printMenuItems;
+import static org.gp3.moblima.view.IOUtil.printTitle;
 import static org.gp3.moblima.view.IOUtil.readChoice;
 public class ListMovieTopSale extends BaseMenu {
     public ListMovieTopSale(BaseMenu previousMenu) {
@@ -19,7 +20,7 @@ public class ListMovieTopSale extends BaseMenu {
     public BaseMenu execute() {
 		Manager manager = Manager.getInstance();
         ArrayList<Movie> movies = manager.getAll(Constant.Tables.MOVIE);
-
+		printTitle("Top 5 by Sales");
 		ArrayList<String> choices = new ArrayList<>();
 
 		try {
@@ -29,11 +30,7 @@ public class ListMovieTopSale extends BaseMenu {
 			int top = 1;
 
 			for (Movie movie : movies) {
-//				choices.add(movie.getTitle());
 				choices.add(movie.getTicketSales() + " Tickets for " + movie.getTitle());
-//				System.out.println(movie.getTicketSales() + " Tickets for " + movie.getTitle());
-//				System.out.println();
-
 				if (top++ == 5) {
 					break;
 				}

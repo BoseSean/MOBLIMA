@@ -30,7 +30,7 @@ public class SearchMovieMenu extends BaseMenu {
         movie = null;
         while (true)
         {
-            movie = manager.getEntry(Constant.Tables.MOVIE, (Movie m)->(m.getTitle().equals(movieName)));
+            movie = manager.getEntry(Constant.Tables.MOVIE, (Movie m) -> (m.getTitle().toLowerCase().contains(movieName.toLowerCase())));
             if(movie == null)
             {
                 println("Sorry, no result found. Press 0 to go back.");
