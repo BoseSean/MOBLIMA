@@ -268,6 +268,7 @@ public class IOUtil {
     }
 
     //todo new opening time need to strict to time string only.
+    // Already taken care of in readDate and readTime
 
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {
