@@ -57,14 +57,14 @@ public class MovieInfo extends BaseMenu {
         println("Content Rating: " + this.movie.getContentRating().toString());
         println("Runtime       : " + this.movie.getRuntime());
         println("Director      : " + this.movie.getDirector());
-        print("Cast          : ");
+          print("Cast          : ");
         for (String r : movie.getCasts()) {
             print(r + ";");
         }
         println("");
         println("Language      : " + this.movie.getLanguage());
         println("Opening       : " + this.movie.getFormattedDate());
-        print(  "Synopsis      : ");println( this.movie.getSynopsis(), 16);
+          print("Synopsis      : ");println( this.movie.getSynopsis(), 16);
         if(movie.getRatingTimes() != 0 ){
                 print("Overall Rating  :");
                 printStars(movie.getOverAllRating());
@@ -88,16 +88,17 @@ public class MovieInfo extends BaseMenu {
     }
     public void printStars(double rating) {
 //        double rating = re.getOverAllRating();
+        String s = String.format("%.1f", rating);
         if(rating <= 1)
-            println("★☆☆☆☆(" + rating + ")");
+            println("★☆☆☆☆(" + s + ")");
         else if(rating <= 2)
-            println("★★☆☆☆(" + rating + ")");
+            println("★★☆☆☆(" + s + ")");
         else if(rating <= 3)
-            println("★★★☆☆(" + rating + ")");
+            println("★★★☆☆(" + s + ")");
         else if(rating <= 4)
-            println("★★★★☆(" + rating + ")");
+            println("★★★★☆(" + s + ")");
         else
-            println("★★★★★(" + rating + ")");
+            println("★★★★★(" + s + ")");
         println();
     }
 }

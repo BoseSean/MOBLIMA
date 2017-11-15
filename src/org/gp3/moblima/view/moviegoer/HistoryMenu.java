@@ -91,9 +91,9 @@ public class HistoryMenu extends BaseMenu {
 				println("Cineplex: " + book.getCinema().getCineplex().toString());
 				println("Cinema: " + book.getCinema().getName());
 				println("Movie: " + book.getMovie().getTitle());
-				print("Seats :");
+				println("Seats :");
 				for(Ticket ticket: book.getTickets()){
-					println("       Row: "+(ticket.getSeat().getRow()+1)+" Col: "+ (ticket.getSeat().getCol()+1));
+					println("Row: "+(ticket.getSeat().getRow()+1)+" Col: "+ (ticket.getSeat().getCol()+1));
 				}
 			}
 		}
