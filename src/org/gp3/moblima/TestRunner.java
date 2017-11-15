@@ -4,6 +4,10 @@ import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.view.MainMenu;
 import org.gp3.moblima.view.MenuLoop;
 
+import static org.gp3.moblima.view.IOUtil.*;
+
+import java.util.Date;
+
 public class TestRunner {
     public static void main(String[] args) {
         Manager manager = Manager.getInstance();

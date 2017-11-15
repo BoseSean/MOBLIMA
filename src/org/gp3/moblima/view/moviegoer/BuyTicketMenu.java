@@ -55,84 +55,74 @@ public class BuyTicketMenu extends BaseMenu {
             selected.add(chooseSeats(seats,row,col));
         }
 
-        ArrayList<Ticket> tickets = new ArrayList<>();
+        if (selected.size() != 0) {
+            ArrayList<Ticket> tickets = new ArrayList<>();
 
-        // Ask if student or senior
+            // Ask if student or senior
 
-        if(confirm("Are you eligible for student discount?"))
-        {
-            isstudent = true;
-            Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
-            for( Seat seat : selected)
-            {
-                Ticket ticket = new Ticket(seat,slot.getMovieType(),ticketType);
-                tickets.add(ticket);
+            if (confirm("Are you eligible for student discount?")) {
+                isstudent = true;
+                Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
+                for (Seat seat : selected) {
+                    Ticket ticket = new Ticket(seat, slot.getMovieType(), ticketType);
+                    tickets.add(ticket);
+                }
+            } else if (confirm("Are you eligible for senior discount?")) {
+                issenior = true;
+                Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
+                for (Seat seat : selected) {
+                    Ticket ticket = new Ticket(seat, slot.getMovieType(), ticketType);
+                    tickets.add(ticket);
+                }
+            } else {
+                Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
+                for (Seat seat : selected) {
+                    Ticket ticket = new Ticket(seat, slot.getMovieType(), ticketType);
+                    tickets.add(ticket);
+                }
             }
-        }
-        else if(confirm("Are you eligible for senior discount?"))
-        {
-            issenior = true;
-            Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
-            for( Seat seat : selected)
-            {
-                Ticket ticket = new Ticket(seat,slot.getMovieType(),ticketType);
-                tickets.add(ticket);
-            }
-        }
-        else
-        {
-            Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
-            for( Seat seat : selected)
-            {
-                Ticket ticket = new Ticket(seat,slot.getMovieType(),ticketType);
-                tickets.add(ticket);
-            }
-        }
 
-        // Create booking & Payment
+            // Create booking & Payment
 
-        Ticket ticket = tickets.get(0);
-        double totalprice = priceManager.getPrice(ticket.getTickettype(), ticket.getMovietype(), slot.isPlatinum(), slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
-        Date currentTime = Calendar.getInstance().getTime();
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(currentTime);
-        String tid = slot.getCinema().getCinemaCode()+timeStamp;
-        Booking booking = new Booking(tid, slot, currentTime, totalprice, movie, slot.getCinema(), tickets);
+            Ticket ticket = tickets.get(0);
+            double totalprice = priceManager.getPrice(ticket.getTickettype(), ticket.getMovietype(), slot.isPlatinum(), slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
+            Date currentTime = Calendar.getInstance().getTime();
+            String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(currentTime);
+            String tid = slot.getCinema().getCinemaCode() + timeStamp;
+            Booking booking = new Booking(tid, slot, currentTime, totalprice, movie, slot.getCinema(), tickets);
 
-        User user;
-        if (confirm("Do you have an account")) {
-            user = login();
-        } else {
-            String name = read("Name: ");
-            String email = read("Email: ");
-            String phone = read("Phone number: ");
+            User user;
+            if (confirm("Do you have an account")) {
+                user = login();
+            } else {
+                String name = read("Name: ");
+                String email = read("Email: ");
+                String phone = read("Phone number: ");
 //          manager.add(Constant.Tables.USER, new User(name, "12312312312", "));
-            user = new User(name, phone, email);
-            manager.add(Constant.Tables.USER, user);
-        }
-
-        // Confirm
-        println("Total price is S$"+ booking.getTotalPrice() + " (Inclusive of GST).");
-        if(confirm("Confirm to book? "))
-        {
-            for(Seat seat : selected)
-            {
-                seat.setSelected(false);
-                seat.setOcccupied(true);
+                user = new User(name, phone, email);
+                manager.add(Constant.Tables.USER, user);
             }
-            user.addBookings(booking);
-            booking.setUser(user);
-            manager.add(Constant.Tables.BOOKING,booking);
-            movie.addTicketSales(tickets.size());
-            for(Ticket ticket1: tickets) manager.add(Constant.Tables.TICKET, ticket1);
-            println("Booking successful, tid=" + tid);
 
+            // Confirm
+            println("Total price is S$" + booking.getTotalPrice() + " (Inclusive of GST).");
+            if (confirm("Confirm to book? ")) {
+                for (Seat seat : selected) {
+                    seat.setSelected(false);
+                    seat.setOcccupied(true);
+                }
+                user.addBookings(booking);
+                booking.setUser(user);
+                manager.add(Constant.Tables.BOOKING, booking);
+                movie.addTicketSales(tickets.size());
+                for (Ticket ticket1 : tickets) manager.add(Constant.Tables.TICKET, ticket1);
+                println("Booking successful, tid=" + tid);
+
+            } else {
+                for (Seat seat : selected)
+                    seat.setSelected(false);
+            }
+            while (readInt("Press 0 to return to previous menu: ") != 0) ;
         }
-        else
-        {
-            for(Seat seat : selected)
-                seat.setSelected(false);
-        }
-        while(readInt("Press 0 to return to previous menu: ") != 0);
         return this.getPreviousMenu();
     }
 
