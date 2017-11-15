@@ -1,7 +1,5 @@
 package org.gp3.moblima.model;
 
-//import org.jetbrains.annotations.Nullable;
-
 
 /**
  * Created by Shen Youlin on 14/10/17.

@@ -115,7 +115,6 @@ public class Booking implements Model
         else{
             this.tickets.add(new_ticket);
         }
-        //totalPrice += new_ticket.getPrice();
     }
 
     public void removeTicket(Ticket new_ticket){
