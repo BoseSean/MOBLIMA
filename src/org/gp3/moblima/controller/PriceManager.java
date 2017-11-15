@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.gp3.moblima.view.IOUtil.print;
-import static org.gp3.moblima.view.IOUtil.println;
-
 
 public class PriceManager {
     private static PriceManager singleInstance = new PriceManager();
@@ -198,32 +195,26 @@ public class PriceManager {
                 if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.FRIDAY) {
                     if (showtime.getTime().before(six)) {
                         if (isStudent) {
-//                            println("Student");
                             return Constant.TicketType.STUDENT;
                         }
                         else if (isSeniorCitizen) {
-//                            println("Senior");
                             return Constant.TicketType.SENIOR;
                         }
                         else if (dayOfWeek == Calendar.FRIDAY) {
-//                            println("Friday");
                             return Constant.TicketType.FRI_BEFORE_SIX_PM;
                         }
                         // Fri after 6pm
                     }
                     else if (dayOfWeek == Calendar.FRIDAY) {
-//                        println("After six");
                         return  Constant.TicketType.FRI_AFTER_SIX_PM;
                     }
 
                     // Mon to Thu
                     if (dayOfWeek >= Calendar.MONDAY && dayOfWeek <= Calendar.THURSDAY) {
-//                        println("Mon to Thu");
                         return  Constant.TicketType.MON_TO_THU;
                         // Fri
                     }
                     else if (dayOfWeek == Calendar.FRIDAY) {
-//                        println("Fri");
                         return  Constant.TicketType.FRI;
                     }
                 }

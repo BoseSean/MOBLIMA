@@ -217,23 +217,4 @@ public class BuyTicketMenu extends BaseMenu {
 
         return seats.get(i).get(j);
     }
-
-//    private Constant.TicketType dayOfweek(Date date){
-//        Calendar c = Calendar.getInstance();
-//        c.setTime(date);
-//        int day = c.get(Calendar.DAY_OF_WEEK);
-//        if(day <= 5 && day >= 2){
-//            boolean flag = false;
-//            ArrayList<Holiday>holidays = manager.getAll(Constant.Tables.HOLIDAY);
-//            for(Holiday holiday: holidays){
-//                if(holiday.getDate() == date){
-//                    flag = true;
-//                    break;
-//                }
-//            }
-//            if(!flag)
-//                return Constant.TicketType.MON_THU;
-//        }
-//        return Constant.TicketType.FIR_SUN_AND_PH;
-//    }
 }
