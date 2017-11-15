@@ -5,6 +5,8 @@ import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
+import java.util.ArrayList;
+
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
@@ -21,28 +23,38 @@ public class SearchMovieMenu extends BaseMenu {
     @Override
     public BaseMenu execute()
     {
-        MovieInfo nextMenu = null;
-        Movie movie;
+        BaseMenu nextMenu = null;
+        ArrayList<Movie> movies;
         movieName = null;
         printTitle("Movie Search");
         movieName = read("Input movie name to search: ");
 
-        movie = null;
         while (true)
         {
-            movie = manager.getEntry(Constant.Tables.MOVIE, (Movie m) -> (m.getTitle().toLowerCase().contains(movieName.toLowerCase())));
-            if(movie == null)
+            movies = manager.getEntries(Constant.Tables.MOVIE, (Movie m) -> (m.getTitle().toLowerCase().contains(movieName.toLowerCase())));
+            if (movies.isEmpty())
             {
                 println("Sorry, no result found. Press 0 to go back.");
                 movieName = read("Input movie name to search: ");
                 if(movieName.equals("0"))
                     break;
-
             }
             else
             {
-                println("Movie: "+movie.getTitle()+" found!");
-                nextMenu = new MovieInfo(this,movie);
+                println("Found " + movies.size() + " results:");
+                ArrayList<String> choices = new ArrayList<>();
+                for (Movie m : movies) {
+                    choices.add(m.getTitle());
+                }
+                choices.add("Back");
+                printMenuItems(choices, 0);
+                int c = readChoice(0, choices.size());
+
+                if (c < movies.size())
+                    nextMenu = new MovieInfo(this, movies.get(c));
+                else if (c == movies.size())
+                    nextMenu = getPreviousMenu();
+
                 break;
             }
         }

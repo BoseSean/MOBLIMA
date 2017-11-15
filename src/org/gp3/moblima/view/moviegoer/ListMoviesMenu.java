@@ -39,8 +39,9 @@ public class ListMoviesMenu extends BaseMenu {
 		ArrayList<String> choices = new ArrayList<>();
         ArrayList<Movie> movies = mg.getAll(Constant.Tables.MOVIE);
         for (Movie m : movies) {
-            choices.add(m.getTitle());
-		}
+            String title = m.getTitle() + (m.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING) ? " (End Showing)" : "");
+            choices.add(title);
+        }
 
         choices.add("Show Top 5 by sale");
         choices.add("Shop Top 5 by rating");
