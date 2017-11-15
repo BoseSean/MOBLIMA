@@ -45,7 +45,6 @@ public class IOUtil {
         return c;
     }
 
-
     public static int readInt(String Message) {
         print(Message);
         while (true) {
@@ -128,6 +127,28 @@ public class IOUtil {
 //            index += SCREEN_WIDTH;
 //        }
 //        System.out.println(builder.toString());
+    }
+
+    public static void printLong(String message, String deli, int indentBy) {
+        String[] newMessage = message.split(deli);
+        int counter = 0;
+        StringBuilder prefix = new StringBuilder();
+        for(int i=0; i< indentBy; i++) {
+            prefix.append(" ");
+        }
+
+        for (int i = 0; i < newMessage.length; i++) {
+            System.out.printf("%s ", newMessage[i]);
+            counter += newMessage[i].length();
+            if (counter >= SCREEN_WIDTH - indentBy * 2) {
+
+                println();
+                System.out.printf("%s ", prefix.toString());
+                counter = 0;
+            }
+        }
+        println();
+
     }
 
     public static void println(String message, int indentedBy) {
