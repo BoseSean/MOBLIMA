@@ -7,6 +7,7 @@ import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Slot;
 import org.gp3.moblima.view.BaseMenu;
 
+import java.awt.image.CropImageFilter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -117,16 +118,27 @@ public class UpdateMovieMenu extends BaseMenu {
 
 	private Slot readSlot()
 	{
-		Cinema cinema;
-		do {
-			String cp = read("Input Cineplex: ");
-			String s = read("Input Cinema: ");
-			cinema = manager.getEntry(Constant.Tables.CINEMA, (Cinema c) -> (c.getName().equals(s) && c.getCineplex().toString().equals(cp)));
-			if(cinema == null)
-			{
-				println("No corresponding cineplex or cinema found, please try again.");
-			}
-		}while(cinema==null);
+		ArrayList<Cinema> cinemas = manager.getAll(Constant.Tables.CINEMA);
+		ArrayList<String> Cinchoices = new ArrayList<>();
+		for (Cinema c : cinemas) {
+			Cinchoices.add(c.getName() + " at " + c.getCineplex());
+		}
+
+		printMenuItems(Cinchoices, 0);
+
+		int cc = readChoice(0, Cinchoices.size());
+
+		Cinema cinema = cinemas.get(cc);
+
+//		do {
+//			String cp = read("Input Cineplex: ");
+//			String s = read("Input Cinema: ");
+//			cinema = manager.getEntry(Constant.Tables.CINEMA, (Cinema c) -> (c.getName().equals(s) && c.getCineplex().toString().equals(cp)));
+//			if(cinema == null)
+//			{
+//				println("No corresponding cineplex or cinema found, please try again.");
+//			}
+//		}while(cinema==null);
 
 //        int row = readInt("Input seat rows: ", 1, 99);
 //        int col = readInt("Input seat cols: ", 1, 99);
