@@ -55,7 +55,7 @@ public class ListMovieTopRate extends BaseMenu {
 
         BaseMenu nextMenu = this;
 
-        if (c < choices.size() - 3) {
+        if (c <= choices.size() - 3) {
             nextMenu = new MovieInfo(this, movies.get(c));
         } else if (c == choices.size() - 2) {
             nextMenu = new ListMovieTopSale(this.getPreviousMenu());
