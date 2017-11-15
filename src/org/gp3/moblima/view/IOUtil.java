@@ -215,16 +215,11 @@ public class IOUtil {
         } else {
             sdf = new SimpleDateFormat(format);
         }
-
+        sdf.setLenient(false);
         do {
             try {
                 String date = read(label + " (" + format + "): ");
-                String[] split = date.split("/");
-                if (((Integer.parseInt(split[1]) < 13 && Integer.parseInt(split[1]) > 0) && (Integer.parseInt(split[0]) < 32 && Integer.parseInt(split[0]) > 0))) {
-                    return sdf.parse(date);
-                } else {
-                    throw new ParseException("Please enter a correct date", 0);
-                }
+                return sdf.parse(date);
             } catch (ParseException ime) {
                 println("Please enter a correct date format");
                 sc.nextLine();
@@ -244,7 +239,7 @@ public class IOUtil {
             try {
                 String time = read(label + " (" + Constant.FORMAT_TIME_CLOCK + "): ");
                 String[] split = time.split(":");
-                if (((Integer.parseInt(split[0]) < 23 && Integer.parseInt(split[0]) > 0) && (Integer.parseInt(split[1]) < 59 && Integer.parseInt(split[1]) > 0))) {
+                if (((Integer.parseInt(split[0]) < 23 && Integer.parseInt(split[0]) > 0) && (Integer.parseInt(split[1]) < 59 && Integer.parseInt(split[1]) >= 0))) {
                     return Constant.clockFormat.parse(time);
                 } else {
                     throw new ParseException("Please enter a correct time", 0);
