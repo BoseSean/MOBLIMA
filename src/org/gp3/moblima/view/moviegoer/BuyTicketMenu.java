@@ -95,9 +95,9 @@ public class BuyTicketMenu extends BaseMenu {
             if (confirm("Do you have an account")) {
                 user = login();
             } else {
-                String name = read("Name: ");
-                String email = read("Email: ");
-                String phone = read("Phone number: ");
+                String name = read("New Name: ");
+                String email = read("New Email: ");
+                String phone = read("New Phone number: ");
                 user = new User(name, phone, email);
                 manager.add(Constant.Tables.USER, user);
             }

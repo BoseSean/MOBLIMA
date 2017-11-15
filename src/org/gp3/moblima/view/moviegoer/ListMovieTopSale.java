@@ -60,6 +60,6 @@ public class ListMovieTopSale extends BaseMenu {
     }
 
     private void sortTicketSales(ArrayList<Movie> movies) {
-        Collections.sort(movies, (m1, m2) -> (m1.getTicketSales() - m2.getTicketSales()));
+        Collections.sort(movies, (m1, m2) -> (m2.getTicketSales() - m1.getTicketSales()));
     }
 }

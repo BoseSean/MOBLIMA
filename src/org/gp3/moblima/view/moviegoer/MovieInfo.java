@@ -79,7 +79,7 @@ public class MovieInfo extends BaseMenu {
         if (movie.getRatingTimes() != 0){
             for (Review r : movie.getReview()) {
                 print("Review         : ");
-                println(r.getComment());
+                println(r.getComment(), 16);
                 print("Rating         : ");
                 printStars(r.getRating());
             }
