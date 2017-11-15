@@ -27,7 +27,7 @@ public class MovieInfo extends BaseMenu {
 
         ArrayList<String> choices = new ArrayList<>();
         int c=0;
-        if(!(movie.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING) && movie.getShowingStatus().equals(Constant.ShowingStatus.COMING_SOON)))
+        if (!((movie.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING)) || (movie.getShowingStatus().equals(Constant.ShowingStatus.COMING_SOON))))
             choices.add("Buy Tickets");
         else
             c=1;
@@ -91,7 +91,6 @@ public class MovieInfo extends BaseMenu {
         }
     }
     public void printStars(double rating) {
-//        double rating = re.getOverAllRating();
         String s = String.format("%.1f", rating);
         if(rating <= 1)
             println("★☆☆☆☆(" + s + ")");

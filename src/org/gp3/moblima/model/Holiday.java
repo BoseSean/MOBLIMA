@@ -7,8 +7,10 @@ import java.util.Date;
  */
 public class Holiday implements Model {
 
+
     // What is id for ?
     // How to assign when adding new holiday ?
+    // TODO to be removed
     private int id;
 
 	private Date date;
@@ -20,7 +22,9 @@ public class Holiday implements Model {
         return date;
     }
 
+    // TODO toString method
     public String getName() {
+
         return name;
     }
 
@@ -39,11 +43,12 @@ public class Holiday implements Model {
         return holiday;
     }
 
+
     @Override
     public boolean equals(Object ob){
         if(ob instanceof Holiday){
             Holiday holiday = (Holiday) ob;
-            return holiday.id == this.id;
+            return holiday.name == this.name && holiday.date == this.date;
         }
         return super.equals(ob);
     }

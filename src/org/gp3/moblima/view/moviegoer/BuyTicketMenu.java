@@ -98,7 +98,6 @@ public class BuyTicketMenu extends BaseMenu {
                 String name = read("Name: ");
                 String email = read("Email: ");
                 String phone = read("Phone number: ");
-//          manager.add(Constant.Tables.USER, new User(name, "12312312312", "));
                 user = new User(name, phone, email);
                 manager.add(Constant.Tables.USER, user);
             }
@@ -153,7 +152,7 @@ public class BuyTicketMenu extends BaseMenu {
             new_row++;
         }
 
-        println("");
+        println();
         boolean flag = false;
         for(int i =0; i<row; i++)
         {
@@ -177,7 +176,7 @@ public class BuyTicketMenu extends BaseMenu {
             }
             print(" ");
             printf(i + 1);
-            println("");
+            println();
         }
 
         println("");

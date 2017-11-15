@@ -5,9 +5,6 @@ import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Holiday;
 import org.gp3.moblima.view.BaseMenu;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -37,7 +34,6 @@ public class ConfigureHolidayMenu extends BaseMenu {
 		printMenuItems(choices, 0);
 
 		int c = readChoice(0, choices.size());
-
 		ArrayList<Holiday> holidays = manager.getAll(Constant.Tables.HOLIDAY);
 		ArrayList<String> Hochoices = new ArrayList<>();
 		for (Holiday h : holidays) {
@@ -48,7 +44,6 @@ public class ConfigureHolidayMenu extends BaseMenu {
 		Date startdate = null;
 		switch (c) {
 			case 0:
-//				String name = read("Input Holiday Name: ");
 				printMenuItems(Hochoices, 0);
 
 				println("Select Holiday to be updated: ");
@@ -57,23 +52,12 @@ public class ConfigureHolidayMenu extends BaseMenu {
 
 				holiday = holidays.get(hc);
 
-
-
-//				holiday = manager.getEntry(HOLIDAY, (Holiday h) -> (h.getName().equals(name)));
-//				if (holiday != null) {
 				String newName = read("Input New Holiday Name: ");
 				holiday.setName(newName);
 				startdate = readDate("Please new Date: ");
 				holiday.setDate(startdate);
-
-//				} else {
-//					println("Holiday Does Not Exists");
-//				}
 				break;
 			case 1:
-//				name = read("Input Holiday to be remove: ");
-//				holiday = manager.getEntry(HOLIDAY, (Holiday h) -> (h.getName().equals(name)));
-//				if (holiday != null) {
 				println("Select Holiday to be removed: ");
 				printMenuItems(Hochoices, 0);
 
@@ -81,9 +65,6 @@ public class ConfigureHolidayMenu extends BaseMenu {
 
 				holiday = holidays.get(hc);
 				manager.delete(HOLIDAY, holiday);
-//				} else {
-//					println("Holiday Does Not Exists");
-//				}
 				break;
 			case 2:
 				String name = read("Input New Holiday Name: ");
