@@ -4,6 +4,7 @@ import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.User;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -211,7 +212,12 @@ public class IOUtil {
         do {
             try {
                 String date = read(label + " (" + format + "): ");
-                return sdf.parse(date);
+                String[] split = date.split("/");
+                if (((Integer.parseInt(split[1]) < 13 && Integer.parseInt(split[1]) > 0) && (Integer.parseInt(split[0]) < 32 && Integer.parseInt(split[0]) > 0))) {
+                    return sdf.parse(date);
+                } else {
+                    throw new ParseException("Please enter a correct date", 0);
+                }
             } catch (ParseException ime) {
                 println("Please enter a correct date format");
                 sc.nextLine();
@@ -230,7 +236,12 @@ public class IOUtil {
         do {
             try {
                 String time = read(label + " (" + Constant.FORMAT_TIME_CLOCK + "): ");
-                return Constant.clockFormat.parse(time);
+                String[] split = time.split(":");
+                if (((Integer.parseInt(split[0]) < 23 && Integer.parseInt(split[0]) > 0) && (Integer.parseInt(split[1]) < 59 && Integer.parseInt(split[1]) > 0))) {
+                    return Constant.clockFormat.parse(time);
+                } else {
+                    throw new ParseException("Please enter a correct time", 0);
+                }
             } catch (ParseException ime) {
                 println("Please enter a correct time format");
                 sc.nextLine();
