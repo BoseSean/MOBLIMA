@@ -39,7 +39,6 @@ public class Booking implements Model
     }
 
 
-
     /**
      * Get Ticket ID
      * @return TID of booking
@@ -162,7 +161,7 @@ public class Booking implements Model
     public boolean equals(Object obj) {
         if (obj instanceof Booking) {
             Booking t = (Booking) obj;
-            return (t.TID == TID && t.movie == movie && t.cinema == cinema);
+            return (t.TID.equals(this.TID) && t.movie == movie && t.cinema == cinema);
         }
         return super.equals(obj);
     }
