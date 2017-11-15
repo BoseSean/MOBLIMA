@@ -6,7 +6,6 @@ import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
@@ -35,7 +34,7 @@ public class CreateMovie extends BaseMenu {
         movie.setLanguage(buf);
         Date Datebuf = readDate("Input opening: ");
         movie.setOpening(Datebuf);
-        int Intbuf = readInt("Input runtime: ");
+        int Intbuf = readInt("Input runtime(minutes): ");
         movie.setRuntime(Intbuf);
 
         println("Choose Content Rating: ");
@@ -47,7 +46,7 @@ public class CreateMovie extends BaseMenu {
         int c = readChoice(0, choices.size());
         movie.setContentRating(Constant.ContentRating.values()[c]);
 
-        //todo showing status(later)
+        //todo showing status
         println("Choose Showing Status: ");
         choices.clear();
         for (Constant.ShowingStatus status : Constant.ShowingStatus.values()) {
@@ -58,9 +57,10 @@ public class CreateMovie extends BaseMenu {
         movie.setShowingStatus(Constant.ShowingStatus.values()[c]);
 
         buf = readln("Input casts, separated by comma: ");
-
         ArrayList<String> castbuf = new ArrayList<>();
-        Collections.addAll(castbuf,buf.split(","));
+        for (String singleCast : buf.split(",")) {
+            castbuf.add(singleCast.trim());
+        }
         movie.setCasts(castbuf);
 
 

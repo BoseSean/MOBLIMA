@@ -55,17 +55,20 @@ public class MovieInfo extends BaseMenu {
         println("Title         : " + this.movie.getTitle());
         println("Showing Status: " + this.movie.getShowingStatus().toString());
         println("Content Rating: " + this.movie.getContentRating().toString());
-        println("Runtime       : " + this.movie.getRuntime());
+        println("Runtime       : " + this.movie.getRuntime() + " minutes");
         println("Director      : " + this.movie.getDirector());
           print("Cast          : ");
+        StringBuilder s = new StringBuilder();
         for (String r : movie.getCasts()) {
-            print(r + ";");
+            s.append(r + "; ");
         }
-        println("");
+        println(s.toString());
         println("Language      : " + this.movie.getLanguage());
         println("Opening       : " + this.movie.getFormattedDate());
-          print("Synopsis      : ");//println( this.movie.getSynopsis(), 16);
-        printLong(this.movie.getSynopsis(), " ", 15);
+
+        print("Synopsis      : ");
+        println(this.movie.getSynopsis(), 16);
+
         if(movie.getRatingTimes() != 0 ){
                 print("Overall Rating  :");
                 printStars(movie.getOverAllRating());

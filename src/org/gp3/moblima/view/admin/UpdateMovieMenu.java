@@ -49,8 +49,8 @@ public class UpdateMovieMenu extends BaseMenu {
             int c = readChoice(0, choices.size());
             movie.setShowingStatus(Constant.ShowingStatus.values()[c]);
         }
-        if (confirm("Update Runtime")) {
-            int run = readInt("New Runtime: ");
+		if (confirm("Update Runtime(minutes)")) {
+			int run = readInt("New Runtime: ");
             movie.setRuntime(run);
 		}
 		if (confirm("Update Synopsis")) {
