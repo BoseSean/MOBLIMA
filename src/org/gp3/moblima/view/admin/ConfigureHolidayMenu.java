@@ -37,7 +37,7 @@ public class ConfigureHolidayMenu extends BaseMenu {
 		ArrayList<Holiday> holidays = manager.getAll(Constant.Tables.HOLIDAY);
 		ArrayList<String> Hochoices = new ArrayList<>();
 		for (Holiday h : holidays) {
-			Hochoices.add(h.getName());
+			Hochoices.add(h.toString());
 		}
 		int hc = 0;
 

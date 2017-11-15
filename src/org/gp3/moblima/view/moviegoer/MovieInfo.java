@@ -31,7 +31,7 @@ public class MovieInfo extends BaseMenu {
             choices.add("Buy Tickets");
         else
             c=1;
-        choices.add("Reviews");
+        choices.add("Write a review");
         choices.add("Back");
         printMenuItems(choices, 0);
         c = c + readChoice(0, choices.size());

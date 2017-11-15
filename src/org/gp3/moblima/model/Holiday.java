@@ -7,12 +7,6 @@ import java.util.Date;
  */
 public class Holiday implements Model {
 
-
-    // What is id for ?
-    // How to assign when adding new holiday ?
-    // TODO to be removed
-    private int id;
-
 	private Date date;
     private String name;
 
@@ -22,7 +16,7 @@ public class Holiday implements Model {
         return date;
     }
 
-    // TODO toString method
+
     public String getName() {
 
         return name;
@@ -35,20 +29,21 @@ public class Holiday implements Model {
     public void setName(String name) {
         this.name = name;
     }
-    public Holiday clone (){
-        Holiday holiday  = new Holiday();
-        holiday.id = this.id;
-        holiday.date = this.date;
-        holiday.name = this.name;
-        return holiday;
+
+    public String getFormatedDate() {
+        return Constant.dateFormatLong.format(date);
     }
 
+    @Override
+    public String toString() {
+        return getName() + " " + getFormatedDate();
+    }
 
     @Override
     public boolean equals(Object ob){
         if(ob instanceof Holiday){
             Holiday holiday = (Holiday) ob;
-            return holiday.name == this.name && holiday.date == this.date;
+            return holiday.name.equals(this.name) && holiday.date.equals(this.date);
         }
         return super.equals(ob);
     }

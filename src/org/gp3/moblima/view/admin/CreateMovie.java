@@ -46,7 +46,6 @@ public class CreateMovie extends BaseMenu {
         int c = readChoice(0, choices.size());
         movie.setContentRating(Constant.ContentRating.values()[c]);
 
-        //todo showing status
         println("Choose Showing Status: ");
         choices.clear();
         for (Constant.ShowingStatus status : Constant.ShowingStatus.values()) {

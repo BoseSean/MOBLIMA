@@ -9,7 +9,7 @@ public class Movie implements Model
     private Constant.ContentRating contentRating;
     private Constant.ShowingStatus showingStatus;
     private int ticketSales, runtime;
-    private Date opening;//todo by weiliang // What is wrong
+    private Date opening;
     private double overAllRating;
 	private int ratingTimes;
     private ArrayList<String> casts = new ArrayList<>();

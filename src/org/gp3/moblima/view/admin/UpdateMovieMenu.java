@@ -7,7 +7,6 @@ import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Slot;
 import org.gp3.moblima.view.BaseMenu;
 
-import java.awt.image.CropImageFilter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -121,8 +120,8 @@ public class UpdateMovieMenu extends BaseMenu {
 		ArrayList<Cinema> cinemas = manager.getAll(Constant.Tables.CINEMA);
 		ArrayList<String> Cinchoices = new ArrayList<>();
 		for (Cinema c : cinemas) {
-			Cinchoices.add(c.getName() + " at " + c.getCineplex());
-		}
+            Cinchoices.add(c.getName() + " @ " + c.getCineplex());
+        }
 
 		printMenuItems(Cinchoices, 0);
 

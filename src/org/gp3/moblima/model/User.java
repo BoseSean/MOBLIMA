@@ -11,11 +11,11 @@ public class User implements Model {
     private ArrayList<Booking> bookings;
 
 
-    public User(String name, String phone, String password)
+    public User(String name, String phone, String email)
     {
         this.name = name;
         this.phone = phone;
-        this.email = password;
+        this.email = email;
         this.bookings = new ArrayList<>();
     }
 
