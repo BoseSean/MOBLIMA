@@ -61,18 +61,20 @@ public class BuyTicketMenu extends BaseMenu {
         if(confirm("Are you eligible for student discount?"))
         {
             isstudent = true;
+            Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
             for( Seat seat : selected)
             {
-                Ticket ticket = new Ticket(seat,slot.getMovieType(),Constant.TicketType.STUDENT);
+                Ticket ticket = new Ticket(seat,slot.getMovieType(),ticketType);
                 tickets.add(ticket);
             }
         }
         else if(confirm("Are you eligible for senior discount?"))
         {
             issenior = true;
+            Constant.TicketType ticketType = priceManager.getTicketType(slot, isstudent, issenior);
             for( Seat seat : selected)
             {
-                Ticket ticket = new Ticket(seat,slot.getMovieType(),Constant.TicketType.SENIOR);
+                Ticket ticket = new Ticket(seat,slot.getMovieType(),ticketType);
                 tickets.add(ticket);
             }
         }
@@ -95,7 +97,7 @@ public class BuyTicketMenu extends BaseMenu {
         Booking booking = new Booking(tid,slot.getDate(),totalprice,movie,slot.getCinema(),tickets);
 
         User user;
-        if (confirm("Do you have an account (Y/N) ?")) {
+        if (confirm("Do you have an account")) {
             user = login();
         } else {
             String name = read("Name: ");
