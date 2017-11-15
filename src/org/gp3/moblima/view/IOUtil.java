@@ -4,7 +4,6 @@ import org.gp3.moblima.controller.Manager;
 import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.User;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -278,8 +277,6 @@ public class IOUtil {
         return user;
     }
 
-    //todo new opening time need to strict to time string only.
-    // Already taken care of in readDate and readTime
 
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {

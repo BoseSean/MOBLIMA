@@ -9,9 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import static org.gp3.moblima.model.Constant.Tables;
-import static org.gp3.moblima.view.IOUtil.printMenuItems;
-import static org.gp3.moblima.view.IOUtil.printTitle;
-import static org.gp3.moblima.view.IOUtil.readChoice;
+import static org.gp3.moblima.view.IOUtil.*;
 
 public class ListMovieTopRate extends BaseMenu {
     public ListMovieTopRate(BaseMenu previousMenu) {
@@ -49,7 +47,7 @@ public class ListMovieTopRate extends BaseMenu {
 
 //        choices.add("Movie Info");
         choices.add("Shop Top 5 by sales");
-        choices.add("Back to all movies");
+        choices.add("Back to main menu");
 
         printMenuItems(choices, 0);
 

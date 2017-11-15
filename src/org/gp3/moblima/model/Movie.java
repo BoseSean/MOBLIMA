@@ -34,8 +34,8 @@ public class Movie implements Model
     }
 
 	public String getFormattedDate() {
-		return Constant.holidayFormat.format(opening);
-	}
+        return Constant.dateFormatLong.format(opening);
+    }
 
     public void setOpening(Date opening) {
         this.opening = opening;
@@ -206,18 +206,6 @@ public class Movie implements Model
     }
 
 
-//	public static ArrayList<Movie> sortTicketSales(ArrayList<Movie> movies) {
-//		Collections.sort(movies, new Comparator<Movie>() {
-//			@Override
-//			public int compare(Movie m1, Movie m2) {
-//				return (m1.getTicketSales() - m2.getTicketSales());
-//			}
-//
-//		});
-//
-//		return movies;
-//	}
-
     @Override
     public boolean equals(Object ob){
         if(ob instanceof Movie){
@@ -255,4 +243,5 @@ public class Movie implements Model
     public void setContentRating(Constant.ContentRating contentRating) {
         this.contentRating = contentRating;
     }
+
 }

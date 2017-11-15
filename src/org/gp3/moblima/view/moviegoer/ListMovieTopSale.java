@@ -8,9 +8,7 @@ import org.gp3.moblima.view.BaseMenu;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static org.gp3.moblima.view.IOUtil.printMenuItems;
-import static org.gp3.moblima.view.IOUtil.printTitle;
-import static org.gp3.moblima.view.IOUtil.readChoice;
+import static org.gp3.moblima.view.IOUtil.*;
 public class ListMovieTopSale extends BaseMenu {
     public ListMovieTopSale(BaseMenu previousMenu) {
         super(previousMenu);
@@ -39,15 +37,13 @@ public class ListMovieTopSale extends BaseMenu {
 			System.out.println(e.getMessage());
 		}
 
-
-//		choices.add("Movie Info");
 		choices.add("Shop Top 5 by rating");
-		choices.add("Back to all movies");
+		choices.add("Back to main menu");
 		printMenuItems(choices, 0);
 
 		int c = readChoice(0, choices.size());
 
-		BaseMenu nextMenu = this;
+		BaseMenu nextMenu = null;
 
 		System.out.println(choices.size());
 

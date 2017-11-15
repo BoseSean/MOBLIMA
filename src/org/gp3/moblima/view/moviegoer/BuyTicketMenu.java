@@ -8,6 +8,7 @@ import org.gp3.moblima.view.BaseMenu;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
@@ -92,9 +93,10 @@ public class BuyTicketMenu extends BaseMenu {
 
         Ticket ticket = tickets.get(0);
         double totalprice = priceManager.getPrice(ticket.getTickettype(), ticket.getMovietype(), slot.isPlatinum(), slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(Calendar.getInstance().getTime());
+        Date currentTime = Calendar.getInstance().getTime();
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmm").format(currentTime);
         String tid = slot.getCinema().getCinemaCode()+timeStamp;
-        Booking booking = new Booking(tid,slot.getDate(),totalprice,movie,slot.getCinema(),tickets);
+        Booking booking = new Booking(tid, slot, currentTime, totalprice, movie, slot.getCinema(), tickets);
 
         User user;
         if (confirm("Do you have an account")) {

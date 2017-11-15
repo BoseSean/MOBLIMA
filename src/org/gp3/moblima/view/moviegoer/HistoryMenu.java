@@ -8,7 +8,6 @@ import org.gp3.moblima.view.BaseMenu;
 
 import java.util.ArrayList;
 
-import static org.gp3.moblima.model.Constant.Tables.USER;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
@@ -83,10 +82,13 @@ public class HistoryMenu extends BaseMenu {
             println("In total "+booking.size() +" bookings found under "+user.getName()+".");
 			int cnt=1;
 			for (Booking book : booking) {
+				println();
+				println();
 				println("Booking "+cnt + " :");
                 cnt++;
 				println("TID: " + book.getTID());
-				println("Date: " + book.getDate());
+				println("Booking Time: " + book.getTimestamp());
+				println("Show TIme: " + book.getDate() + " " + book.getTime());
 				println("Total Price (GST included): S$" + book.getTotalPrice());
 				println("Cineplex: " + book.getCinema().getCineplex().toString());
 				println("Cinema: " + book.getCinema().getName());

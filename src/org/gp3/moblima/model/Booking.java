@@ -10,7 +10,7 @@ import java.util.Date;
 public class Booking implements Model
 {
     private String TID;
-    private Date date;
+    private Date timestamp;
     private double totalPrice;
     private Movie movie;
     private Cinema cinema;
@@ -22,15 +22,16 @@ public class Booking implements Model
     /**
      * Booking CLass constructor
      * @param tid
-     * @param date
+     * @param timestamp
      * @param totalPrice
      * @param movie
      * @param cinema
      * @param tickets
      */
-    public Booking(String tid, Date date, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
-        TID = tid;
-        this.date = date;
+    public Booking(String tid, Slot slot, Date timestamp, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
+        this.TID = tid;
+        this.slot = slot;
+        this.timestamp = timestamp;
         this.totalPrice = totalPrice;
         this.movie = movie;
         this.cinema = cinema;
@@ -51,14 +52,21 @@ public class Booking implements Model
         this.TID = TID;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return this.slot.getFormattedDate();
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public String getTime() {
+        return this.slot.getFormattedTime();
     }
 
+//    public void setDate(Date date) {
+//        this.date = date;
+//    }
+
+    public String getTimestamp() {
+        return Constant.datetimeFormat.format(timestamp);
+    }
     public double getTotalPrice() {
         return totalPrice;
     }
