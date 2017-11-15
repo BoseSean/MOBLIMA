@@ -24,7 +24,7 @@ public class Admin implements Model {
 
     /**
      * Get Administrator Password
-     * @return
+     * @return password of Administrator
      */
     public String getPassword() {
         return password;
@@ -40,7 +40,7 @@ public class Admin implements Model {
 
     /**
      * Get Administrator Username
-     * @return
+     * @return username of Administrator
      */
     public String getUsername() {
         return username;

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class TestRunner {
     public static void main(String[] args) {
         Manager manager = Manager.getInstance();
-
         manager.add(Constant.Tables.ADMIN, new Admin("admin", "admin"));
         manager.add(Constant.Tables.USER, new User("user", "12312312312", "user@email.com"));
         manager.add(Constant.Tables.CINEMA, new Cinema("Hall 1", false, new ArrayList<Slot>(), "HON", Constant.Cineplex.JEM, 16, 16));

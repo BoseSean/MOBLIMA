@@ -21,12 +21,12 @@ public class Booking implements Model
 
     /**
      * Booking CLass constructor
-     * @param tid
-     * @param timestamp
-     * @param totalPrice
-     * @param movie
-     * @param cinema
-     * @param tickets
+     * @param tid unique tid
+     * @param timestamp current booking time
+     * @param totalPrice totalprice for all tickets
+     * @param movie movie info
+     * @param cinema cinema info
+     * @param tickets tickets along with booking
      */
     public Booking(String tid, Slot slot, Date timestamp, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
         this.TID = tid;
@@ -42,43 +42,73 @@ public class Booking implements Model
 
     /**
      * Get Ticket ID
-     * @return
+     * @return TID of booking
      */
 	public String getTID() {
         return TID;
     }
 
+    /**
+     * set TID of booking
+     * @param TID TID of current booking
+     */
     public void setTID(String TID) {
         this.TID = TID;
     }
 
+    /**
+     * Get the show date of the movie in this booking
+     * @return date of show movie
+     */
     public String getDate() {
         return this.slot.getFormattedDate();
     }
 
+    /**
+     * Get the show time of the movie in this booking
+     * @return show time of movie
+     */
     public String getTime() {
         return this.slot.getFormattedTime();
     }
 
-//    public void setDate(Date date) {
-//        this.date = date;
-//    }
 
+    /**
+     * Get the current booking time
+     * @return timestamp to indicate booking time
+     */
     public String getTimestamp() {
         return Constant.datetimeFormat.format(timestamp);
     }
+
+    /**
+     * Get total price of the booking
+     * @return totalprice
+     */
     public double getTotalPrice() {
         return totalPrice;
     }
 
+    /**
+     * Set total price of the booking
+     * @param totalPrice
+     */
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
+    /**
+     * Get the movie in instance of booking
+     * @return Movie with all info
+     */
     public Movie getMovie() {
         return movie;
     }
 
+    /**
+     * Set a movie for a instance of booking
+     * @param movie
+     */
     public void setMovie(Movie movie) {
         this.movie = movie;
     }

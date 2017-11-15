@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 import static org.gp3.moblima.model.Constant.Tables.USER;
 
-//import org.jetbrains.annotations.Contract;
 
 /**
  * Created by zhangxinye on 19/10/17.
@@ -24,14 +23,29 @@ public class IOUtil {
     private static Scanner sc = new Scanner(System.in);
 
 
+    /**
+     * Print Message
+     * @param message message to be display
+     */
     public static void print(String message) {
         System.out.print(message);
     }
 
+    /**
+     * Print Number
+     * @param num number to be diplay
+     */
     public static void print(int num) {
         System.out.print(num);
     }
 
+    /**
+     * method to notify user the allowable range of input
+     * @param message Message to be display to notify user about input
+     * @param min lower bound
+     * @param max upper bound
+     * @return the correct input
+     */
     public static int readInt(String message, int min, int max) {
         int c = 0;
         do {
@@ -45,6 +59,11 @@ public class IOUtil {
         return c;
     }
 
+    /**
+     * Method to check the validate input of integer
+     * @param Message
+     * @return validate integer otherwise NumberFormatException
+     */
     public static int readInt(String Message) {
         print(Message);
         while (true) {
@@ -76,19 +95,34 @@ public class IOUtil {
     }
 
 
+    /**
+     * Method to notify user the range of allowable range of choice
+     * @param min lower bound
+     * @param max upper bound
+     * @return validate choice otherwise Exception
+     */
     public static int readChoice(int min, int max) {
         return readChoice("Choice", min, max);
     }
 
+    /**
+     * Method to notify user about the input
+     * as well as the allowable range of input
+     * @param message input information
+     * @param min lower bound
+     * @param max upper bound
+     * @return validate choice otherwise Exception
+     */
     public static int readChoice(String message, int min, int max) {
         return readInt(message, min, max - 1);
     }
 
-//    public static int readChoice(String message, int choice) {
-//        return readInt(message, 0, choice);
-//    }
 
-
+    /**
+     * Method to notify user about the input String
+     * @param message info about input
+     * @return validate String otherwise Exception
+     */
     public static String read(String message) {
         String input = "";
         print(message);
@@ -100,6 +134,11 @@ public class IOUtil {
         return input;
     }
 
+    /**
+     * Method to notify user about the input String line
+     * @param message info about input
+     * @return validate line otherwise Exception
+     */
     public static String readln(String message) {
         println(message);
         String s;
@@ -110,10 +149,22 @@ public class IOUtil {
         return s;
     }
 
+    /**
+     * Method print a line
+     * @param message info about input
+     * @return validate line otherwise Exception
+     */
     public static void println(String message) {
         println(message, 0);
     }
 
+    /**
+     * Method to print multiple line with padding
+     * and split by delimiter
+     * @param message lines to be printed
+     * @param deli split by delimiter
+     * @param indentBy padding number
+     */
     public static void println(String message, String deli, int indentBy) {
         String[] newMessage = message.split(deli);
         int counter = 0;
@@ -137,42 +188,36 @@ public class IOUtil {
         println();
     }
 
+    /**
+     * Method to print multiple line with padding
+     * @param message lines to be printed
+     * @param indentedBy padding number
+     */
     public static void println(String message, int indentedBy) {
         println(message, " ", indentedBy);
-//        StringBuilder builder = new StringBuilder();
-//        int index = 0;
-//        StringBuilder prefix = new StringBuilder();
-//        prefix.append("");
-//        while (index < message.length()) {
-//            builder.append(prefix);
-//            prefix.replace(0, prefix.length(), "\n");
-//            for(int i=0; i<indentedBy; i++)
-//                prefix.append(" ");
-//            builder.append(message.substring(index,
-//                    Math.min(index + SCREEN_WIDTH-indentedBy, message.length())));
-//            index += SCREEN_WIDTH-indentedBy;
-//        }
-//        System.out.println(builder.toString());
     }
 
+    /**
+     * Print a newline
+     */
     public static void println() {
         System.out.println();
 
     }
 
+    // TODO javadoc
     public static void printSplitLine() {
         for (int i = SCREEN_WIDTH; i > 0; i--)
             print("-");
         println();
     }
 
+    // TODO javadoc
     public static void printf(int value) {
         System.out.printf("%-3d", value);
     }
 
-    //    public static void printf_two(int value) {
-//        System.out.printf("%-4d", value);
-//    }
+    // TODO javadoc
     public static void printCenter(String s) {
         if (s.length() > SCREEN_WIDTH) {
             println(s.substring(0, SCREEN_WIDTH));
@@ -198,7 +243,7 @@ public class IOUtil {
 
     /**
      * This method will only read in a format of the date with label
-     *
+     * wrapper of readDate(String label, String format)
      * @param label is the message to be printed when asking for input
      * @return Date when a correct format if entered, Otherwise keep prompting
      */
@@ -206,6 +251,13 @@ public class IOUtil {
         return readDate(label, "");
     }
 
+    /**
+     * This method will only read in a format of the date with label
+     *
+     * @param label is the message to be printed when asking for input
+     * @param format format of date datatype refer to Constant
+     * @return Date when a correct format if entered, Otherwise keep prompting
+     */
     public static Date readDate(String label, String format) {
         SimpleDateFormat sdf;
 
@@ -252,10 +304,17 @@ public class IOUtil {
     }
 
 
+    /**
+     * print a holiday format date
+     * refer to Constant
+     * @param date
+     * @return a holiday formatted date
+     */
     public String printDate(Date date) {
         return Constant.holidayFormat.format(date);
     }
 
+    // TODO javadoc
     public static void printTitle(String title) {
         printSplitLine();
         printCenter(title);
@@ -264,6 +323,11 @@ public class IOUtil {
     }
 
 
+    /**
+     * request user for username and phonenumber
+     * to verify a user
+     * @return true if user exists otherwise false
+     */
     public static User login() {
         // Login
         User user = null;
@@ -281,6 +345,7 @@ public class IOUtil {
     }
 
 
+    // TODO javadoc
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {
             println((choiceIdFrom++) + ": " + choice);
