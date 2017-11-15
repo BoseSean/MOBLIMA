@@ -112,60 +112,47 @@ public class IOUtil {
 
     public static void println(String message) {
         println(message, 0);
-//        StringBuilder builder = new StringBuilder(
-//                message.length() + "\n  ".length() * (message.length() / SCREEN_WIDTH) + 1);
-//        int index = 0;
-//        String prefix = "";
-//        while (index < message.length()) {
-//            // Don't put the insert in the very first iteration.
-//            // This is easier than appending it *after* each substring
-//            builder.append(prefix);
-//            prefix = "\n                ";
-//
-//            builder.append(message.substring(index,
-//                    Math.min(index + SCREEN_WIDTH, message.length())));
-//            index += SCREEN_WIDTH;
-//        }
-//        System.out.println(builder.toString());
     }
 
-    public static void printLong(String message, String deli, int indentBy) {
+    public static void println(String message, String deli, int indentBy) {
         String[] newMessage = message.split(deli);
         int counter = 0;
         StringBuilder prefix = new StringBuilder();
+        prefix.append("\n");
         for(int i=0; i< indentBy; i++) {
             prefix.append(" ");
         }
-
-        for (int i = 0; i < newMessage.length; i++) {
-            System.out.printf("%s ", newMessage[i]);
-            counter += newMessage[i].length();
-            if (counter >= SCREEN_WIDTH - indentBy * 2) {
-
-                println();
-                System.out.printf("%s ", prefix.toString());
+        for (String msg : newMessage) {
+            counter = counter + msg.length();
+            if (counter >= SCREEN_WIDTH - indentBy) {
+                System.out.print(prefix.toString());
+                System.out.print(msg + " ");
                 counter = 0;
+                counter = counter + msg.length() + 1;
+            } else {
+                System.out.print(msg + " ");
+                counter++;
             }
         }
         println();
-
     }
 
     public static void println(String message, int indentedBy) {
-        StringBuilder builder = new StringBuilder();
-        int index = 0;
-        StringBuilder prefix = new StringBuilder();
-        prefix.append("");
-        while (index < message.length()) {
-            builder.append(prefix);
-            prefix.replace(0, prefix.length(), "\n");
-            for(int i=0; i<indentedBy; i++)
-                prefix.append(" ");
-            builder.append(message.substring(index,
-                    Math.min(index + SCREEN_WIDTH-indentedBy, message.length())));
-            index += SCREEN_WIDTH-indentedBy;
-        }
-        System.out.println(builder.toString());
+        println(message, " ", indentedBy);
+//        StringBuilder builder = new StringBuilder();
+//        int index = 0;
+//        StringBuilder prefix = new StringBuilder();
+//        prefix.append("");
+//        while (index < message.length()) {
+//            builder.append(prefix);
+//            prefix.replace(0, prefix.length(), "\n");
+//            for(int i=0; i<indentedBy; i++)
+//                prefix.append(" ");
+//            builder.append(message.substring(index,
+//                    Math.min(index + SCREEN_WIDTH-indentedBy, message.length())));
+//            index += SCREEN_WIDTH-indentedBy;
+//        }
+//        System.out.println(builder.toString());
     }
 
     public static void println() {
