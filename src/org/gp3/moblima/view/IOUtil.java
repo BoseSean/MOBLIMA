@@ -14,7 +14,7 @@ import static org.gp3.moblima.model.Constant.Tables.USER;
 
 
 /**
- * Helper methods for printing and reading input.
+ * Utility class containing helper methods for printing and reading input.
  */
 public class IOUtil {
     private static Manager manager = Manager.getInstance();
@@ -206,7 +206,6 @@ public class IOUtil {
 
     }
 
-    // TODO javadoc
     /**
      * Print a new line with "---" according to the screen width
      */
@@ -216,7 +215,6 @@ public class IOUtil {
         println();
     }
 
-    // TODO javadoc
     /**
      * Print the integer value in formatting output style with
      * occupying only 3 decimal places in total such that the
@@ -228,7 +226,6 @@ public class IOUtil {
         System.out.printf("%-3d", value);
     }
 
-    // TODO javadoc
     /**
      * Print the requied string that fits into the width of the screen
      * @param s string value need to be printed

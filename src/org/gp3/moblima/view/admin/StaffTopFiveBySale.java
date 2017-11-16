@@ -11,13 +11,19 @@ import java.util.Collections;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * Created by hannancao on 14/11/17.
+ * Menu to display top 5 movie sort by sale
  */
 public class StaffTopFiveBySale extends BaseMenu {
     public StaffTopFiveBySale(BaseMenu previousMenu) {
         super(previousMenu);
     }
 
+    /**
+     * Display movie sort by sales
+     * Ask user which movie to configure
+     *
+     * @return corresponding menu that the user has selected
+     */
     @Override
     public BaseMenu execute() {
         Manager manager = Manager.getInstance();

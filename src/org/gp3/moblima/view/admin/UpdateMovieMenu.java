@@ -13,6 +13,9 @@ import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
+/**
+ * Menu to configure movie information
+ */
 public class UpdateMovieMenu extends BaseMenu {
 
     private Movie movie;
@@ -23,7 +26,14 @@ public class UpdateMovieMenu extends BaseMenu {
         this.manager = Manager.getInstance();
     }
 
-    @Override
+	/**
+	 * Display configure movie information menu
+	 * Ask user to what information to update, and their new value
+	 * And, return to main staff menu
+	 *
+	 * @return corresponding menu that the user has selected
+	 */
+	@Override
     public BaseMenu execute() {
     	printTitle("Update Movie Info Menu");
 

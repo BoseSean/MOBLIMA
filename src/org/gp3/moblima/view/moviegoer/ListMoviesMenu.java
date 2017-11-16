@@ -20,7 +20,7 @@ public class ListMoviesMenu extends BaseMenu {
     }
 
 	/**
-	 * Display all current available movie
+	 * Display all movies
 	 * Ask user to choice the next menu
 	 * and bring user to next stage of application
 	 * Consist of four menu

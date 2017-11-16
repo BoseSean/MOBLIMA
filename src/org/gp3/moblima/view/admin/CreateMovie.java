@@ -24,16 +24,10 @@ public class CreateMovie extends BaseMenu {
     String buf;
 
     /**
-     * Display create new menu
-     * Ask user to choice the next menu
-     * and bring user to next stage of application
-     * Consist of four menu
-     * 1. Search for movies
-     * 2. Display all movies
-     * 3. View history ( login required )
-     * 4. Back to previous menu
-     *
-     * @return to the menu that the user has selected
+     * Display create new movie menu
+     * Ask user to input information of the new movie
+     * And, return to main staff menu
+     * @return corresponding menu that the user has selected
      */
     @Override
     public BaseMenu execute() {

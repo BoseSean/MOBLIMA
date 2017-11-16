@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * Created by zhangxinye on 19/10/17.
+ *  Menu to search for a certain menu
  */
 public class SearchMovieMenu extends BaseMenu {
 
@@ -20,27 +20,29 @@ public class SearchMovieMenu extends BaseMenu {
         super(previousMenu);
     }
 
+    /**
+     * Ask user to input come part of movie title
+     * Display list of movies whose title contains the string provided by the user
+     * Ask user which movie to check information
+     *
+     * @return corresponding menu that the user has selected
+     */
     @Override
-    public BaseMenu execute()
-    {
+    public BaseMenu execute() {
         BaseMenu nextMenu = null;
         ArrayList<Movie> movies;
         movieName = null;
         printTitle("Movie Search");
         movieName = read("Input movie name to search: ");
 
-        while (true)
-        {
+        while (true) {
             movies = manager.getEntries(Constant.Tables.MOVIE, (Movie m) -> (m.getTitle().toLowerCase().contains(movieName.toLowerCase())));
-            if (movies.isEmpty())
-            {
+            if (movies.isEmpty()) {
                 println("Sorry, no result found. Press 0 to go back.");
                 movieName = read("Input movie name to search: ");
                 if(movieName.equals("0"))
                     break;
-            }
-            else
-            {
+            } else {
                 println("Found " + movies.size() + " results:");
                 ArrayList<String> choices = new ArrayList<>();
                 for (Movie m : movies) {

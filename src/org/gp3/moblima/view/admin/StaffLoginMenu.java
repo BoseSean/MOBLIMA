@@ -8,13 +8,19 @@ import org.gp3.moblima.view.BaseMenu;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * Created by zhangxinye on 19/10/17.
+ * Menu for staff login
  */
 public class StaffLoginMenu extends BaseMenu {
     public StaffLoginMenu(BaseMenu previousMenu) {
         super(previousMenu);
     }
 
+    /**
+     * Display staff login menu
+     * Ask user to input admin username and password
+     *
+     * @return staff main menu if login success; main menu if login failed
+     */
     @Override
     public BaseMenu execute() {
         printTitle("Please Login Using Username and Password");

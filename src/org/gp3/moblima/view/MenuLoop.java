@@ -3,7 +3,7 @@ package org.gp3.moblima.view;
 import org.gp3.moblima.controller.Manager;
 
 /**
- * Created by zhangxinye on 19/10/17.
+ * Class that motivating each steps of the program
  */
 public class MenuLoop {
     private BaseMenu entryMenu;
@@ -14,6 +14,9 @@ public class MenuLoop {
         this.autoCommit = autoCommit;
     }
 
+    /**
+     * Methos to start the menu loop
+     */
     public void start() {
         BaseMenu nextMenu = entryMenu;
         if (autoCommit)

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * Created by zhangxinye on 19/10/17.
+ * Main menu for staff
  */
 public class StaffMainMenu extends BaseMenu {
     private Admin admin;
@@ -18,8 +18,17 @@ public class StaffMainMenu extends BaseMenu {
         this.admin = admin;
     }
 
-    @Override
-    public BaseMenu execute() {
+	/**
+	 * Display staff main menu
+	 * consists of 3 menus
+	 * 1. List Movies
+	 * 2. Add movies
+	 * 3. Configure
+	 *
+	 * @return corresponding menu that the user has selected
+	 */
+	@Override
+	public BaseMenu execute() {
 		printTitle("Staff Menu");
 
 		ArrayList<String> choices = new ArrayList<>();
@@ -47,6 +56,6 @@ public class StaffMainMenu extends BaseMenu {
 				break;
 		}
 		return nextMenu;
-    }
+	}
 
 }

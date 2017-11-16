@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * created by hannancao on 15/10/17.
+ * The main menu for all users
  */
 public class MainMenu extends BaseMenu {
 
@@ -18,10 +18,18 @@ public class MainMenu extends BaseMenu {
         super(previousMenu);
     }
 
+    /**
+     * Display
+     * * Consists of two menus:
+     * 1. Administrator main menu
+     * 2. Moviegoer main menu
+     *
+     * @return corresponding menu that the user has selected
+     */
     @Override
     public BaseMenu execute() {
 
-		printTitle("Welcome to MOvie Booking and LIsting Management Application (MOBLIMA)");
+        printTitle("Welcome to MOvie Booking and LIsting Management Application (MOBLIMA)");
 
         ArrayList<String> choices = new ArrayList<>();
         choices.add("Administrator");

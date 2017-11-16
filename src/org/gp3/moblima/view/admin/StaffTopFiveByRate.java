@@ -12,7 +12,7 @@ import java.util.Comparator;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * Created by hannancao on 14/11/17.
+ * Menu to display top 5 movie sort by rating
  */
 
 public class StaffTopFiveByRate extends BaseMenu {
@@ -21,7 +21,13 @@ public class StaffTopFiveByRate extends BaseMenu {
             super(previousMenu);
         }
 
-        @Override
+    /**
+     * Display movie sort by rating
+     * Ask user which movie to configure
+     *
+     * @return corresponding menu that the user has selected
+     */
+    @Override
         public BaseMenu execute() {
             Manager manager = Manager.getInstance();
             ArrayList<Movie> movies =  manager.getAll(Constant.Tables.MOVIE);
