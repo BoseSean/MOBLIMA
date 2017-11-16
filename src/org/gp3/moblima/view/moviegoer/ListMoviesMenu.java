@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * Created by zhangxinye on 19/10/17.
+ * Menu to list all the movies
  */
 public class ListMoviesMenu extends BaseMenu {
 

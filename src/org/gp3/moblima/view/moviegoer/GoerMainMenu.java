@@ -5,9 +5,8 @@ import org.gp3.moblima.view.BaseMenu;
 import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.*;
-
 /**
- * Created by zhangxinye on 19/10/17.
+ * Main menu for movie goers
  */
 public class GoerMainMenu extends BaseMenu {
     public GoerMainMenu(BaseMenu previousMenu) {

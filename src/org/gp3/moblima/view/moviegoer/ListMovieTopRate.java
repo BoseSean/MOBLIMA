@@ -11,11 +11,18 @@ import java.util.Comparator;
 import static org.gp3.moblima.model.Constant.Tables;
 import static org.gp3.moblima.view.IOUtil.*;
 
+/**
+ * Menu to list the top five movies by ratings
+ */
 public class ListMovieTopRate extends BaseMenu {
     public ListMovieTopRate(BaseMenu previousMenu) {
         super(previousMenu);
     }
 
+    /**
+     * Display the top five movies by rating to the user
+     * @return return the corresponding menu that the user has selected
+     */
     @Override
     public BaseMenu execute() {
         Manager manager = Manager.getInstance();
@@ -33,9 +40,6 @@ public class ListMovieTopRate extends BaseMenu {
 
             for (Movie movie : movies) {
                 choices.add(movie.getOverAllRating() + " Overall Rating for " + movie.getTitle());
-//                choices.add(movie.getTitle());
-//                System.out.println(movie.getOverAllRating() + "Rating" + movie.getTitle());
-
                 if (top++ == 5) {
                     break;
                 }
@@ -45,7 +49,6 @@ public class ListMovieTopRate extends BaseMenu {
         }
 
 
-//        choices.add("Movie Info");
         choices.add("Shop Top 5 by sales");
         choices.add("Back to main menu");
 

@@ -10,6 +10,9 @@ import static org.gp3.moblima.view.IOUtil.printTitle;
 import static org.gp3.moblima.view.IOUtil.read;
 import static org.gp3.moblima.view.IOUtil.readInt;
 
+/**
+ * Menu to enable user to input the reviews and ratings towards the movie
+ */
 public class ReviewsMenu extends BaseMenu {
     private final Movie movie;
 
@@ -17,6 +20,11 @@ public class ReviewsMenu extends BaseMenu {
         super(previousMenu);
         this.movie = movie;
     }
+
+    /**
+     * Ask user to input reviews and ratings
+     * @return return the movie infor menu
+     */
 
     @Override
     public BaseMenu execute() {
