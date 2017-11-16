@@ -39,7 +39,6 @@ public class Manager {
             out.writeObject(this.db);
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved\n");
         } catch (IOException i) {
             i.printStackTrace();
         }

@@ -20,14 +20,6 @@ public class MainMenu extends BaseMenu {
 
     @Override
     public BaseMenu execute() {
-/*
-
-        Manager manager = Manager.getInstance();
-		Admin admin = new Admin();
-		admin.setUsername("ADMIN");
-		admin.setPassword("ADMIN");
-		manager.add(Tables.ADMIN, admin);
-*/
 
 		printTitle("Welcome to MOvie Booking and LIsting Management Application (MOBLIMA)");
 
