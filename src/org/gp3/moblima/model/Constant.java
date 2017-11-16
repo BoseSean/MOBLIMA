@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
- * created by hannancao on 14/10/17.
+ * The class to hold all the constant values and enum classes, Date formats, clock formats
  */
 public class Constant {
 

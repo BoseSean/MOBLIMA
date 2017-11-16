@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
+/**
+ * The model to hold all the slot info.
+ * Also holds all the seats in the slot
+ */
 public class Slot implements Model, Comparable
 {
     private ArrayList<ArrayList<Seat>> seats = new ArrayList<ArrayList<Seat>>();

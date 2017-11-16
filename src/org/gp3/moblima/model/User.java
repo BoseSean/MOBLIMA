@@ -3,9 +3,8 @@ package org.gp3.moblima.model;
 import java.util.ArrayList;
 
 /**
- * Created by Shen Youlin on 14/10/17.
+ * Model to hold user info including users' booking, name, phone number and emal number
  */
-
 public class User implements Model {
     private String name, phone, email;
     private ArrayList<Booking> bookings;

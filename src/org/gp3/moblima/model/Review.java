@@ -1,11 +1,9 @@
 package org.gp3.moblima.model;
 
+/**
+ * The model to hold a review and rating to a movie.
+ */
 public class Review implements Model {
-	/**
-	 * Review of a Movie in the form
-	 * of comment
-	 * String Type
-	 */
 	private String comment;
 	private int rating;
 

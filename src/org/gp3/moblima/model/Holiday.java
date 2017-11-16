@@ -3,7 +3,9 @@ package org.gp3.moblima.model;
 
 import java.util.Date;
 /**
- * created by hannancao on 14/10/17.
+ * The Model to hold all the Holiday discount info.
+ * Is Comparable for comparison of weekdays
+ *
  */
 public class Holiday implements Model {
 

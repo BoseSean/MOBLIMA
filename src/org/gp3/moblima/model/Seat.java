@@ -1,17 +1,14 @@
 package org.gp3.moblima.model;
 
 /**
- * Created by Shen Youlin on 15/10/17.
+ * The model to hold a seat location and its status whether occupied or has been selected or not
  */
-
 public class Seat implements Model
 {
 
     private int col,row;
 
     private boolean occcupied,selected;
-
-//    private Slot slot;
 
     public Seat(int col, int row, boolean occcupied) {
         this.col = col;
@@ -44,13 +41,6 @@ public class Seat implements Model
         return occcupied;
     }
 
-//    public Slot getSlot() {
-//        return slot;
-//    }
-//
-//    public void setSlot(Slot slot) {
-//        this.slot = slot;
-//    }
 
     @Override
     public boolean equals(Object o)

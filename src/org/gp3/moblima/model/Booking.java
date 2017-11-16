@@ -3,10 +3,9 @@ package org.gp3.moblima.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Created by Shen Youlin on 14/10/17.
+/**The model to hold all the booking info.
+ * Also holds all the reviews to the movie and the showtimes
  */
-
 public class Booking implements Model
 {
     private String TID;

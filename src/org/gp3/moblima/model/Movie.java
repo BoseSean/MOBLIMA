@@ -3,6 +3,10 @@ package org.gp3.moblima.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * The model to hold all the movie info.
+ * Also holds all the reviews to the movie, slots and casts to the movie
+ */
 public class Movie implements Model
 {
     private String title, synopsis, director, language;
@@ -24,7 +28,6 @@ public class Movie implements Model
 	}
 
 
-	// getters
 	public String getDirector() {
         return director;
     }
@@ -64,7 +67,6 @@ public class Movie implements Model
     public ArrayList<Slot> getSlots() { return slots; }
 
 
-    // setters
     public void setDirector(String director) {
         this.director = director;
     }
@@ -85,10 +87,6 @@ public class Movie implements Model
 
 	public void setOverAllRating(double overAllRating) {
 		this.overAllRating = overAllRating;
-//		for (Review r : this.reviews) {
-//			this.overAllRating += r.getRating();
-//		}
-//		this.overAllRating = this.overAllRating / reviews.size();
 	}
     public void addOverAllRating(double delta) {
         this.overAllRating += delta;
@@ -106,7 +104,6 @@ public class Movie implements Model
 	    this.ticketSales += delta;
 	}
 
-	// casts
     public void setCasts(ArrayList<String> casts) {
         this.casts = casts;
     }
@@ -117,7 +114,6 @@ public class Movie implements Model
 			setCasts(c);
 		}
         this.casts.add(newCast);
-        // this.casts = sortCasts(this.casts);
     }
 
 
@@ -195,7 +191,6 @@ public class Movie implements Model
             slots = new ArrayList<Slot>();
         }
         this.slots.add(some_slot);
-        // this.slots = sortSlots(this.slots);
     }
     public void removeSlot(Slot some_slot) {
         for(int i = 0; i < this.slots.size(); i++)

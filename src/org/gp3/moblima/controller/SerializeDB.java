@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by zhangxinye on 14/10/17.
+ * Collection of all model objects to be stored
  */
 class SerializeDB implements Serializable {
 

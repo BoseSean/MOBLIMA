@@ -21,6 +21,9 @@ public class Manager {
 
     private Manager() {
         init();
+//        ArrayList<TicketPrice> temp = new ArrayList();
+//        temp.add(new TicketPrice());
+//        db.ticketprice = temp;
     }
 
     public static Manager getInstance() {
@@ -206,7 +209,7 @@ public class Manager {
             case HOLIDAY:
                 tempArray = db.holidays;
                 break;
-            case TICKETPRICE:  //new added
+            case TICKETPRICE:
                 tempArray = db.ticketprice;
                 break;
             default:

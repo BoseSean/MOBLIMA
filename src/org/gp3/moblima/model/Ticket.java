@@ -5,9 +5,8 @@ import org.gp3.moblima.model.Constant.MovieType;
 import java.util.ArrayList;
 
 /**
- * Created by hannancao on 14/10/17.
+ * The Ticket class to hold all the discount info and the total price of the ticket after discount.
  */
-
 public class Ticket implements Model{
 
     private double price;
