@@ -5,7 +5,9 @@ import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
@@ -43,6 +45,8 @@ public class CreateMovie extends BaseMenu {
         movie.setLanguage(buf);
         Date Datebuf = readDate("Input opening: ");
         movie.setOpening(Datebuf);
+        Date Datend = readDate("Input ending time: ");
+        movie.setEnding(Datend);
         int Intbuf = readInt("Input runtime(minutes): ");
         movie.setRuntime(Intbuf);
 

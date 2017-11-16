@@ -36,10 +36,14 @@ public class ListMovieTopSale extends BaseMenu {
 			int top = 1;
 
 			for (Movie movie : movies) {
-				choices.add(movie.getTicketSales() + " Tickets for " + movie.getTitle());
-				if (top++ == 5) {
-					break;
+				if(movie.getShowingStatus() != Constant.ShowingStatus.END_SHOWING && movie.getShowingStatus() != Constant.ShowingStatus.COMING_SOON)
+				{
+					choices.add(movie.getTicketSales() + " Tickets for " + movie.getTitle());
+					if (top++ == 5) {
+						break;
+					}
 				}
+
 			}
 		} catch (NullPointerException e) {
 			System.out.println(e.getMessage());
