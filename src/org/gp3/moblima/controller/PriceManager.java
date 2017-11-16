@@ -209,7 +209,7 @@ public class PriceManager {
             boolean hol = false;
             ArrayList<Holiday> holidays = manager.getAll(Constant.Tables.HOLIDAY);
             for (Holiday holiday : holidays) {
-                if (holiday.getDate() == showtime.getDate()) {
+                if (holiday.getDate().equals(showtime.getDate())) {
                     hol = true;
                     break;
                 }
