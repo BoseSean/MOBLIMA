@@ -49,6 +49,10 @@ public class UpdateMovieMenu extends BaseMenu {
 			Date opening = readDate("input time");
 			movie.setOpening(opening);
 		}
+		if (confirm("Update Ending Time")) {
+			Date ending = readDate("input time");
+			movie.setEnding(ending);
+		}
         if (confirm("Update Showing Status")) {
             ArrayList<String> choices = new ArrayList();
             for (Constant.ShowingStatus status : Constant.ShowingStatus.values()) {

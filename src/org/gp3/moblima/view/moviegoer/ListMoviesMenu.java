@@ -7,6 +7,8 @@ import org.gp3.moblima.view.BaseMenu;
 import org.gp3.moblima.view.Quit;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
@@ -39,8 +41,12 @@ public class ListMoviesMenu extends BaseMenu {
 		ArrayList<String> choices = new ArrayList<>();
         ArrayList<Movie> movies = mg.getAll(Constant.Tables.MOVIE);
         for (Movie m : movies) {
-            String title = m.getTitle() + (m.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING) ? " (End Showing)" : "");
-            choices.add(title);
+			Date currentTime = Calendar.getInstance().getTime();
+			if(m.getEnding().compareTo(currentTime) < 0) {
+				m.setShowingStatus(Constant.ShowingStatus.END_SHOWING);
+			}
+			String title = m.getTitle() + (m.getShowingStatus().equals(Constant.ShowingStatus.END_SHOWING) ? " (End Showing)" : "");
+			choices.add(title);
         }
 
         choices.add("Show Top 5 by sale");

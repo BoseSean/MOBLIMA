@@ -1,6 +1,7 @@
 package org.gp3.moblima.view.moviegoer;
 
 import org.gp3.moblima.controller.Manager;
+import org.gp3.moblima.model.Constant;
 import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.view.BaseMenu;
 
@@ -39,10 +40,13 @@ public class ListMovieTopRate extends BaseMenu {
             int top = 1;
 
             for (Movie movie : movies) {
-                choices.add(movie.getOverAllRating() + " Overall Rating for " + movie.getTitle());
-                if (top++ == 5) {
-                    break;
+                if(movie.getShowingStatus() != Constant.ShowingStatus.END_SHOWING && movie.getShowingStatus() != Constant.ShowingStatus.COMING_SOON){
+                    choices.add(movie.getOverAllRating() + " Overall Rating for " + movie.getTitle());
+                    if (top++ == 5) {
+                        break;
+                    }
                 }
+
             }
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());

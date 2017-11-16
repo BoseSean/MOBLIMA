@@ -13,7 +13,7 @@ public class Movie implements Model
     private Constant.ContentRating contentRating;
     private Constant.ShowingStatus showingStatus;
     private int ticketSales, runtime;
-    private Date opening;
+    private Date opening, ending;
     private double overAllRating;
 	private int ratingTimes;
     private ArrayList<String> casts = new ArrayList<>();
@@ -106,6 +106,14 @@ public class Movie implements Model
 
     public void setCasts(ArrayList<String> casts) {
         this.casts = casts;
+    }
+
+    public void setEnding(Date ending) {
+        this.ending = ending;
+    }
+
+    public Date getEnding() {
+        return ending;
     }
 
     public void addCast(String newCast) {
