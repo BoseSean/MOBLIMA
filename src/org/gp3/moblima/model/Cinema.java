@@ -2,10 +2,10 @@ package org.gp3.moblima.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-/**
- * Created by Shen Youlin on 15/10/17.
- */
 
+/**
+ * The model to hold all the cinema info and all the slots inside the cinema
+ */
 public class Cinema implements Model
 {
     private String name;

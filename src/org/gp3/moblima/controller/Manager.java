@@ -10,10 +10,6 @@ import java.util.stream.Collectors;
 
 import static java.lang.System.exit;
 
-/**
- * Created by zhangxinye on 14/10/17.
- */
-
 public class Manager {
     private static final String DB_FILE_NAME = "db.ser";
     private static Manager singleInstance = new Manager();
@@ -21,9 +17,6 @@ public class Manager {
 
     private Manager() {
         init();
-//        ArrayList<TicketPrice> temp = new ArrayList();
-//        temp.add(new TicketPrice());
-//        db.ticketprice = temp;
     }
 
     public static Manager getInstance() {
@@ -75,13 +68,6 @@ public class Manager {
      * @param <T>   Subclass of Model, and should be corresponding to from
      * @return List of Models in model table that satisfy filter
      */
-//    /**
-//     * Get a List of entries in model table that satisfy where.
-//     * @param from  Name String of table
-//     * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Bug")
-//     * @param <T>   Subclass of Model, and should be corresponding to from
-//     * @return List of Models in model table that satisfy filter
-//     */
     public <T extends Model> ArrayList<T> getEntries(Constant.Tables from, Predicate<T> where) {
 
         try {
@@ -102,14 +88,6 @@ public class Manager {
      * @param <T>   Subclass of Model, and should be corresponding to from
      * @return A instance the satisfy filter
      */
-//    /**
-//     * Get the first entry from the model table that satisfy where.
-//     *
-//     * @param from  Name String of table
-//     * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Bug")
-//     * @param <T>   Subclass of Model, and should be corresponding to from
-//     * @return A instance the satisfy filter
-//     */
     public <T extends Model> T getEntry(Constant.Tables from, Predicate<T> where) {
 
         try {
@@ -130,12 +108,6 @@ public class Manager {
      * @param where Predicate filter.
      * @param <T>   Subclass of Model, and should be corresponding to from
      */
-//    /**
-//     * Remove all enrties that satisfy where from the model table.
-//     * @param from  Name String of table
-//     * @param where Predicate filter. eg. of (User a)->(a.getName()=="Genius Bug")
-//     * @param <T>   Subclass of Model, and should be corresponding to from
-//     */
     public <T extends Model> void delete(Constant.Tables from, Predicate<T> where) {
         try {
             ArrayList table = getTable(from);
@@ -231,7 +203,7 @@ public class Manager {
             case HOLIDAY:
                 tempArray = db.holidays;
                 break;
-            case TICKETPRICE:  //new added
+            case TICKETPRICE:
                 tempArray = db.ticketprice;
                 break;
             default:

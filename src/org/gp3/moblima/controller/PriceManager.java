@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 /**
- * Created by hannancao on 14/10/17.
+ * The price manager class to manage all the information towarding to discount stuffs
  */
 
 public class PriceManager {
@@ -27,7 +27,16 @@ public class PriceManager {
     public static PriceManager getInstance() {
         return singleInstance;
     }
-
+    /**
+     * Get the responding price from the TicketPrice Array
+     * according to movie type, ticket type,
+     * platium, seank, first week and blockbuster
+     * @param tickettype Type of the ticket
+     * @param movietype Type of the movie
+     * @param platinum boolean variable indicate whether it is platium
+     * @param SneakOrFirstWeekorblockbuster boolean variable indicate whether it is platium or seank or first week or blockbuster
+     * @return The price value of the required ticket type, movie type
+     */
     public Double getPrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean SneakOrFirstWeekorblockbuster) {
         if (platinum) {
             if (tickettype == Constant.TicketType.MON_TO_THU && !SneakOrFirstWeekorblockbuster)
@@ -99,7 +108,15 @@ public class PriceManager {
             }
         }
     }
-
+    /**
+     * Update the responding price from the TicketPrice Array
+     * according to movie type, ticket type,
+     * platium, seank, first week and blockbuster
+     * @param tickettype Type of the ticket
+     * @param movietype Type of the movie
+     * @param platinum boolean variable indicate whether it is platium
+     * @param SneakOrFirstWeekorblockbuster boolean variable indicate whether it is platium or seank or first week or blockbuster
+     */
     public void updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean SneakOrFirstWeekorblockbuster, double price) {
         if (platinum) {
             if (tickettype == Constant.TicketType.MON_TO_THU && !SneakOrFirstWeekorblockbuster)
@@ -170,6 +187,15 @@ public class PriceManager {
             }
         }
     }
+    /**
+     * Return the corresponding ticket type from the enum in Constant,
+     * based on the show time of the movie, movie type,
+     * and whether it is student or senior ticket
+     * @param showtime the movie showing time according to the slot
+     * @param isStudent boolean variable to indicate whether the ticket is student
+     * @param isSeniorCitizen boolean variable to indicate whether the ticket is senior
+     * @return
+     */
     public Constant.TicketType getTicketType(Slot showtime, boolean isStudent, boolean isSeniorCitizen) {
         try {
             Manager manager = Manager.getInstance();

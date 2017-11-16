@@ -1,16 +1,10 @@
 package org.gp3.moblima.model;
 
 /**
- * Created by zhangxinye on 19/10/17.
+ * The model to hold all the admin info.
+ * Also holds all the getter and sertter for the attributes in admin class
  */
 public class Admin implements Model {
-//    /**
-//     * username -> administrator username
-//     * password -> administrator password
-//     */
-    /**
-     * The asministrator username
-     */
     private String username ;
     /**
      * The administrator password

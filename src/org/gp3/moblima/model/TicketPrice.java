@@ -1,8 +1,9 @@
 package org.gp3.moblima.model;
 
 /**
- * Created by hannancao on 6/11/17.
+ * The Ticketprice class hold the value of price for all kinds of ticket
  */
+
 public class TicketPrice implements Model {
     private Double[] price;
 
