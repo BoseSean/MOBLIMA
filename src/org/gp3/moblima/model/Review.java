@@ -11,8 +11,8 @@ public class Review implements Model {
 
 	/**
 	 * Constructor for Review
-	 *
-	 * @param comment
+	 * @param comment user's comment for the review
+	 * @param rating user's rating for the review
 	 */
 	public Review(String comment, int rating) {
 		this.comment = comment;
@@ -41,8 +41,8 @@ public class Review implements Model {
 
 	/**
 	 * Check if a review already exists
-	 * @param o
-	 * @return
+	 * @param o object need to be checked
+	 * @return boolean value of the whether a review exists
 	 */
 	@Override
 	public boolean equals(Object o) {

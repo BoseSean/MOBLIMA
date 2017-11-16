@@ -136,7 +136,7 @@ public class Movie implements Model
 
 	/**
 	 * Set Review
-	 * @param reviews
+	 * @param reviews values to be set to the review
 	 */
 	public void setReviews(ArrayList<Review> reviews) {
 		this.reviews = reviews;
@@ -145,7 +145,7 @@ public class Movie implements Model
 	/**
 	 * Add Review to Movie
 	 * Review is of type String
-	 * @param review
+	 * @param review reviews need to be added
 	 */
 	public void addReview(Review review) {
 		if (this.reviews == null) {
@@ -161,7 +161,7 @@ public class Movie implements Model
 	/**
 	 * Remove the review of a Movie
 	 * Review is of type String
-	 * @param review
+	 * @param review requied review need to be removed
 	 */
 	public void removeReview(Review review) {
 		for (Review rev : this.reviews) {

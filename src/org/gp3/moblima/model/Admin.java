@@ -4,17 +4,23 @@ package org.gp3.moblima.model;
  * Created by zhangxinye on 19/10/17.
  */
 public class Admin implements Model {
+//    /**
+//     * username -> administrator username
+//     * password -> administrator password
+//     */
     /**
-     * username -> administrator username
-     * password -> administrator password
+     * The asministrator username
      */
     private String username ;
+    /**
+     * The administrator password
+     */
     private String password ;
 
     /**
      * Admin Class constructor
-     * @param username
-     * @param password
+     * @param username usernme to be set for admin
+     * @param password password to be set for admin
      */
     public Admin(String username,String password)
     {
@@ -32,7 +38,7 @@ public class Admin implements Model {
 
     /**
      * Set Administrator Password
-     * @param password
+     * @param password value to be set as the password
      */
     public void setPassword(String password) {
         this.password = password;
@@ -48,7 +54,7 @@ public class Admin implements Model {
 
     /**
      * Set Administrator Username
-     * @param username
+     * @param username username to be set
      */
     public void setUsername(String username) {
         this.username = username;

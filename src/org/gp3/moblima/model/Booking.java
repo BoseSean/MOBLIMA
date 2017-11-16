@@ -27,6 +27,7 @@ public class Booking implements Model
      * @param movie movie info
      * @param cinema cinema info
      * @param tickets tickets along with booking
+     * @param slot slot info
      */
     public Booking(String tid, Slot slot, Date timestamp, double totalPrice, Movie movie, Cinema cinema, ArrayList<Ticket> tickets) {
         this.TID = tid;
@@ -82,7 +83,7 @@ public class Booking implements Model
 
     /**
      * Get total price of the booking
-     * @return totalprice
+     * @return totalprice totalprice of the booking
      */
     public double getTotalPrice() {
         return totalPrice;
@@ -90,7 +91,7 @@ public class Booking implements Model
 
     /**
      * Set total price of the booking
-     * @param totalPrice
+     * @param totalPrice the total price of the booking
      */
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
@@ -106,7 +107,7 @@ public class Booking implements Model
 
     /**
      * Set a movie for a instance of booking
-     * @param movie
+     * @param movie set the movie value
      */
     public void setMovie(Movie movie) {
         this.movie = movie;

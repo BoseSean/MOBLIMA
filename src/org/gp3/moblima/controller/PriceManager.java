@@ -9,7 +9,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ * Created by hannancao on 14/10/17.
+ */
 
 public class PriceManager {
     private static PriceManager singleInstance = new PriceManager();

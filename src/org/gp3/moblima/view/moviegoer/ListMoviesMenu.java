@@ -28,7 +28,7 @@ public class ListMoviesMenu extends BaseMenu {
 	 * 2. Show Top 5 movies by rating
 	 * 3. Back to previous menu
 	 * 4. Quit Booking System
-	 * @return
+	 * @return return to the corresponding menu that the user has selected
 	 */
 	@Override
     public BaseMenu execute() {

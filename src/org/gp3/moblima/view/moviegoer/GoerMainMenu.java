@@ -23,7 +23,7 @@ public class GoerMainMenu extends BaseMenu {
      * 2. Display all movies
 	 * 3. View history ( login required )
      * 4. Back to previous menu
-     * @return
+     * @return to the menu that the user has selected
      */
     @Override
     public BaseMenu execute() {

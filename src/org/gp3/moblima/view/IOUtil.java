@@ -61,7 +61,7 @@ public class IOUtil {
 
     /**
      * Method to check the validate input of integer
-     * @param Message
+     * @param Message message that need to be printed
      * @return validate integer otherwise NumberFormatException
      */
     public static int readInt(String Message) {
@@ -83,6 +83,8 @@ public class IOUtil {
      * return 	 true  if input is 'y' or
      * return 	 false if input is 'n'
      * Otherwise it will repeatedly prompt user for input
+     * @param message string value that need to be printed out
+     * @return boolean value of the choice selected by the user
      */
     public static boolean confirm(String message) {
         while (true) {
@@ -152,7 +154,6 @@ public class IOUtil {
     /**
      * Method print a line
      * @param message info about input
-     * @return validate line otherwise Exception
      */
     public static void println(String message) {
         println(message, 0);
@@ -206,6 +207,9 @@ public class IOUtil {
     }
 
     // TODO javadoc
+    /**
+     * Print a new line with "---" according to the screen width
+     */
     public static void printSplitLine() {
         for (int i = SCREEN_WIDTH; i > 0; i--)
             print("-");
@@ -213,11 +217,22 @@ public class IOUtil {
     }
 
     // TODO javadoc
+    /**
+     * Print the integer value in formatting output style with
+     * occupying only 3 decimal places in total such that the
+     * seats are aligned with the column numbers of the seat
+     * when printing out the seat table
+     * @param value values need to be printed
+     */
     public static void printf(int value) {
         System.out.printf("%-3d", value);
     }
 
     // TODO javadoc
+    /**
+     * Print the requied string that fits into the width of the screen
+     * @param s string value need to be printed
+     */
     public static void printCenter(String s) {
         if (s.length() > SCREEN_WIDTH) {
             println(s.substring(0, SCREEN_WIDTH));
@@ -307,7 +322,7 @@ public class IOUtil {
     /**
      * print a holiday format date
      * refer to Constant
-     * @param date
+     * @param date Date value need to be printed out
      * @return a holiday formatted date
      */
     public String printDate(Date date) {
@@ -315,6 +330,10 @@ public class IOUtil {
     }
 
     // TODO javadoc
+    /**
+     * print method used when printing out the title, with the title printed in the middle of the screen
+     * @param title String value need to be printed out
+     */
     public static void printTitle(String title) {
         printSplitLine();
         printCenter(title);
@@ -346,6 +365,11 @@ public class IOUtil {
 
 
     // TODO javadoc
+    /**
+     * print method used when printing out a list of menu items
+     * @param choices an ArrayList of choices need to print out
+     * @param choiceIdFrom integer value that represents the id of the begining choice
+     */
     public static void printMenuItems(ArrayList<String> choices, int choiceIdFrom) {
         for (String choice : choices) {
             println((choiceIdFrom++) + ": " + choice);
