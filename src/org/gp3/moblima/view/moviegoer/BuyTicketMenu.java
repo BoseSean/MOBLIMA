@@ -105,6 +105,9 @@ public class BuyTicketMenu extends BaseMenu {
                 String name = read("New Name: ");
                 String email = read("New Email: ");
                 String phone = read("New Phone number: ");
+                while(Character.isLetter(phone.charAt(0))){
+                    phone = read("Phone number should start with the numeric value, please re-enter ");
+                }
                 user = new User(name, phone, email);
                 manager.add(Constant.Tables.USER, user);
             }

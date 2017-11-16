@@ -2,8 +2,6 @@ package org.gp3.moblima.model;
 
 
 /**
- * The base class for all the models.
- * Holds the id attribute of all the models.
- * @author sunzhihao
+ * Model serves as a Tagging interface
  */
 public interface Model extends java.io.Serializable {}
