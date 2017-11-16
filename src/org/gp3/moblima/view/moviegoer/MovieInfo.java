@@ -99,6 +99,7 @@ public class MovieInfo extends BaseMenu {
     /**
      * Print out the reviews for the movie
      * with only one decimal place remains
+     * @param rating double value for the rating for the movie
      */
     public void printStars(double rating) {
         String s = String.format("%.1f", rating);

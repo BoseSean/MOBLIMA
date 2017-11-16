@@ -116,6 +116,7 @@ public class PriceManager {
      * @param movietype Type of the movie
      * @param platinum boolean variable indicate whether it is platium
      * @param SneakOrFirstWeekorblockbuster boolean variable indicate whether it is platium or seank or first week or blockbuster
+     * @param price the new price
      */
     public void updatePrice(Constant.TicketType tickettype, Constant.MovieType movietype, boolean platinum, boolean SneakOrFirstWeekorblockbuster, double price) {
         if (platinum) {
@@ -194,7 +195,7 @@ public class PriceManager {
      * @param showtime the movie showing time according to the slot
      * @param isStudent boolean variable to indicate whether the ticket is student
      * @param isSeniorCitizen boolean variable to indicate whether the ticket is senior
-     * @return
+     * @return the corresponding ticket type from the enum in Constant
      */
     public Constant.TicketType getTicketType(Slot showtime, boolean isStudent, boolean isSeniorCitizen) {
         try {
