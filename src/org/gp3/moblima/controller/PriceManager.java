@@ -168,8 +168,6 @@ public class PriceManager {
             }
         }
     }
-
-    // TODO ask da xiong di whether checked PH eves
     public Constant.TicketType getTicketType(Slot showtime, boolean isStudent, boolean isSeniorCitizen) {
         try {
             Manager manager = Manager.getInstance();
