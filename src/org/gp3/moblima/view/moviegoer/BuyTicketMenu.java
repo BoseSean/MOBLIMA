@@ -11,7 +11,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
-
+/**
+ * Menu to buy ticket
+ */
 public class BuyTicketMenu extends BaseMenu {
     private final Movie movie;
     private Manager manager = Manager.getInstance();
@@ -22,6 +24,14 @@ public class BuyTicketMenu extends BaseMenu {
         super(previousMenu);
         this.movie = movie;
     }
+    /**
+     * List all the slots avaliable according to the movie information
+     * Ask user to select slots, seats.
+     * Ask user information whether they are student or senoir
+     * Get user's information about name, email and phone number
+     * Provide the total ticket price to the user
+     * @return  GoerMainMenu
+     */
     @Override
     public BaseMenu execute() {
 
@@ -29,7 +39,6 @@ public class BuyTicketMenu extends BaseMenu {
         int c;
         printTitle("Buy Ticket Menu");
 
-        // Find slot
         if(movie.getSlots().isEmpty())
         {
             println("Sorry, there is no available slot currently.");
@@ -58,7 +67,6 @@ public class BuyTicketMenu extends BaseMenu {
         if (selected.size() != 0) {
             ArrayList<Ticket> tickets = new ArrayList<>();
 
-            // Ask if student or senior
 
             if (confirm("Are you eligible for student discount?")) {
                 isstudent = true;
@@ -82,7 +90,6 @@ public class BuyTicketMenu extends BaseMenu {
                 }
             }
 
-            // Create booking & Payment
 
             Ticket ticket = tickets.get(0);
             double totalprice = priceManager.getPrice(ticket.getTickettype(), ticket.getMovietype(), slot.isPlatinum(), slot.isSneakOrFirstWeekorblockbuster()) * tickets.size();
@@ -102,7 +109,6 @@ public class BuyTicketMenu extends BaseMenu {
                 manager.add(Constant.Tables.USER, user);
             }
 
-            // Confirm
             println("Total price is S$" + booking.getTotalPrice() + " (Inclusive of GST).");
             if (confirm("Confirm to book? ")) {
                 for (Seat seat : selected) {
@@ -124,7 +130,11 @@ public class BuyTicketMenu extends BaseMenu {
         }
         return this.getPreviousMenu();
     }
-
+    /**
+     * Print out the layout of the seats in the current slots,
+     * including seats avaliable, seats occupied and seats chosen
+     * With corridor printed out in the middle of the layout
+     */
     private void displaySeats(ArrayList<ArrayList<Seat>> seats, int row, int col)
     {
         Seat seat;
@@ -186,6 +196,10 @@ public class BuyTicketMenu extends BaseMenu {
         println("([ ] Available  [#] Seat Selected  [X] Sold)");
     }
 
+    /**
+     * Method to ask user to select a row and column,
+     * check whether the seat is avaliable, and update the information in the data base
+     */
     private Seat chooseSeats(ArrayList<ArrayList<Seat>> seats, int row, int col) {
         println("Please choose your seat(s).");
         int i,j;

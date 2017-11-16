@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.gp3.moblima.view.IOUtil.*;
 
 /**
- * Created by zhangxinye on 19/10/17.
+ * Menu to list all the movie information
  */
 public class MovieInfo extends BaseMenu {
     private final Movie movie;
@@ -19,6 +19,10 @@ public class MovieInfo extends BaseMenu {
         this.movie = movie;
     }
 
+    /**
+     * Display the top five menu by sales
+     * @return return the corresponding menu that the user has selected
+     */
     @Override
     public BaseMenu execute() {
         printTitle(movie.getTitle());
@@ -50,7 +54,9 @@ public class MovieInfo extends BaseMenu {
         }
         return nextMenu;
     }
-
+    /**
+     * Print out all the movie information
+     */
     public void printMovieInfo() {
         println("Title         : " + this.movie.getTitle());
         println("Showing Status: " + this.movie.getShowingStatus().toString());
@@ -90,6 +96,10 @@ public class MovieInfo extends BaseMenu {
             println("Overall Rating: N/A");
         }
     }
+    /**
+     * Print out the reviews for the movie
+     * with only one decimal place remains
+     */
     public void printStars(double rating) {
         String s = String.format("%.1f", rating);
         if(rating <= 1)

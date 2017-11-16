@@ -9,11 +9,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static org.gp3.moblima.view.IOUtil.*;
+
+/**
+ * Menu to list the top five movies by sales
+ */
 public class ListMovieTopSale extends BaseMenu {
     public ListMovieTopSale(BaseMenu previousMenu) {
         super(previousMenu);
     }
 
+	/**
+	 * Display the top five menu by sales
+	 * @return return the corresponding menu that the user has selected
+	 */
     @Override
     public BaseMenu execute() {
 		Manager manager = Manager.getInstance();
