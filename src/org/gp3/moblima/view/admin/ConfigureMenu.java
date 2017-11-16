@@ -6,15 +6,24 @@ import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
+/**
+ * The main configuration menu
+ */
 public class ConfigureMenu extends BaseMenu {
-    public ConfigureMenu(BaseMenu previousMenu) {
-        super(previousMenu);
-    }
+	public ConfigureMenu(BaseMenu previousMenu) {
+		super(previousMenu);
+	}
 
-    @Override
-    public BaseMenu execute() {
+	/**
+	 * Display configure the main configuration menu
+	 * Consist of 2 menus:
+	 * 1. Configure Prices
+	 * 2. Configure Holidays
+	 */
+	@Override
+	public BaseMenu execute() {
 
-        printTitle("Configure System Menu");
+		printTitle("Configure System Menu");
 
 		ArrayList<String> choices = new ArrayList<String>();
 

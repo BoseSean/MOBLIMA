@@ -14,7 +14,7 @@ import static org.gp3.moblima.model.Constant.Tables.USER;
 
 
 /**
- * Created by zhangxinye on 19/10/17.
+ * Helper methods for printing and reading input.
  */
 public class IOUtil {
     private static Manager manager = Manager.getInstance();

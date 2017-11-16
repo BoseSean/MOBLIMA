@@ -2,7 +2,7 @@ package org.gp3.moblima.view;
 
 
 /**
- * created by hannancao on 15/10/17.
+ * The base class for all the Menus
  */
 public abstract class BaseMenu {
     private BaseMenu previousMenu;
@@ -11,6 +11,11 @@ public abstract class BaseMenu {
         this.previousMenu = previousMenu;
     }
 
+    /**
+     * On start of a menu, this method will be called
+     *
+     * @return next menu to be displayed
+     */
     public abstract BaseMenu execute();
 
     protected BaseMenu getPreviousMenu() {

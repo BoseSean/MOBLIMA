@@ -175,7 +175,6 @@ public class PriceManager {
             Manager manager = Manager.getInstance();
             Calendar cal = Calendar.getInstance();
             cal.setTime(showtime.getDate());
-//            Constant.TicketType t;
             Date six = Constant.clockFormat.parse("18:00");
             int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
 

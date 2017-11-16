@@ -11,13 +11,24 @@ import java.util.Date;
 import static org.gp3.moblima.model.Constant.Tables.HOLIDAY;
 import static org.gp3.moblima.view.IOUtil.*;
 
+/**
+ * Menu to configure holiday
+ */
 public class ConfigureHolidayMenu extends BaseMenu {
-    public ConfigureHolidayMenu(BaseMenu previousMenu) {
-        super(previousMenu);
-    }
+	public ConfigureHolidayMenu(BaseMenu previousMenu) {
+		super(previousMenu);
+	}
 
-    @Override
-    public BaseMenu execute() {
+	/**
+	 * Display configure holiday menu
+	 * Ask user to add or remove
+	 * and bring user back to configure menu.
+	 *
+	 * @return configure menu
+	 */
+
+	@Override
+	public BaseMenu execute() {
 		printTitle("Configure Holiday Menu");
 
 		Manager manager = Manager.getInstance();

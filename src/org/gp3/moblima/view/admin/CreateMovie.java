@@ -10,18 +10,33 @@ import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
+/**
+ * Menu to create new movie
+ */
 public class CreateMovie extends BaseMenu {
 
-	public CreateMovie(BaseMenu previousMenu) {
-		super(previousMenu);
-	}
-	Manager manager = Manager.getInstance();
+    public CreateMovie(BaseMenu previousMenu) {
+        super(previousMenu);
+    }
+
+    Manager manager = Manager.getInstance();
     Movie movie;
     String buf;
 
-	@Override
-	public BaseMenu execute()
-    {
+    /**
+     * Display create new menu
+     * Ask user to choice the next menu
+     * and bring user to next stage of application
+     * Consist of four menu
+     * 1. Search for movies
+     * 2. Display all movies
+     * 3. View history ( login required )
+     * 4. Back to previous menu
+     *
+     * @return to the menu that the user has selected
+     */
+    @Override
+    public BaseMenu execute() {
         movie = new Movie();
         //readln(""); //filter out the \n removed/ignored by sc.next()
         buf = readln("Input movie title: ");
@@ -67,13 +82,12 @@ public class CreateMovie extends BaseMenu {
         movie.setOverAllRating(0.0);
         movie.setRatingTimes(0);
 
-        if( confirm("Confirm to add movie "+movie.getTitle()) )
-        {
+        if( confirm("Confirm to add movie "+movie.getTitle()) ) {
             manager.add(Constant.Tables.MOVIE, movie);
             println("Movie \""+this.movie.getTitle()+"\" added.");
         }
         return getPreviousMenu();
-	}
+    }
 
 
 }

@@ -128,7 +128,6 @@ public class BuyTicketMenu extends BaseMenu {
     private void displaySeats(ArrayList<ArrayList<Seat>> seats, int row, int col)
     {
         Seat seat;
-
         printTitle(" Select Seats");
         for (int i = 0; i < (1 + col) * 3 / 2 - 8; i++)
             print(" ");
@@ -142,8 +141,6 @@ public class BuyTicketMenu extends BaseMenu {
         int new_row = 0;
         for(int i=0; i<col; i++){
             if (new_row != col / 2 - 1) {
-//                if((i + 1) < 10)
-//                    print(" ");
                 printf(i + 1);
             } else {
                 print("  ");

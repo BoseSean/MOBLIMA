@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
+/**
+ * Menu to configure price
+ */
 public class ConfigurePriceMenu extends BaseMenu {
     private PriceManager priceManager = PriceManager.getInstance();
 
@@ -17,6 +20,14 @@ public class ConfigurePriceMenu extends BaseMenu {
     public ConfigurePriceMenu(BaseMenu previousMenu) {
         super(previousMenu);
     }
+
+    /**
+     * Display configure price menu
+     * Ask user to choice the type of ticket to change price
+     * and bring user back to configure menu.
+     *
+     * @return configure menu
+     */
 
     @Override
     public BaseMenu execute() {
@@ -27,7 +38,6 @@ public class ConfigurePriceMenu extends BaseMenu {
         boolean toSneakOrFirstWeekorblockbuster = false;
         MovieType movieTypeToChange;
         TicketType ticketTypeToChange;
-//        ArrayList<String> choices = new ArrayList<>();
         ArrayList<String> choices = new ArrayList<>();
 
         println("Do you want to change ticket price for Platinum or Not Platinum?");
