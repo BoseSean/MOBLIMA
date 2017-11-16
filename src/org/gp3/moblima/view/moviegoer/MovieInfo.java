@@ -25,6 +25,7 @@ public class MovieInfo extends BaseMenu {
      */
     @Override
     public BaseMenu execute() {
+
         printTitle(movie.getTitle());
 
         printMovieInfo();
@@ -89,11 +90,6 @@ public class MovieInfo extends BaseMenu {
                 print("Rating        : ");
                 printStars(r.getRating());
             }
-        }
-        else
-        {
-
-            println("Overall Rating: N/A");
         }
     }
     /**
