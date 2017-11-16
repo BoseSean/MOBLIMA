@@ -17,7 +17,6 @@ import static org.gp3.moblima.model.Constant.Tables.USER;
  * Utility class containing helper methods for printing and reading input.
  */
 public class IOUtil {
-    private static Manager manager = Manager.getInstance();
 
     public static int SCREEN_WIDTH = 80;
     private static Scanner sc = new Scanner(System.in);
@@ -346,6 +345,7 @@ public class IOUtil {
      */
     public static User login() {
         // Login
+        Manager manager = Manager.getInstance();
         User user = null;
         do {
             String name = read("Name: ");
