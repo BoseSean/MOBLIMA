@@ -1,4 +1,3 @@
 # MOBLIMA
 
-### CONFIGURE PRICE TO DO BE DAXIONGDI
-
+### Course Project od CZ2002 NTU
