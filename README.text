@@ -1,0 +1,33 @@
+Exeuction of program starts from run.bat.
+
+From the menus shown on screen.
+
+Three options are available to choose for.
+
+Press 0 for Staff Menu which is the admin module.
+The username and password for Administrator are both 'admin' without quote.
+
+Press 1 for User Menu which is the Movie-goer module.
+The username and phone number for the user account is 'user' and '123' without quote.
+
+Press 2 to quit the program, please note that all changes make will only be saved to database by safely quit the program.
+
+The database file is name db.ser
+
+Information included in the database are as follows.
+
+One administrator account
+username : admin
+password : admin
+
+One user account
+username : user
+phone number : 123
+email : user@email.com
+
+Two movies
+First Movie : Qarib Qarib Singlle
+Status : END SHOWING
+
+Second Movie : Suburbicon
+Status : NOW SHOWING
