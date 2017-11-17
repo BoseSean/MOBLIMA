@@ -56,7 +56,7 @@ public class ConfigureHolidayMenu extends BaseMenu {
 		switch (c) {
 			case 0:
 				k = 0;
-				while(Hochoices.size() == 0 && k == 0){
+				while (Hochoices.size() == 0 && k != 0) {
 					k = readInt("No avaliable holiday to update, please press 1 to go back: ");
 					if(k == 1){
 						BaseMenu nextMenu = this;
@@ -78,7 +78,7 @@ public class ConfigureHolidayMenu extends BaseMenu {
 				break;
 			case 1:
 				k = 0;
-				while(Hochoices.size() == 0 && k == 0){
+				while (Hochoices.size() == 0 && k != 0) {
 					k = readInt("No avaliable holiday to update, please press 1 to go back: ");
 					if(k == 1){
 						BaseMenu nextMenu = this;

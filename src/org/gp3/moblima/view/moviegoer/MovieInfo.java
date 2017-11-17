@@ -5,10 +5,7 @@ import org.gp3.moblima.model.Movie;
 import org.gp3.moblima.model.Review;
 import org.gp3.moblima.view.BaseMenu;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 import static org.gp3.moblima.view.IOUtil.*;
 
@@ -82,10 +79,9 @@ public class MovieInfo extends BaseMenu {
         if(movie.getRatingTimes() != 0 ){
                 print("Overall Rating  :");
                 printStars(movie.getOverAllRating());
-            }
-            else{
-                println("Overall Rating: N/A");
-            }
+            } else {
+            println("Overall Rating: N/A");
+        }
         if (movie.getRatingTimes() != 0){
             for (Review r : movie.getReview()) {
                 print("Review        : ");
